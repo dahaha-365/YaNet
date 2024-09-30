@@ -1,10 +1,10 @@
 /***
- * Clash Verge Rev 全局扩展脚本（懒人配置）
+ * Clash Verge Rev 全局扩展脚本（懒人配置）/ Mihomo Party 覆写脚本
  * URL: https://gist.github.com/dahaha-365/0b8beb613f8d1ee656fe1f21e1a07959
  */
 
 /**
- * 整个脚本的总开关
+ * 整个脚本的总开关，在Mihomo Party使用的话，请保持为true
  * true = 启用
  * false = 禁用
  */

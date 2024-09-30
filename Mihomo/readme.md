@@ -6,7 +6,7 @@
 
 ## Mihomo Party 订阅链接
 
-`kkk`
+<https://fastly.jsdelivr.net/gh/dahaha-365/YaNet@main/Mihomo/global_script.js>
 
 - 本脚本包含 DNS 设置，在 Mihomo Party 里使用可以尝试在`应用设置`里关闭`接管DNS设置`和`接管域名嗅探设置`
 - **全局脚本和全局配置，用其中一种就可以了**
