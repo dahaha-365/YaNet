@@ -13,7 +13,7 @@
 * Google
 * Microsoft：微软非中国区服务
 * Telegram
-* 哔哩哔哩东南亚：bilibili.tv，新加坡区B站APP已解锁部分功能，可以流程观看视频
+* 哔哩哔哩东南亚：bilibili.tv，新加坡区B站APP已解锁部分功能，可以流畅观看视频
 * 巴哈姆特
 * YouTube
 * NETFLIX
