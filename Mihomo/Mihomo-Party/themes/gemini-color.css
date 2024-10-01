@@ -397,62 +397,42 @@
     --devsite-ref-palette-non-endorsed--bright-red
   );
 
-  --gemini-color-white: 0 0% 100%;
-  --gemini-color-grey-50: 220 60% 98%;
-  --gemini-color-grey-100: 218 36% 96%;
-  --gemini-color-grey-200: 220 25% 86%;
-  --gemini-color-grey-300: 222 20% 76%;
-  --gemini-color-grey-400: 223 19% 65%;
-  --gemini-color-grey-500: 223 23% 60%;
-  --gemini-color-grey-600: 222 18% 22%;
-  --gemini-color-grey-700: 220 25% 14%;
-  --gemini-color-grey-800: 231 23% 11%;
-  --gemini-color-grey-900: 0 0% 2%;
-  --gemini-color-black: 0 0% 0%;
-  --gemini-color-gemini-peach: 32 100% 86%;
-  --gemini-color-gemini-blue: 214 99% 60%;
-  --gemini-color-gemini-cyan: 209 100% 65%;
-  --gemini-color-gemini-light-blue: #b1c5ff;
+  --gemini-color-white: rgb(255 255 255);
+  --gemini-color-grey-50: #f7f9fd;
+  --gemini-color-grey-100: #f0f3f8;
+  --gemini-color-grey-200: #d2d8e4;
+  --gemini-color-grey-300: #b7becf;
+  --gemini-color-grey-400: #939db6;
+  --gemini-color-grey-500: #828fb1;
+  --gemini-color-grey-600: #2f3543;
+  --gemini-color-grey-700: #1b212d;
+  --gemini-color-grey-800: #161823;
+  --gemini-color-grey-900: #060606;
+  --gemini-color-black: rgb(0 0 0);
+  --gemini-color-gemini-peach: #FFDDB7;
+  --gemini-color-gemini-blue: #368EFE;
+  --gemini-color-gemini-cyan: #4FABFF;
+  --gemini-color-gemini-light-blue: #B1C5FF;
   --gemini-color-gemini-white: var(--gemini-color-white);
-  --gemini-color-gemini-grey-700: #5f6368;
+  --gemini-color-gemini-grey-700: #5F6368;
   --gemini-color-gemini-grey-900: #202124;
   --gemini-color-blue: #368efe;
   --gemini-color-purple-100: #ac87eb;
   --gemini-color-red-200: #ee4d5d;
   --gemini-color-green-800: #137333;
-  --gemini-color-blue-800: 216 77% 42%;
-  --gemini-color-blue-gradient: linear-gradient(
-    61deg #64b8fb 6.28% #217bfe 76.97%
-  );
-  --gemini-color-pink-gradient: linear-gradient(
-    90deg #a485fa -104.88% var(--gemini-color-red-200) 198.78%
-  );
-  --gemini-color-logo-gradient: linear-gradient(
-    90deg #217bfe 0% #078efb 33.53% #ac87eb 70% #ee4d5d 100%
-  );
-  --gemini-color-primary-button-gradient: linear-gradient(
-    52deg #0844ff 11.5% #64b8fb 129.52%
-  );
-  --gemini-color-chart-gradient: linear-gradient(
-    105deg #446eff 18.71% #2e96ff 49.8% #b1c5ff 90.55%
-  );
+  --gemini-color-blue-800: #185ABC;
+  --gemini-color-blue-gradient: linear-gradient(61deg, #64b8fb 6.28%, #217bfe 76.97%);
+  --gemini-color-pink-gradient: linear-gradient(90deg, #a485fa -104.88%, var(--gemini-color-red-200) 198.78%);
+  --gemini-color-logo-gradient: linear-gradient(90deg, #217bfe 0%, #078efb 33.53%, #ac87eb 70%, #ee4d5d 100%);
+  --gemini-color-primary-button-gradient: linear-gradient(52deg, #0844ff 11.5%, #64b8fb 129.52%);
+  --gemini-color-chart-gradient: linear-gradient(105deg, #446eff 18.71%, #2e96ff 49.8%, #b1c5ff 90.55%);
   --gemini-color-foreground: var(--gemini-color-white);
   --gemini-color-background: var(--gemini-color-grey-900);
-  --gemini-branding-button-gradient: linear-gradient(
-    15deg #217bfe 1.02% #078efb 28.51% #a190ff 80.14% #bd99fe 102.85%
-  );
-  --gemini-branding-text-gradient: linear-gradient(
-    90deg #217bfe 0% #078efb 33.53% #ac87eb 67.74% #ee4d5d 100%
-  );
-  --gemini-gradient-linear-colors: var(--gemini-color-gemini-blue) 5.96%
-    var(--gemini-color-gemini-cyan) 56.89% var(--gemini-color-gemini-light-blue)
-    93.53%;
-  --gemini-gradient-linear: linear-gradient(
-    53deg #0260ff 9.29% #40a2ff 48.23% #a8beff 82.56%
-  );
-  --gemini-text-gradient-light-blue: linear-gradient(
-    69deg #aabdf4 16.42% #fff 77.56% #a8beff 124.91%
-  );
+  --gemini-branding-button-gradient: linear-gradient(15deg, #217BFE 1.02%, #078EFB 28.51%, #A190FF 80.14%, #BD99FE 102.85%);
+  --gemini-branding-text-gradient: linear-gradient(90deg, #217BFE 0%, #078EFB 33.53%, #AC87EB 67.74%, #EE4D5D 100%);
+  --gemini-gradient-linear-colors: var(--gemini-color-gemini-blue) 5.96%, var(--gemini-color-gemini-cyan) 56.89%, var(--gemini-color-gemini-light-blue) 93.53%;
+  --gemini-gradient-linear: linear-gradient(53deg, #0260FF 9.29%, #40A2FF 48.23%, #A8BEFF 82.56%);
+  --gemini-text-gradient-light-blue: linear-gradient(69deg, #AABDF4 16.42%, #FFF 77.56%, #A8BEFF 124.91%);
 }
 
 .dark [data-theme="dark"] {
