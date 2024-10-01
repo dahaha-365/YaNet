@@ -184,7 +184,11 @@ ruleProviders.set("applications", {
   path: "./ruleset/DustinWin/applications.list",
 });
 
-const rules = ["RULE-SET,applications,下载软件"];
+const rules = [
+  "RULE-SET,applications,下载软件",
+  "PROCESS-NAME,SunloginClient,DIRECT",
+  "PROCESS-NAME,SunloginClient.exe,DIRECT",
+];
 
 // 程序入口
 function main(config) {
@@ -270,6 +274,15 @@ function main(config) {
     enable: true,
     "write-to-system": false,
     server: "cn.ntp.org.cn",
+  };
+
+  config["geox-url"] = {
+    geoip:
+      "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat",
+    geosite:
+      "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat",
+    mmdb: "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country-lite.mmdb",
+    asn: "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb",
   };
 
   /**
