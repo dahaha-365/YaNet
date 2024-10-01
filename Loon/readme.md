@@ -4,7 +4,7 @@
 
 ![Loon配置演示](preview.png)
 
-[一键导入配置](loon://import?sub=https%3A%2F%2Ffastly.jsdelivr.net%2Fgh%2Fdahaha-365%2FYaNet%40main%2FLoon%2Floon.conf)
+[一键导入配置](https://fastly.jsdelivr.net/gh/dahaha-365/YaNet@main/Loon/loon.conf)
 
 ### 支持的应用规则
 
