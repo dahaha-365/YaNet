@@ -202,8 +202,9 @@
   --custom-bg-mask-background: rgba(0, 0, 0, 0.4);
   --custom-bg-mask-foreground: var(--gemini-color-white);
 
+  .side .group[data-selected=true] .bg-default-200,
   .main .group[data-selected=true] .bg-default-200 {
-    background-color: var(--gemini-color-gemini-cyan) !important;
+      background-color: var(--gemini-color-gemini-cyan) !important;
   }
 
   .main .content .bg-default,
@@ -213,7 +214,7 @@
   }
 
   .main .bg-default-100 {
-    background-color: var(--custom-default-100) !important;
+    background-color: var(--custom-default-100);
   }
 }
 
@@ -363,19 +364,6 @@
     border: var(--gemini-color-gemini-cyan) 1px solid !important;
     box-sizing: border-box !important;
   }
-  
-  /* 代理模式开关圆点 */
-  .side .sysproxy-card .absolute,
-  .side .tun-card .absolute {
-    background-color: var(--custom-default-100) !important;
-  }
-
-  /* 代理模式开关背景 */
-  .side .sysproxy-card .border-2,
-  .side .tun-card .border-2 {
-    background-color: var(--gemini-color-gemini-cyan) !important;
-    border: none;
-  }
 
   .hover\:bg-primary\/30:hover {
     background: var(--custom-default-50) !important;
@@ -391,6 +379,17 @@
 
   .main .bg-default-100 {
     background-color: var(--custom-default-50) !important;
+  }
+
+  .main [data-selected="true"] .group-data-\[selected\=true\]\:bg-primary,
+  .side [data-selected="true"] .group-data-\[selected\=true\]\:bg-primary {
+      background-color: var(--gemini-color-gemini-cyan) !important;
+      border: none !important;
+  }
+  
+  .main .group-data-\[selected\=true\]\:bg-primary .bg-white,
+  .side .group-data-\[selected\=true\]\:bg-primary .bg-white {
+      background-color: var(--custom-default-50) !important;
   }
 }
 
@@ -452,35 +451,20 @@
   color: var(--custom-default-500);
 }
 
-.main .group-data-\[selected\=true\]\:bg-primary {
-  background-color: var(--custom-default-300);
+.main .group-data-\[selected\=true\]\:bg-primary,
+.side .group-data-\[selected\=true\]\:bg-primary {
+    background-color: var(--custom-default-300) !important;
+    border: none !important;
 }
 
-.main .group .bg-white {
-  background-color: var(--custom-side-background) !important;
+.main .group-data-\[selected\=true\]\:bg-primary .bg-white,
+.side .group-data-\[selected\=true\]\:bg-primary .bg-white {
+    background-color: var(--custom-side-background) !important;
 }
 
 .side .border-primary-foreground,
 .side .border-primary {
   border-color: var(--custom-default-500);
-}
-
-/* 代理模式开关圆点 */
-.side .sysproxy-card .absolute,
-.side .tun-card .absolute {
-  background-color: var(--custom-default-100) !important;
-}
-
-/* 代理模式开关背景 */
-.side .sysproxy-card .border-2,
-.side .tun-card .border-2 {
-  background-color: var(--custom-default-300) !important;
-  border: none;
-}
-.side .sysproxy-card .group[data-selected=true] .border-2,
-.side .tun-card .group[data-selected=true] .border-2 {
-  background-color: var(--gemini-color-gemini-cyan) !important;
-  border: none;
 }
 
 .hover\:bg-primary\/30:hover {
@@ -501,4 +485,16 @@
 
 .main [data-slot="tab"] .text-default-500 {
   color: var(--custom-default-500) !important;
+}
+
+.floating-bg {
+  background-color: var(--custom-bg-mask-background) !important;
+}
+
+.floating-bg .floating-thumb {
+  background-color: transparent !important;
+}
+
+.floating-bg .floating-icon {
+  color: #2079fe !important;
 }
