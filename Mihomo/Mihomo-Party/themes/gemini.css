@@ -3,12 +3,12 @@
 :root {
   --gemini-color-logo-gradient: linear-gradient(
     90deg,
-    hsl(216, 99%, 56%) 0%,
-    hsl(207, 97%, 51%) 33.53%,
-    hsl(262, 71%, 73%) 70%,
-    hsl(354, 83%, 62%) 100%
+    #2079fe 0%,
+    #098efb 33.53%,
+    #ad89eb 70%,
+    #ef4e5e 100%
   );
-  --gemini-color-white: rgb(255 255 255);
+  --gemini-color-white: #ffffff;
   --gemini-color-grey-50: #f7f9fd;
   --gemini-color-grey-100: #f0f3f8;
   --gemini-color-grey-200: #d2d8e4;
@@ -19,11 +19,26 @@
   --gemini-color-grey-700: #1b212d;
   --gemini-color-grey-800: #161823;
   --gemini-color-grey-900: #060606;
-  --gemini-color-black: rgb(0 0 0);
+  --gemini-color-black: #000000;
+  --gemini-color-white-hsl: 0 0% 100%;
+  --gemini-color-grey-50-hsl: 220 60% 98%;
+  --gemini-color-grey-100-hsl: 218 36% 96%;
+  --gemini-color-grey-200-hsl: 220 25% 86%;
+  --gemini-color-grey-300-hsl: 222 20% 76%;
+  --gemini-color-grey-400-hsl: 223 19% 65%;
+  --gemini-color-grey-500-hsl: 223 23% 60%;
+  --gemini-color-grey-600-hsl: 222 18% 22%;
+  --gemini-color-grey-700-hsl: 220 25% 14%;
+  --gemini-color-grey-800-hsl: 231 23% 11%;
+  --gemini-color-grey-900-hsl: 0 0% 2%;
+  --gemini-color-black-hsl: 0 0% 0%;
   --gemini-color-gemini-peach: #FFDDB7;
   --gemini-color-gemini-blue: #368EFE;
+  --gemini-color-gemini-blue-hsl: 214 99% 60%;
   --gemini-color-gemini-cyan: #4FABFF;
+  --gemini-color-gemini-cyan-hsl: 209 100% 65%;
   --gemini-color-gemini-light-blue: #B1C5FF;
+  --gemini-color-gemini-light-blue-hsl: 225 100% 85%;
   --gemini-color-gemini-white: var(--gemini-color-white);
   --gemini-color-gemini-grey-700: #5F6368;
   --gemini-color-gemini-grey-900: #202124;
@@ -48,19 +63,19 @@
 
 .dark,
 [data-theme="dark"] {
-  --nextui-background: 0 0% 0% !important;
-  --nextui-foreground-50: 240 5.88% 10% !important;
-  --nextui-foreground-100: 240 3.7% 15.88% !important;
-  --nextui-foreground-200: 240 5.26% 26.08% !important;
-  --nextui-foreground-300: 240 5.2% 33.92% !important;
-  --nextui-foreground-400: 240 3.83% 46.08% !important;
-  --nextui-foreground-500: 240 5.03% 64.9% !important;
-  --nextui-foreground-600: 240 4.88% 83.92% !important;
-  --nextui-foreground-700: 240 5.88% 90% !important;
-  --nextui-foreground-800: 240 4.76% 95.88% !important;
-  --nextui-foreground-900: 0 0% 98.04% !important;
-  --nextui-foreground: 210 5.56% 92.94% !important;
-  --nextui-focus: 214 99% 60% !important;
+  --nextui-background: var(--gemini-color-black-hsl) !important;
+  --nextui-foreground-50: var(--gemini-color-grey-900-hsl) !important;
+  --nextui-foreground-100: var(--gemini-color-grey-800-hsl) !important;
+  --nextui-foreground-200: var(--gemini-color-grey-700-hsl) !important;
+  --nextui-foreground-300: var(--gemini-color-grey-600-hsl) !important;
+  --nextui-foreground-400: var(--gemini-color-grey-500-hsl) !important;
+  --nextui-foreground-500: var(--gemini-color-grey-400-hsl) !important;
+  --nextui-foreground-600: var(--gemini-color-grey-300-hsl) !important;
+  --nextui-foreground-700: var(--gemini-color-grey-200-hsl) !important;
+  --nextui-foreground-800: var(--gemini-color-grey-100-hsl) !important;
+  --nextui-foreground-900: var(--gemini-color-grey-50-hsl) !important;
+  --nextui-foreground: var(--gemini-color-grey-500-hsl) !important;
+  --nextui-focus: 240 5.2% 33.92% !important;
   --nextui-overlay: 0 0% 0% !important;
   --nextui-divider: 0 0% 100% !important;
   --nextui-divider-opacity: 0.15 !important;
@@ -72,30 +87,42 @@
   --nextui-content3-foreground: 240 5.88% 90% !important;
   --nextui-content4: 240 5.2% 33.92% !important;
   --nextui-content4-foreground: 240 4.88% 83.92% !important;
-  --nextui-default-50: 240 5.88% 10% !important;
-  --nextui-default-100: 240 3.7% 15.88% !important;
-  --nextui-default-200: 240 5.26% 26.08% !important;
-  --nextui-default-300: 240 5.2% 33.92% !important;
-  --nextui-default-400: 240 3.83% 46.08% !important;
-  --nextui-default-500: 240 5.03% 64.9% !important;
-  --nextui-default-600: 240 4.88% 83.92% !important;
-  --nextui-default-700: 240 5.88% 90% !important;
-  --nextui-default-800: 240 4.76% 95.88% !important;
-  --nextui-default-900: 0 0% 98.04% !important;
-  --nextui-default-foreground: 0 0% 100% !important;
-  --nextui-default: 240 5.26% 26.08% !important;
-  --nextui-primary-50: 211.84000000000003 100% 9.61% !important;
-  --nextui-primary-100: 211.84000000000003 100% 19.22% !important;
-  --nextui-primary-200: 212.24 100% 28.82% !important;
-  --nextui-primary-300: 212.14 100% 38.43% !important;
-  --nextui-primary-400: 212.01999999999998 100% 46.67% !important;
-  --nextui-primary-500: 212.14 92.45% 58.43% !important;
-  --nextui-primary-600: 212.24 92.45% 68.82% !important;
-  --nextui-primary-700: 211.84000000000003 92.45% 79.22% !important;
-  --nextui-primary-800: 211.84000000000003 92.45% 89.61% !important;
-  --nextui-primary-900: 212.5 92.31% 94.9% !important;
-  --nextui-primary-foreground: var(--gemini-color-white) !important;
-  --nextui-primary: 214 99% 60% !important;
+  --nextui-default-50: var(--gemini-color-grey-900-hsl) !important;
+  --nextui-default-100: var(--gemini-color-grey-800-hsl) !important;
+  --nextui-default-200: var(--gemini-color-grey-700-hsl) !important;
+  --nextui-default-300: var(--gemini-color-grey-600-hsl) !important;
+  --nextui-default-400: var(--gemini-color-grey-500-hsl) !important;
+  --nextui-default-500: var(--gemini-color-grey-400-hsl) !important;
+  --nextui-default-600: var(--gemini-color-grey-300-hsl) !important;
+  --nextui-default-700: var(--gemini-color-grey-200-hsl) !important;
+  --nextui-default-800: var(--gemini-color-grey-100-hsl) !important;
+  --nextui-default-900: var(--gemini-color-grey-50-hsl) !important;
+  --nextui-default-foreground: var(--nextui-default-500) !important;
+  --nextui-default: var(--nextui-default-200) !important;
+  --custom-default-50: var(--gemini-color-grey-900) !important;
+  --custom-default-100: var(--gemini-color-grey-800) !important;
+  --custom-default-200: var(--gemini-color-grey-700) !important;
+  --custom-default-300: var(--gemini-color-grey-600) !important;
+  --custom-default-400: var(--gemini-color-grey-500) !important;
+  --custom-default-500: var(--gemini-color-grey-400) !important;
+  --custom-default-600: var(--gemini-color-grey-300) !important;
+  --custom-default-700: var(--gemini-color-grey-200) !important;
+  --custom-default-800: var(--gemini-color-grey-100) !important;
+  --custom-default-900: var(--gemini-color-grey-50) !important;
+  --custom-default-foreground: var(--nextui-default-500) !important;
+  --custom-default: var(--custom-default-500) !important;
+  --nextui-primary-50: var(--gemini-color-grey-900-hsl) !important;
+  --nextui-primary-100: var(--gemini-color-grey-800-hsl) !important;
+  --nextui-primary-200: var(--gemini-color-grey-700-hsl) !important;
+  --nextui-primary-300: var(--gemini-color-grey-600-hsl) !important;
+  --nextui-primary-400: var(--gemini-color-grey-500-hsl) !important;
+  --nextui-primary-500: var(--gemini-color-grey-400-hsl) !important;
+  --nextui-primary-600: var(--gemini-color-grey-300-hsl) !important;
+  --nextui-primary-700: var(--gemini-color-grey-200-hsl) !important;
+  --nextui-primary-800: var(--gemini-color-grey-100-hsl) !important;
+  --nextui-primary-900: var(--gemini-color-grey-50-hsl) !important;
+  --nextui-primary-foreground: var(--nextui-default-100) !important;
+  --nextui-primary: var(--nextui-primary-800) !important;
   --nextui-secondary-50: 270 66.67% 9.41% !important;
   --nextui-secondary-100: 270 66.67% 18.82% !important;
   --nextui-secondary-200: 270 66.67% 28.24% !important;
@@ -110,40 +137,40 @@
   --nextui-secondary: 270 59.26% 57.65% !important;
   --nextui-success-50: 145 77.78% 8.82% !important;
   --nextui-success-100: 146.2 79.78% 17.45% !important;
-  --nextui-success-200: 145.78999999999996 79.26% 26.47% !important;
-  --nextui-success-300: 146.01 79.89% 35.1% !important;
-  --nextui-success-400: 145.96000000000004 79.46% 43.92% !important;
-  --nextui-success-500: 146.01 62.45% 55.1% !important;
+  --nextui-success-200: 145 79.26% 26.47% !important;
+  --nextui-success-300: 146 79.89% 35.1% !important;
+  --nextui-success-400: 145 79.46% 43.92% !important;
+  --nextui-success-500: 146 62.45% 55.1% !important;
   --nextui-success-600: 145 62.57% 66.47% !important;
-  --nextui-success-700: 146.2 61.74% 77.45% !important;
-  --nextui-success-800: 145.71000000000004 61.4% 88.82% !important;
-  --nextui-success-900: 146.66999999999996 64.29% 94.51% !important;
+  --nextui-success-700: 146 61.74% 77.45% !important;
+  --nextui-success-800: 145 61.4% 88.82% !important;
+  --nextui-success-900: 146 64.29% 94.51% !important;
   --nextui-success-foreground: 0 0% 0% !important;
-  --nextui-success: 145.96000000000004 79.46% 43.92% !important;
-  --nextui-warning-50: 37.139999999999986 75% 10.98% !important;
-  --nextui-warning-100: 37.139999999999986 75% 21.96% !important;
-  --nextui-warning-200: 36.95999999999998 73.96% 33.14% !important;
-  --nextui-warning-300: 37.00999999999999 74.22% 44.12% !important;
-  --nextui-warning-400: 37.02999999999997 91.27% 55.1% !important;
-  --nextui-warning-500: 37.00999999999999 91.26% 64.12% !important;
-  --nextui-warning-600: 36.95999999999998 91.24% 73.14% !important;
-  --nextui-warning-700: 37.139999999999986 91.3% 81.96% !important;
-  --nextui-warning-800: 37.139999999999986 91.3% 90.98% !important;
-  --nextui-warning-900: 54.55000000000001 91.67% 95.29% !important;
+  --nextui-success: 145 79.46% 43.92% !important;
+  --nextui-warning-50: 37 75% 10.98% !important;
+  --nextui-warning-100: 37 75% 21.96% !important;
+  --nextui-warning-200: 36 73.96% 33.14% !important;
+  --nextui-warning-300: 37 74.22% 44.12% !important;
+  --nextui-warning-400: 37 91.27% 55.1% !important;
+  --nextui-warning-500: 37 91.26% 64.12% !important;
+  --nextui-warning-600: 36 91.24% 73.14% !important;
+  --nextui-warning-700: 37 91.3% 81.96% !important;
+  --nextui-warning-800: 37 91.3% 90.98% !important;
+  --nextui-warning-900: 54 91.67% 95.29% !important;
   --nextui-warning-foreground: 0 0% 0% !important;
-  --nextui-warning: 37.02999999999997 91.27% 55.1% !important;
+  --nextui-warning: 37 91.27% 55.1% !important;
   --nextui-danger-50: 340 84.91% 10.39% !important;
-  --nextui-danger-100: 339.3299999999999 86.54% 20.39% !important;
-  --nextui-danger-200: 339.11 85.99% 30.78% !important;
+  --nextui-danger-100: 339 86.54% 20.39% !important;
+  --nextui-danger-200: 339 85.99% 30.78% !important;
   --nextui-danger-300: 339 86.54% 40.78% !important;
-  --nextui-danger-400: 339.20000000000005 90.36% 51.18% !important;
+  --nextui-danger-400: 339 90.36% 51.18% !important;
   --nextui-danger-500: 339 90% 60.78% !important;
-  --nextui-danger-600: 339.11 90.6% 70.78% !important;
-  --nextui-danger-700: 339.3299999999999 90% 80.39% !important;
+  --nextui-danger-600: 339 90.6% 70.78% !important;
+  --nextui-danger-700: 339 90% 80.39% !important;
   --nextui-danger-800: 340 91.84% 90.39% !important;
-  --nextui-danger-900: 339.13 92% 95.1% !important;
+  --nextui-danger-900: 339 92% 95.1% !important;
   --nextui-danger-foreground: 0 0% 100% !important;
-  --nextui-danger: 339.20000000000005 90.36% 51.18% !important;
+  --nextui-danger: 339 90.36% 51.18% !important;
   --nextui-divider-weight: 1px !important;
   --nextui-disabled-opacity: 0.5 !important;
   --nextui-font-size-tiny: 0.75rem !important;
@@ -174,59 +201,81 @@
   --custom-side-background: rgb(30, 31, 32);
   --custom-bg-mask-background: rgba(0, 0, 0, 0.4);
   --custom-bg-mask-foreground: var(--gemini-color-white);
+
+  .main .group[data-selected=true] .bg-default-200 {
+    background-color: var(--gemini-color-gemini-cyan) !important;
+  }
+
+  .main .content .bg-default,
+  .main .bg-primary,
+  .side .bg-primary {
+    background: var(--custom-default-200);
+  }
 }
 
 .light,
 [data-theme="light"] {
   color-scheme: light !important;
-  --nextui-background: 0 0% 100% !important;
-  --nextui-foreground-50: 0 0% 98.04% !important;
-  --nextui-foreground-100: 240 4.76% 95.88% !important;
-  --nextui-foreground-200: 240 5.88% 90% !important;
-  --nextui-foreground-300: 240 4.88% 83.92% !important;
-  --nextui-foreground-400: 240 5.03% 64.9% !important;
-  --nextui-foreground-500: 240 3.83% 46.08% !important;
-  --nextui-foreground-600: 240 5.2% 33.92% !important;
-  --nextui-foreground-700: 240 5.26% 26.08% !important;
-  --nextui-foreground-800: 240 3.7% 15.88% !important;
-  --nextui-foreground-900: 240 5.88% 10% !important;
-  --nextui-foreground: 201 24.44% 8.82% !important;
+  --nextui-background: var(--gemini-color-white-hsl) !important;
+  --nextui-foreground-50: var(--gemini-color-grey-50-hsl) !important;
+  --nextui-foreground-100: var(--gemini-color-grey-100-hsl) !important;
+  --nextui-foreground-200: var(--gemini-color-grey-200-hsl) !important;
+  --nextui-foreground-300: var(--gemini-color-grey-300-hsl) !important;
+  --nextui-foreground-400: var(--gemini-color-grey-400-hsl) !important;
+  --nextui-foreground-500: var(--gemini-color-grey-500-hsl) !important;
+  --nextui-foreground-600: var(--gemini-color-grey-600-hsl) !important;
+  --nextui-foreground-700: var(--gemini-color-grey-700-hsl) !important;
+  --nextui-foreground-800: var(--gemini-color-grey-800-hsl) !important;
+  --nextui-foreground-900: var(--gemini-color-grey-900-hsl) !important;
+  --nextui-foreground: var(--gemini-color-grey-500-hsl) !important;
   --nextui-divider: 0 0% 6.67% !important;
   --nextui-divider-opacity: 0.15 !important;
   --nextui-focus: 212 100% 46.67% !important;
   --nextui-overlay: 0 0% 0% !important;
   --nextui-content1: 0 0% 100% !important;
-  --nextui-content1-foreground: 201.81999999999994 24.44% 8.82% !important;
+  --nextui-content1-foreground: 201 24.44% 8.82% !important;
   --nextui-content2: 240 4.76% 95.88% !important;
   --nextui-content2-foreground: 240 3.7% 15.88% !important;
   --nextui-content3: 240 5.88% 90% !important;
   --nextui-content3-foreground: 240 5.26% 26.08% !important;
   --nextui-content4: 240 4.88% 83.92% !important;
   --nextui-content4-foreground: 240 5.2% 33.92% !important;
-  --nextui-default-50: 0 0% 98.04% !important;
-  --nextui-default-100: 240 4.76% 95.88% !important;
-  --nextui-default-200: 240 5.88% 90% !important;
-  --nextui-default-300: 240 4.88% 83.92% !important;
-  --nextui-default-400: 240 5.03% 64.9% !important;
-  --nextui-default-500: 240 3.83% 46.08% !important;
-  --nextui-default-600: 240 5.2% 33.92% !important;
-  --nextui-default-700: 240 5.26% 26.08% !important;
-  --nextui-default-800: 240 3.7% 15.88% !important;
-  --nextui-default-900: 240 5.88% 10% !important;
-  --nextui-default-foreground: 0 0% 0% !important;
-  --nextui-default: 240 4.88% 83.92% !important;
-  --nextui-primary-50: 212.5 92.31% 94.9% !important;
-  --nextui-primary-100: 211 92.45% 89.61% !important;
-  --nextui-primary-200: 211 92.45% 79.22% !important;
-  --nextui-primary-300: 212 92.45% 68.82% !important;
-  --nextui-primary-400: 212 92.45% 58.43% !important;
-  --nextui-primary-500: 212 100% 46.67% !important;
-  --nextui-primary-600: 212 100% 38.43% !important;
-  --nextui-primary-700: 212 100% 28.82% !important;
-  --nextui-primary-800: 211 100% 19.22% !important;
-  --nextui-primary-900: 211 100% 9.61% !important;
-  --nextui-primary-foreground: 0 0% 100% !important;
-  --nextui-primary: 212 100% 46.67% !important;
+  --nextui-default-50: var(--gemini-color-grey-50-hsl) !important;
+  --nextui-default-100: var(--gemini-color-grey-100-hsl) !important;
+  --nextui-default-200: var(--gemini-color-grey-200-hsl) !important;
+  --nextui-default-300: var(--gemini-color-grey-300-hsl) !important;
+  --nextui-default-400: var(--gemini-color-grey-400-hsl) !important;
+  --nextui-default-500: var(--gemini-color-grey-500-hsl) !important;
+  --nextui-default-600: var(--gemini-color-grey-600-hsl) !important;
+  --nextui-default-700: var(--gemini-color-grey-700-hsl) !important;
+  --nextui-default-800: var(--gemini-color-grey-800-hsl) !important;
+  --nextui-default-900: var(--gemini-color-grey-900-hsl) !important;
+  --nextui-default-foreground: var(--nextui-default-500) !important;
+  --nextui-default: var(--nextui-default-300) !important;
+  --custom-default-50: var(--gemini-color-grey-50) !important;
+  --custom-default-100: var(--gemini-color-grey-100) !important;
+  --custom-default-200: var(--gemini-color-grey-200) !important;
+  --custom-default-300: var(--gemini-color-grey-300) !important;
+  --custom-default-400: var(--gemini-color-grey-400) !important;
+  --custom-default-500: var(--gemini-color-grey-500) !important;
+  --custom-default-600: var(--gemini-color-grey-600) !important;
+  --custom-default-700: var(--gemini-color-grey-700) !important;
+  --custom-default-800: var(--gemini-color-grey-800) !important;
+  --custom-default-900: var(--gemini-color-grey-900) !important;
+  --custom-default-foreground: var(--nextui-default-500) !important;
+  --custom-default: var(--custom-default-300) !important;
+  --nextui-primary-50: var(--gemini-color-grey-50) !important;
+  --nextui-primary-100: var(--gemini-color-grey-100-hsl) !important;
+  --nextui-primary-200: var(--gemini-color-grey-200-hsl) !important;
+  --nextui-primary-300: var(--gemini-color-grey-300-hsl) !important;
+  --nextui-primary-400: var(--gemini-color-grey-400-hsl) !important;
+  --nextui-primary-500: var(--gemini-color-grey-500-hsl) !important;
+  --nextui-primary-600: var(--gemini-color-grey-600-hsl) !important;
+  --nextui-primary-700: var(--gemini-color-grey-700-hsl) !important;
+  --nextui-primary-800: var(--gemini-color-grey-800-hsl) !important;
+  --nextui-primary-900: var(--gemini-color-grey-900-hsl) !important;
+  --nextui-primary-foreground: var(--nextui-default-100) !important;
+  --nextui-primary: var(--gemini-color-gemini-cyan-hsl) !important;
   --nextui-secondary-50: 270 61.54% 94.9% !important;
   --nextui-secondary-100: 270 59.26% 89.41% !important;
   --nextui-secondary-200: 270 59.26% 78.82% !important;
@@ -301,9 +350,45 @@
   --custom-main-background: rgb(255, 255, 255);
   --custom-side-background: rgb(240, 244, 249);
   --custom-bg-mask-background: rgba(255, 255, 255, 0.4);
-  --custom-bg-mask-foreground: var(--gemini-color-grey-600);
+  --custom-bg-mask-foreground: var(--gemini-color-white);
+
+  .main .content .bg-default,
+  .main .bg-primary,
+  .side .bg-primary {
+    background: var(--custom-default-100);
+    border: var(--gemini-color-gemini-cyan) 1px solid !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* 代理模式开关圆点 */
+  .side .sysproxy-card .absolute,
+  .side .tun-card .absolute {
+    background-color: var(--custom-default-100) !important;
+  }
+
+  /* 代理模式开关背景 */
+  .side .sysproxy-card .border-2,
+  .side .tun-card .border-2 {
+    background-color: var(--gemini-color-gemini-cyan) !important;
+    border: none;
+  }
+
+  .hover\:bg-primary\/30:hover {
+    background: var(--custom-default-50) !important;
+  }
+
+  .main .text-primary-foreground,
+  .side .text-primary-foreground,
+  .main .text-foreground,
+  .side .text-foreground,
+  .side .text-primary {
+    color: var(--custom-default-400);
+  }
 }
 
+.main .title.text-lg.leading-\[32px\],
+.main .h-\[32px\].leading-\[32px\],
+.main .text-default-500 .ml-2,
 .font-bold {
   background-image: var(--gemini-color-logo-gradient);
   background-clip: text;
@@ -315,17 +400,83 @@
   background: var(--custom-main-background) !important;
 }
 
+.main .content .bg-content1,
 .side {
   background: var(--custom-side-background) !important;
+}
+
+.main .border-primary {
+  border-color: var(--gemini-color-gemini-blue);
+}
+
+.main .border-default {
+  border-color: var(--gemini-color-gemini-cyan);
+}
+
+.main .rounded-full.bg-primary {
+  background-color: var(--gemini-color-gemini-blue);
+}
+
+.main .rounded-full.bg-danger {
+  background-color: var(--gemini-color-red-200);
+}
+
+.side .h-\[32px\].leading-\[32px\] {
+  color: #2079fe;
 }
 
 .side [data-slot="tabList"] {
   background-image: var(--gemini-color-logo-gradient);
 }
 
-.main .bg-primary,
-.side .bg-primary {
-  background: var(--gemini-color-grey-700);
+.main .bg-primary-foreground,
+.side .bg-primary-foreground,
+.main .bg-foreground,
+.side .bg-foreground {
+  background: var(--custom-default-500);
+}
+
+.main .text-primary-foreground,
+.side .text-primary-foreground,
+.main .text-foreground,
+.side .text-foreground,
+.side .text-primary {
+  color: var(--custom-default-500);
+}
+
+.main .group-data-\[selected\=true\]\:bg-primary {
+  background-color: var(--custom-default-300);
+}
+
+.main .group .bg-white {
+  background-color: var(--custom-side-background) !important;
+}
+
+.side .border-primary-foreground,
+.side .border-primary {
+  border-color: var(--custom-default-500);
+}
+
+/* 代理模式开关圆点 */
+.side .sysproxy-card .absolute,
+.side .tun-card .absolute {
+  background-color: var(--custom-default-100) !important;
+}
+
+/* 代理模式开关背景 */
+.side .sysproxy-card .border-2,
+.side .tun-card .border-2 {
+  background-color: var(--custom-default-300) !important;
+  border: none;
+}
+.side .sysproxy-card .group[data-selected=true] .border-2,
+.side .tun-card .group[data-selected=true] .border-2 {
+  background-color: var(--gemini-color-gemini-cyan) !important;
+  border: none;
+}
+
+.hover\:bg-primary\/30:hover {
+  background: var(--custom-default-300) !important;
 }
 
 .side [data-slot="tabList"] .bg-primary {
@@ -338,4 +489,12 @@
   background-clip: initial;
   -webkit-background-clip: initial;
   -webkit-text-fill-color: var(--custom-bg-mask-foreground);
+}
+
+.main [data-slot="tab"] .text-default-500 {
+  color: var(--custom-default-500) !important;
+}
+
+.main .bg-default-100 {
+  background-color: var(--custom-default-50) !important;
 }
