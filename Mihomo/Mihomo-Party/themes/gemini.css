@@ -211,6 +211,10 @@
   .side .bg-primary {
     background: var(--custom-default-200);
   }
+
+  .main .bg-default-100 {
+    background-color: var(--custom-default-100) !important;
+  }
 }
 
 .light,
@@ -384,6 +388,10 @@
   .side .text-primary {
     color: var(--custom-default-400);
   }
+
+  .main .bg-default-100 {
+    background-color: var(--custom-default-50) !important;
+  }
 }
 
 .main .title.text-lg.leading-\[32px\],
@@ -493,8 +501,4 @@
 
 .main [data-slot="tab"] .text-default-500 {
   color: var(--custom-default-500) !important;
-}
-
-.main .bg-default-100 {
-  background-color: var(--custom-default-50) !important;
 }

@@ -1,6 +1,6 @@
 /***
  * Clash Verge Rev 全局扩展脚本（懒人配置）/ Mihomo Party 覆写脚本
- * URL: https://gist.github.com/dahaha-365/0b8beb613f8d1ee656fe1f21e1a07959
+ * URL: https://github.com/dahaha-365/YaNet/
  */
 
 /**
