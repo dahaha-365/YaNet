@@ -1,0 +1,82 @@
+/* Kobe24 */
+
+:root {
+  --kobe-color-purple: hsl(271, 56%, 33%);
+  --kobe-color-purple-50: hsl(296, 41%, 93%);
+  --kobe-color-purple-100: hsl(295, 42%, 83%);
+  --kobe-color-purple-200: hsl(295, 42%, 72%);
+  --kobe-color-purple-300: hsl(295, 41%, 61%);
+  --kobe-color-purple-400: hsl(295, 41%, 53%);
+  --kobe-color-purple-500: hsl(295, 48%, 46%);
+  --kobe-color-purple-600: hsl(291, 49%, 44%);
+  --kobe-color-purple-700: hsl(285, 51%, 40%);
+  --kobe-color-purple-800: hsl(280, 53%, 38%);
+  --kobe-color-purple-900: hsl(271, 56%, 33%);
+  --kobe-color-glod: hsl(41, 98%, 57%);
+  --kobe-color-glod-50: hsl(49, 93%, 94%);
+  --kobe-color-glod-100: hsl(46, 97%, 86%);
+  --kobe-color-glod-200: hsl(46, 98%, 77%);
+  --kobe-color-glod-300: hsl(46, 99%, 68%);
+  --kobe-color-glod-400: hsl(46, 98%, 61%);
+  --kobe-color-glod-500: hsl(44, 99%, 59%);
+  --kobe-color-glod-600: hsl(41, 98%, 57%);
+  --kobe-color-glod-700: hsl(36, 97%, 56%);
+  --kobe-color-glod-800: hsl(32, 97%, 56%);
+  --kobe-color-glod-900: hsl(25, 96%, 54%);
+  --nextui-background: 0 0% 0% !important;
+  --nextui-foreground-50: 296 41% 93% !important;
+  --nextui-foreground-100: 295 42% 83% !important;
+  --nextui-foreground-200: 295 42% 72% !important;
+  --nextui-foreground-300: 295 41% 61% !important;
+  --nextui-foreground-400: 295 41% 53% !important;
+  --nextui-foreground-500: 295 48% 46% !important;
+  --nextui-foreground-600: 291 49% 44% !important;
+  --nextui-foreground-700: 285 51% 40% !important;
+  --nextui-foreground-800: 280 53% 38% !important;
+  --nextui-foreground-900: 271 56% 33% !important;
+  --nextui-foreground: 49 93% 94% !important;
+  --nextui-default-50: 49 93% 94% !important;
+  --nextui-default-100: 46 97% 86% !important;
+  --nextui-default-200: 46 98% 77% !important;
+  --nextui-default-300: 46 99% 68% !important;
+  --nextui-default-400: 46 98% 61% !important;
+  --nextui-default-500: 44 99% 59% !important;
+  --nextui-default-600: 41 98% 57% !important;
+  --nextui-default-700: 36 97% 56% !important;
+  --nextui-default-800: 32 97% 56% !important;
+  --nextui-default-900: 25 96% 54% !important;
+  --nextui-default-foreground: 296 41% 93% !important;
+  --nextui-default: 41 98% 57% !important;
+  --nextui-primary-50: 49 93% 94% !important;
+  --nextui-primary-100: 46 97% 86% !important;
+  --nextui-primary-200: 46 98% 77% !important;
+  --nextui-primary-300: 46 99% 68% !important;
+  --nextui-primary-400: 46 98% 61% !important;
+  --nextui-primary-500: 44 99% 59% !important;
+  --nextui-primary-600: 41 98% 57% !important;
+  --nextui-primary-700: 36 97% 56% !important;
+  --nextui-primary-800: 32 97% 56% !important;
+  --nextui-primary-900: 25 96% 54% !important;
+  --nextui-primary-foreground: var(--nextui-foreground) !important;
+  --nextui-primary: var(--nextui-primary-600) !important;
+  --nextui-secondary-50: var(--nextui-default-50) !important;
+  --nextui-secondary-100: var(--nextui-default-100) !important;
+  --nextui-secondary-200: var(--nextui-default-200) !important;
+  --nextui-secondary-300: var(--nextui-default-300) !important;
+  --nextui-secondary-400: var(--nextui-default-400) !important;
+  --nextui-secondary-500: var(--nextui-default-500) !important;
+  --nextui-secondary-600: var(--nextui-default-600) !important;
+  --nextui-secondary-700: var(--nextui-default-700) !important;
+  --nextui-secondary-800: var(--nextui-default-800) !important;
+  --nextui-secondary-900: var(--nextui-default-900) !important;
+  --nextui-secondary-foreground: var(--nextui-secondary-50) !important;
+  --nextui-secondary: var(--nextui-secondary-900) !important;
+}
+
+.font-bold {
+  text-shadow: -1px 0 var(--kobe-color-glod-600),
+    0 1px var(--kobe-color-glod-600),
+    1px 0 var(--kobe-color-glod-600),
+    0 -1px var(--kobe-color-glod-600);
+  color: var(--kobe-color-purple-900) !important;
+}
