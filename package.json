@@ -14,6 +14,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@iconify-json/carbon": "^1.2.1",
+    "@unocss/preset-icons": "^0.63.4",
+    "@unocss/transformer-directives": "^0.63.4",
     "rollup-plugin-visualizer": "^5.12.0",
     "unocss": "^0.63.3",
     "vitepress": "^1.4.0"

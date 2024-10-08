@@ -8,6 +8,15 @@ importers:
 
   .:
     devDependencies:
+      '@iconify-json/carbon':
+        specifier: ^1.2.1
+        version: 1.2.1
+      '@unocss/preset-icons':
+        specifier: ^0.63.4
+        version: 0.63.4
+      '@unocss/transformer-directives':
+        specifier: ^0.63.4
+        version: 0.63.4
       rollup-plugin-visualizer:
         specifier: ^5.12.0
         version: 5.12.0(rollup@4.24.0)
@@ -417,6 +426,9 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@iconify-json/carbon@1.2.1':
+    resolution: {integrity: sha512-dIMY6OOY9LnwR3kOqAtfz4phGFG+KNfESEwSL6muCprBelSlSPpRXtdqvEEO/qWhkf5AJ9hWrOV3Egi5Z2IuKA==}
+
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
 
@@ -477,55 +489,46 @@ packages:
     resolution: {integrity: sha512-0KXvIJQMOImLCVCz9uvvdPgfyWo93aHHp8ui3FrtOP57svqrF/roSSR5pjqL2hcMp0ljeGlU4q9o/rQaAQ3AYA==}
     cpu: [arm]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-arm-musleabihf@4.24.0':
     resolution: {integrity: sha512-it2BW6kKFVh8xk/BnHfakEeoLPv8STIISekpoF+nBgWM4d55CZKc7T4Dx1pEbTnYm/xEKMgy1MNtYuoA8RFIWw==}
     cpu: [arm]
     os: [linux]
-    libc: [musl]
 
   '@rollup/rollup-linux-arm64-gnu@4.24.0':
     resolution: {integrity: sha512-i0xTLXjqap2eRfulFVlSnM5dEbTVque/3Pi4g2y7cxrs7+a9De42z4XxKLYJ7+OhE3IgxvfQM7vQc43bwTgPwA==}
     cpu: [arm64]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-arm64-musl@4.24.0':
     resolution: {integrity: sha512-9E6MKUJhDuDh604Qco5yP/3qn3y7SLXYuiC0Rpr89aMScS2UAmK1wHP2b7KAa1nSjWJc/f/Lc0Wl1L47qjiyQw==}
     cpu: [arm64]
     os: [linux]
-    libc: [musl]
 
   '@rollup/rollup-linux-powerpc64le-gnu@4.24.0':
     resolution: {integrity: sha512-2XFFPJ2XMEiF5Zi2EBf4h73oR1V/lycirxZxHZNc93SqDN/IWhYYSYj8I9381ikUFXZrz2v7r2tOVk2NBwxrWw==}
     cpu: [ppc64]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-riscv64-gnu@4.24.0':
     resolution: {integrity: sha512-M3Dg4hlwuntUCdzU7KjYqbbd+BLq3JMAOhCKdBE3TcMGMZbKkDdJ5ivNdehOssMCIokNHFOsv7DO4rlEOfyKpg==}
     cpu: [riscv64]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-s390x-gnu@4.24.0':
     resolution: {integrity: sha512-mjBaoo4ocxJppTorZVKWFpy1bfFj9FeCMJqzlMQGjpNPY9JwQi7OuS1axzNIk0nMX6jSgy6ZURDZ2w0QW6D56g==}
     cpu: [s390x]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-x64-gnu@4.24.0':
     resolution: {integrity: sha512-ZXFk7M72R0YYFN5q13niV0B7G8/5dcQ9JDp8keJSfr3GoZeXEoMHP/HlvqROA3OMbMdfr19IjCeNAnPUG93b6A==}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-x64-musl@4.24.0':
     resolution: {integrity: sha512-w1i+L7kAXZNdYl+vFvzSZy8Y1arS7vMgIy8wusXJzRrPyof5LAb02KGr1PD2EkRcl73kHulIID0M501lN+vobQ==}
     cpu: [x64]
     os: [linux]
-    libc: [musl]
 
   '@rollup/rollup-win32-arm64-msvc@4.24.0':
     resolution: {integrity: sha512-VXBrnPWgBpVDCVY6XF3LEW0pOU51KbaHhccHw6AS6vBWIC60eqsH19DAeeObl+g8nKAz04QFdl/Cefta0xQtUQ==}
@@ -607,6 +610,9 @@ packages:
   '@unocss/core@0.63.3':
     resolution: {integrity: sha512-LPDog+Dt36ut9yomgpKDHn4j/kI72sWtxm3iL6agEK3NDQToQsizQU6f8ZsIyUrpi7CoIV2i+3vmsdxauBd4kw==}
 
+  '@unocss/core@0.63.4':
+    resolution: {integrity: sha512-VB4DJ5DsRWpX64si5tWYRXf1n5UkYQqe2s1V22qFiWmXa7Ec+Vf9s3cxWZmoWFC5P9RQiwM9kAqxdg1G+elVkQ==}
+
   '@unocss/extractor-arbitrary-variants@0.63.3':
     resolution: {integrity: sha512-n5foNPmt/BtocMdUbl9HOOWuimPFIFDH9YmyfNrAN1kcL8Yz6l0PAlFWW5xUyk4rzaIXCfnWmRRb8mGoku0hXA==}
 
@@ -624,6 +630,9 @@ packages:
 
   '@unocss/preset-icons@0.63.3':
     resolution: {integrity: sha512-9/eP1owlRpxn2oeIw2Xf6goGkUcmzTXHFwsD0+ttafbFN0+T9Vp22p+ac6xJJ+wzJY6XDMJ2IVCcDLoNtMUajA==}
+
+  '@unocss/preset-icons@0.63.4':
+    resolution: {integrity: sha512-V7JV2xvEGeNVjP6HT4IG/BY/HgajJt9CLT2sgKbaVCU9hNOuBs1YTOxua0KLynbTYwr5F5cDMuE/9slQYinZmg==}
 
   '@unocss/preset-mini@0.63.3':
     resolution: {integrity: sha512-V1nwq0ca8zxiXUDz4bQVyjwqWwMIpY26XNx9i/yd7FhKW//Fb+9XWMdE7BcoaBDuECF6O+RjlrSuJ1Zdw8kN8A==}
@@ -650,6 +659,10 @@ packages:
     resolution: {integrity: sha512-DVX9d/72fsQz4qD67C+NIiMEhtpre6xJDISvxZgb165UzzW8k9rUTef4uWz0SRv+O5NdotpBl32UT8X9McP9Mg==}
     engines: {node: '>=14'}
 
+  '@unocss/rule-utils@0.63.4':
+    resolution: {integrity: sha512-7yRWF881ymxnMcCJSiI/1kMI8uwRqRi3l5XnV+JSGjjF2fDr1POUQjSLaA4s7ZfdEgmjagdLK3F5xqkfMMECNA==}
+    engines: {node: '>=14'}
+
   '@unocss/transformer-attributify-jsx@0.63.3':
     resolution: {integrity: sha512-Xz5d4KUm6MCyZ7l4kLlA11ZCmrtQHmytVnzF9FYDHN6/jCmkn5wQBmQUJFSOuyyIrYQymyViZN++N8SjBq7ogA==}
 
@@ -658,6 +671,9 @@ packages:
 
   '@unocss/transformer-directives@0.63.3':
     resolution: {integrity: sha512-nQtxl/7kfG4OJbFq86E1HpY3v8pfEQd664dajxzaZ9kTyTGQhpYWTBgT5zkY5/9/svDuTZ9dPIMU+8CyQnVopQ==}
+
+  '@unocss/transformer-directives@0.63.4':
+    resolution: {integrity: sha512-N/dNhmn3e9/Z4IvAujxCdwhNMfx2SihPA2/7GFSMMRi7F0Hn/o2hOqQquRqIJbQwIvi6bJtKwyasxjDoUhJqBA==}
 
   '@unocss/transformer-variant-group@0.63.3':
     resolution: {integrity: sha512-Dpxb649mcZkpXWodDEIOQoE5gfcpSuuBjLE8H0OyivLVPqYw2Y5S7goXKuV7o9mce+QWJz+aJK1dtthJIcOpIg==}
@@ -1623,6 +1639,10 @@ snapshots:
   '@esbuild/win32-x64@0.23.1':
     optional: true
 
+  '@iconify-json/carbon@1.2.1':
+    dependencies:
+      '@iconify/types': 2.0.0
+
   '@iconify/types@2.0.0': {}
 
   '@iconify/utils@2.1.33':
@@ -1807,6 +1827,8 @@ snapshots:
 
   '@unocss/core@0.63.3': {}
 
+  '@unocss/core@0.63.4': {}
+
   '@unocss/extractor-arbitrary-variants@0.63.3':
     dependencies:
       '@unocss/core': 0.63.3
@@ -1837,6 +1859,14 @@ snapshots:
     dependencies:
       '@iconify/utils': 2.1.33
       '@unocss/core': 0.63.3
+      ofetch: 1.4.0
+    transitivePeerDependencies:
+      - supports-color
+
+  '@unocss/preset-icons@0.63.4':
+    dependencies:
+      '@iconify/utils': 2.1.33
+      '@unocss/core': 0.63.4
       ofetch: 1.4.0
     transitivePeerDependencies:
       - supports-color
@@ -1881,6 +1911,11 @@ snapshots:
       '@unocss/core': 0.63.3
       magic-string: 0.30.11
 
+  '@unocss/rule-utils@0.63.4':
+    dependencies:
+      '@unocss/core': 0.63.4
+      magic-string: 0.30.11
+
   '@unocss/transformer-attributify-jsx@0.63.3':
     dependencies:
       '@unocss/core': 0.63.3
@@ -1893,6 +1928,12 @@ snapshots:
     dependencies:
       '@unocss/core': 0.63.3
       '@unocss/rule-utils': 0.63.3
+      css-tree: 3.0.0
+
+  '@unocss/transformer-directives@0.63.4':
+    dependencies:
+      '@unocss/core': 0.63.4
+      '@unocss/rule-utils': 0.63.4
       css-tree: 3.0.0
 
   '@unocss/transformer-variant-group@0.63.3':
