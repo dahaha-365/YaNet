@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vitepress dev press",
@@ -13,6 +14,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "rollup-plugin-visualizer": "^5.12.0",
+    "unocss": "^0.63.3",
     "vitepress": "^1.4.0"
   }
 }
