@@ -18,6 +18,10 @@ export default {
       defineAsyncComponent(() => import("../../components/embed.vue"))
     );
     app.component(
+      "appstore",
+      defineAsyncComponent(() => import("../../components/embeds/appstore.vue"))
+    );
+    app.component(
       "github",
       defineAsyncComponent(() => import("../../components/embeds/github.vue"))
     );

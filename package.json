@@ -15,6 +15,7 @@
   "license": "ISC",
   "devDependencies": {
     "@iconify-json/carbon": "^1.2.1",
+    "@iconify-json/logos": "^1.2.3",
     "@unocss/preset-icons": "^0.63.4",
     "@unocss/transformer-directives": "^0.63.4",
     "rollup-plugin-visualizer": "^5.12.0",
@@ -22,6 +23,7 @@
     "vitepress": "^1.4.0"
   },
   "dependencies": {
-    "timeago.js": "^4.0.2"
+    "timeago.js": "^4.0.2",
+    "vue-jsonp": "^2.0.0"
   }
 }

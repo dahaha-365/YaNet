@@ -3,10 +3,6 @@ import { useSlots, ref } from 'vue'
 const slots = useSlots()
 const url = slots.default()[0].children
 const embed = ref()
-const regex = {
-    github: /https?:\/\/(www\.)?github\.com\/([a-z0-9-]+\/[a-z0-9-]+)/i,
-    appstore: /https?:\/\/apps.apple.com\/((cn|us|hk|sg|jp)\/)*app\/([a-z-]+\/)*id(\d+)/i,
-}
 let [, domain] = /https?:\/\/([a-z0-9][a-z0-9-\.]+?\.(com))/i.exec(url)
 switch (domain) {
     case 'github.com':
@@ -20,6 +16,7 @@ switch (domain) {
         embed.value = 'link'
         break
 }
+console.log(embed.value);
 </script>
 <template>
     <Suspense>

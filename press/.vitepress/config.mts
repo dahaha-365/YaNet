@@ -22,7 +22,9 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '客户端', link: '/clients/' },
-      { text: '机场', link: '/airports/' }
+      { text: '规则仓库', link: '/rules/' },
+      { text: '机场', link: '/airports/' },
+      { text: '图标集', link: '/iconsets/' },
     ],
 
     sidebar: [

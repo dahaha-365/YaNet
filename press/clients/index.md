@@ -1,4 +1,4 @@
-# 梯子客户端
+# 梯子客户端汇总
 
 ## PC/Mac/Linux平台
 
@@ -11,6 +11,8 @@
 
 ## Android/iOS/Apple TV平台
 
+<!--@include: ./loon.md-->
+<!--@include: ./stash.md-->
 <!--@include: ./karing.md-->
 
 ## 路由器/其他平台

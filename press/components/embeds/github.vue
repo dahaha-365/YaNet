@@ -15,7 +15,7 @@ const githubData = await response.json();
                 <div class="flex gap-4">
                     <div class="min-w-max">
                         <span text="emerald-6 dark:gray-1" bg="emerald-6/10 dark:gray-9"
-                            class="rd flex aspect-square rounded-full">
+                            class="rd flex aspect-square rounded-full" shadow>
                             <span flex text-2xl>
                                 <img class="w-16 h-16 rounded-full" :src="githubData?.owner.avatar_url"
                                     :alt="githubData?.owner.login" />
@@ -25,7 +25,7 @@ const githubData = await response.json();
                     <div class="space-y-0.5">
                         <h3 text="lg gray-9 dark:gray-1" class="font-semibold mt0">
                             <a :href="githubData?.html_url" target="_blank">
-                                <i i-carbon-logo-github></i>
+                                <i i-logos-github-icon bg="white" class="rounded-full"></i>
                                 {{ githubData?.full_name }}</a>
                         </h3>
                         <p text="gray-6 dark:gray-4" class="line-clamp-2">
@@ -45,7 +45,7 @@ const githubData = await response.json();
         <div v-else>
             <h3 text="lg gray-9 dark:gray-1" class="font-semibold mt0">
                 <a :href="githubData?.html_url" target="_blank">
-                    <i i-carbon-logo-github></i>
+                    <i i-logos-github-icon></i>
                     {{ githubData?.full_name }}</a>
             </h3>
         </div>
