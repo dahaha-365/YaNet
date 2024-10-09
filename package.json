@@ -20,5 +20,8 @@
     "rollup-plugin-visualizer": "^5.12.0",
     "unocss": "^0.63.3",
     "vitepress": "^1.4.0"
+  },
+  "dependencies": {
+    "timeago.js": "^4.0.2"
   }
 }

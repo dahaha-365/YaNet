@@ -21,7 +21,8 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
-      { text: '客户端', link: '/clients/' }
+      { text: '客户端', link: '/clients/' },
+      { text: '机场', link: '/airports/' }
     ],
 
     sidebar: [

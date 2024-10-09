@@ -443,7 +443,6 @@
     local("Droid Sans Fallback");
 }
 
-// 细体 Light
 @font-face {
   font-family: "Heti Hei";
   font-weight: 200;
@@ -501,7 +500,6 @@
     local("Droid Sans Fallback");
 }
 
-// 粗体 Bold
 @font-face {
   font-family: "Heti Hei";
   font-weight: 600;
@@ -560,7 +558,6 @@
     local("Droid Sans Fallback");
 }
 
-// 黑体 Black
 @font-face {
   font-family: "Heti Hei Black";
   font-weight: 800;
