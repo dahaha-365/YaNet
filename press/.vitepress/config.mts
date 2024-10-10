@@ -1,6 +1,8 @@
 import UnoCSS from 'unocss/vite'
 import { defineConfig, MarkdownOptions } from 'vitepress'
 import { visualizer } from 'rollup-plugin-visualizer'
+import env from 'dotenv'
+
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -15,7 +17,11 @@ export default defineConfig({
         gzipSize: true,
         brotliSize: true,
       }),
-    ]
+    ],
+    define: {
+      GITHUB_CLIENT_ID: JSON.stringify(env.config().parsed?.VITE_GITHUB_CLIENT_ID),
+      GITHUB_CLIENT_SECRET: JSON.stringify(env.config().parsed?.VITE_GITHUB_CLIENT_SECRET),
+    },
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config

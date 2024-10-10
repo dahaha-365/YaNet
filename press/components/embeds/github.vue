@@ -4,7 +4,10 @@ import { format } from 'timeago.js';
 const slots = useSlots()
 const url = slots.default()[0].children
 let [, , repo] = /https?:\/\/(www\.)?github\.com\/([a-z0-9-]+\/[a-z0-9-\.]+)/i.exec(url)
-const response = await fetch('https://api.github.com/repos/' + repo)
+const response = await fetch('https://api.github.com/repos/' + repo + '?' + new URLSearchParams({
+    client_id: GITHUB_CLIENT_ID,
+    client_secret: GITHUB_CLIENT_SECRET,
+}))
 const githubData = await response.json();
 </script>
 <template>

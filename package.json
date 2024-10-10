@@ -24,6 +24,7 @@
     "vitepress": "^1.4.0"
   },
   "dependencies": {
+    "dotenv": "^16.4.5",
     "timeago.js": "^4.0.2",
     "vue-jsonp": "^2.0.0"
   }
