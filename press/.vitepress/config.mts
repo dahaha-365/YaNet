@@ -19,8 +19,8 @@ export default defineConfig({
       }),
     ],
     define: {
-      GITHUB_CLIENT_ID: JSON.stringify(env.config().parsed?.VITE_GITHUB_CLIENT_ID),
-      GITHUB_CLIENT_SECRET: JSON.stringify(env.config().parsed?.VITE_GITHUB_CLIENT_SECRET),
+      GITHUB_CLIENT_ID: JSON.stringify(process.env.VITE_GITHUB_CLIENT_ID || env.config().parsed?.VITE_GITHUB_CLIENT_ID),
+      GITHUB_CLIENT_SECRET: JSON.stringify(process.env.VITE_GITHUB_CLIENT_SECRET || env.config().parsed?.VITE_GITHUB_CLIENT_SECRET),
     },
   },
   themeConfig: {
