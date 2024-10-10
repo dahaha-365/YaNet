@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "dotenv": "^16.4.5",
-    "timeago.js": "^4.0.2",
-    "vue-jsonp": "^2.0.0"
+    "fetch-jsonp": "^1.3.0",
+    "timeago.js": "^4.0.2"
   }
 }

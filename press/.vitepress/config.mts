@@ -1,6 +1,7 @@
 import UnoCSS from 'unocss/vite'
-import { defineConfig, MarkdownOptions } from 'vitepress'
+import { defineConfig } from 'vitepress'
 import { visualizer } from 'rollup-plugin-visualizer'
+
 import env from 'dotenv'
 
 

@@ -11,12 +11,12 @@ importers:
       dotenv:
         specifier: ^16.4.5
         version: 16.4.5
+      fetch-jsonp:
+        specifier: ^1.3.0
+        version: 1.3.0
       timeago.js:
         specifier: ^4.0.2
         version: 4.0.2
-      vue-jsonp:
-        specifier: ^2.0.0
-        version: 2.0.0
     devDependencies:
       '@iconify-json/carbon':
         specifier: ^1.2.1
@@ -957,6 +957,9 @@ packages:
       picomatch:
         optional: true
 
+  fetch-jsonp@1.3.0:
+    resolution: {integrity: sha512-hxCYGvmANEmpkHpeWY8Kawfa5Z1t2csTpIClIDG/0S92eALWHRU1RnGaj86Tf5Cc0QF+afSa4SQ4pFB2rFM5QA==}
+
   fill-range@7.1.1:
     resolution: {integrity: sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==}
     engines: {node: '>=8'}
@@ -1354,9 +1357,6 @@ packages:
     peerDependenciesMeta:
       '@vue/composition-api':
         optional: true
-
-  vue-jsonp@2.0.0:
-    resolution: {integrity: sha512-Mzd9GNeuKP5hHFDWZNMWOsCuMILSkA6jo2l4A02wheFz3qqBzH7aSEFTey1BRCZCLizlaf1EqJ5YUtF392KspA==}
 
   vue@3.5.11:
     resolution: {integrity: sha512-/8Wurrd9J3lb72FTQS7gRMNQD4nztTtKPmuDuPuhqXmmpD6+skVjAeahNpVzsuky6Sy9gy7wn8UadqPtt9SQIg==}
@@ -2293,6 +2293,8 @@ snapshots:
     optionalDependencies:
       picomatch: 4.0.2
 
+  fetch-jsonp@1.3.0: {}
+
   fill-range@7.1.1:
     dependencies:
       to-regex-range: 5.0.1
@@ -2738,8 +2740,6 @@ snapshots:
   vue-demi@0.14.10(vue@3.5.11):
     dependencies:
       vue: 3.5.11
-
-  vue-jsonp@2.0.0: {}
 
   vue@3.5.11:
     dependencies:
