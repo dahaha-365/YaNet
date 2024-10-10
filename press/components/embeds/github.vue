@@ -1,9 +1,9 @@
 <script setup>
-import { useSlots, ref } from 'vue'
+import { useSlots } from 'vue'
 import { format } from 'timeago.js';
 const slots = useSlots()
 const url = slots.default()[0].children
-let [isGithub, , repo] = /https?:\/\/(www\.)?github\.com\/([a-z0-9-]+\/[a-z0-9-\.]+)/i.exec(url)
+let [, , repo] = /https?:\/\/(www\.)?github\.com\/([a-z0-9-]+\/[a-z0-9-\.]+)/i.exec(url)
 const response = await fetch('https://api.github.com/repos/' + repo)
 const githubData = await response.json();
 </script>
@@ -43,11 +43,12 @@ const githubData = await response.json();
             </div>
         </div>
         <div v-else>
-            <h3 text="lg gray-9 dark:gray-1" class="font-semibold mt0">
-                <a :href="githubData?.html_url" target="_blank">
-                    <i i-logos-github-icon></i>
-                    {{ githubData?.full_name }}</a>
-            </h3>
+            <div>
+                <i i-logos-github-icon mr-2 bg="white" class="rounded-full"></i>
+                <a :href="url" target="_blank">
+                    {{ url }}
+                </a>
+            </div>
         </div>
     </div>
 </template>

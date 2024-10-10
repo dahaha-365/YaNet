@@ -4,6 +4,10 @@ Stash 是 Clash Premium 内核在 Apple 设备上的最佳实现客户端，为 
 
 <c-embed>https://apps.apple.com/app/id1596063349</c-embed>
 
+Mac版：
+
+<c-embed>https://stash.wiki/stash-mac</c-embed>
+
 #### 特点
 
 1. 支持插件和覆写

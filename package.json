@@ -18,6 +18,7 @@
     "@iconify-json/logos": "^1.2.3",
     "@unocss/preset-icons": "^0.63.4",
     "@unocss/transformer-directives": "^0.63.4",
+    "prettier": "3.3.3",
     "rollup-plugin-visualizer": "^5.12.0",
     "unocss": "^0.63.3",
     "vitepress": "^1.4.0"

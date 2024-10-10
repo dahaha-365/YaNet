@@ -1,17 +1,16 @@
 <script setup>
-import { useSlots, ref } from 'vue'
+import { useSlots } from 'vue'
 import { jsonp } from 'vue-jsonp';
 import { format } from 'timeago.js';
 const slots = useSlots()
 const url = slots.default()[0].children
-let [isAppStore, , , , appId] = /https?:\/\/apps.apple.com\/((cn|us|hk|sg|jp)\/)*app\/([a-z-]+\/)*id(\d+)/i.exec(url)
+let [, , , , appId] = /https?:\/\/apps.apple.com\/((cn|us|hk|sg|jp)\/)*app\/([a-z-]+\/)*id(\d+)/i.exec(url)
 const response = await jsonp('https://itunes.apple.com/lookup', {
     callbackQuery: 'callback',
     // callbackName: 'jsonp_func',
     output: 'json',
     id: appId
 })
-console.log(response);
 </script>
 <template>
     <div class="appstore-card my5">
@@ -55,11 +54,12 @@ console.log(response);
             </div>
         </div>
         <div v-else>
-            <h3 text="lg gray-9 dark:gray-1" class="font-semibold mt0">
+            <div>
+                <i i-logos-apple-app-store mr-2 bg="white" class="rounded-full"></i>
                 <a :href="url" target="_blank">
-                    <i i-logos-apple-app-store></i>
-                    App Store</a>
-            </h3>
+                    {{ url }}
+                </a>
+            </div>
         </div>
     </div>
 </template>

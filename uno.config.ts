@@ -1,7 +1,7 @@
 import {
     defineConfig,
-    presetIcons,
     presetUno,
+    presetIcons,
     presetWebFonts,
     transformerDirectives,
     transformerVariantGroup,
@@ -12,6 +12,7 @@ export default defineConfig({
     presets: [
         presetUno(),
         presetIcons({
+            cdn: 'https://esm.sh/',
             scale: 1.2,
             warn: true,
             unit: 'em',
@@ -21,7 +22,7 @@ export default defineConfig({
             },
             collections: {
                 carbon: () => import('@iconify-json/carbon/icons.json').then(i => i.default),
-                logos: () => import('@iconify-json/logos/icons.json').then(i => i.default)
+                logos: () => import('@iconify-json/logos/icons.json').then(i => i.default),
             }
         }),
         presetAttributify(),

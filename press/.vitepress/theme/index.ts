@@ -25,5 +25,9 @@ export default {
       "github",
       defineAsyncComponent(() => import("../../components/embeds/github.vue"))
     );
+    app.component(
+      "c-link",
+      defineAsyncComponent(() => import("../../components/embeds/link.vue"))
+    );
   }
 } satisfies Theme
