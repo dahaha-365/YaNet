@@ -1,9 +1,7 @@
 import UnoCSS from 'unocss/vite'
 import { defineConfig } from 'vitepress'
 import { visualizer } from 'rollup-plugin-visualizer'
-
 import env from 'dotenv'
-
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -24,6 +22,21 @@ export default defineConfig({
       GITHUB_CLIENT_SECRET: JSON.stringify(process.env.VITE_GITHUB_CLIENT_SECRET || env.config().parsed?.VITE_GITHUB_CLIENT_SECRET),
     },
   },
+  head: [
+    [
+      'script',
+      { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=' + (process.env.VUE_APP_GOOGLE_ANALYTICS_ID || env.config().parsed?.VUE_APP_GOOGLE_ANALYTICS_ID) },
+    ],
+    [
+      'script',
+      {},
+      `window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '${process.env.VUE_APP_GOOGLE_ANALYTICS_ID}');`
+    ],
+  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [

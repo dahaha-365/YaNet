@@ -2,3 +2,4 @@ node_modules
 press/.vitepress/cache
 .vitepress
 .env
+stats.html
