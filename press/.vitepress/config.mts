@@ -34,7 +34,7 @@ export default defineConfig({
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', '${process.env.VUE_APP_GOOGLE_ANALYTICS_ID}');`
+  gtag('config', '${process.env.VUE_APP_GOOGLE_ANALYTICS_ID || env.config().parsed?.VUE_APP_GOOGLE_ANALYTICS_ID}');`
     ],
   ],
   themeConfig: {
