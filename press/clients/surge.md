@@ -2,7 +2,7 @@
 
 Surge是一个在iOS和macOS平台上的网络工具，功能主要包含对网络请求的接管、修改和转发。
 
-<c-embed>https://apps.apple.com/app/id1442620678</c-embed>
+<Embed>https://apps.apple.com/app/id1442620678</Embed>
 
 #### 特点
 

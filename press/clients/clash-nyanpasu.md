@@ -2,7 +2,7 @@
 
 一个Tauri框架开发的Mihomo GUI程序，使用Mihomo作为内核。
 
-<c-embed>https://github.com/libnyanpasu/clash-nyanpasu</c-embed>
+<Embed>https://github.com/libnyanpasu/clash-nyanpasu</Embed>
 
 #### 特点
 

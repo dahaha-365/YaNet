@@ -2,7 +2,7 @@
 
 基于规则的代理实用客户端，适用于 iPhone/iPad。
 
-<c-embed>https://apps.apple.com/app/id932747118</c-embed>
+<Embed>https://apps.apple.com/app/id932747118</Embed>
 
 #### 特点
 

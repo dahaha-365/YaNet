@@ -2,9 +2,9 @@
 
 这个项目共开发了两个客户端软件。分别采用了Mihomo内核和Singbox内核。
 
-<c-embed>https://github.com/GUI-for-Cores/GUI.for.Clash</c-embed>
+<Embed>https://github.com/GUI-for-Cores/GUI.for.Clash</Embed>
 
-<c-embed>https://github.com/GUI-for-Cores/GUI.for.SingBox</c-embed>
+<Embed>https://github.com/GUI-for-Cores/GUI.for.SingBox</Embed>
 
 #### 特点
 

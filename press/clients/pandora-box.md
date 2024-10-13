@@ -2,7 +2,7 @@
 
 一个简易的Mihomo桌面客户端，采用Go语言开发。
 
-<c-embed>https://github.com/snakem982/Pandora-Box</c-embed>
+<Embed>https://github.com/snakem982/Pandora-Box</Embed>
 
 #### 特点
 

@@ -4,7 +4,7 @@
 
 Google Play版本的NekoBox非官方发布，不建议下载。
 
-<c-embed>https://github.com/MatsuriDayo/nekoray</c-embed>
+<Embed>https://github.com/MatsuriDayo/nekoray</Embed>
 
 #### 特点
 

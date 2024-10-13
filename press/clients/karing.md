@@ -2,7 +2,9 @@
 
 一个基于 flutter 的 singbox 图形用户界面。
 
-<c-embed>https://github.com/KaringX/karing</c-embed>
+<Embed>https://github.com/KaringX/karing</Embed>
+
+<Embed>https://apps.apple.com/app/id6472431552</Embed>
 
 #### 特点
 

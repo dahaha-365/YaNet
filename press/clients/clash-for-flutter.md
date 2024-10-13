@@ -2,7 +2,7 @@
 
 这是一个 Clash 的多平台客户端，支持 windows、linux、macos、android、~~ios~~。
 
-<c-embed>https://github.com/mapleafgo/clash-for-flutter</c-embed>
+<Embed>https://github.com/mapleafgo/clash-for-flutter</Embed>
 
 #### 特点
 

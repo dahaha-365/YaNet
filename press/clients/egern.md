@@ -2,7 +2,7 @@
 
 Egern 是一款功能丰富、强大的网络工具，专门用于代理、拦截和修改网络流量。
 
-<c-embed>https://apps.apple.com/app/id1616105820</c-embed>
+<Embed>https://apps.apple.com/app/id1616105820</Embed>
 
 #### 特点
 

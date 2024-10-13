@@ -14,20 +14,28 @@ export default {
   },
   enhanceApp({ app, router, siteData }) {
     app.component(
-      "c-embed",
-      defineAsyncComponent(() => import("../../components/embed.vue"))
+      "Embed",
+      defineAsyncComponent(() => import("../../components/Embed.vue"))
     );
     app.component(
-      "appstore",
-      defineAsyncComponent(() => import("../../components/embeds/appstore.vue"))
+      "AppStore",
+      defineAsyncComponent(() => import("../../components/Embeds/AppStore.vue"))
     );
     app.component(
-      "github",
-      defineAsyncComponent(() => import("../../components/embeds/github.vue"))
+      "Github",
+      defineAsyncComponent(() => import("../../components/Embeds/Github.vue"))
     );
     app.component(
-      "c-link",
-      defineAsyncComponent(() => import("../../components/embeds/link.vue"))
+      "Link",
+      defineAsyncComponent(() => import("../../components/Embeds/Link.vue"))
+    );
+    app.component(
+      "FilterBar",
+      defineAsyncComponent(() => import("../../components/Filter/FilterBar.vue"))
+    );
+    app.component(
+      "FilterItem",
+      defineAsyncComponent(() => import("../../components/Filter/FilterItem.vue"))
     );
   }
 } satisfies Theme

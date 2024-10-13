@@ -7,13 +7,13 @@ let [, domain] = /https?:\/\/([a-z0-9][a-z0-9-\.]+\.(com|net|org|app|wiki))/i.ex
 switch (domain) {
     case 'github.com':
     case 'www.github.com':
-        embed.value = 'github'
+        embed.value = 'Github'
         break
     case 'apps.apple.com':
-        embed.value = 'appstore'
+        embed.value = 'AppStore'
         break
     default:
-        embed.value = 'c-link'
+        embed.value = 'Link'
         break
 }
 </script>
@@ -26,7 +26,7 @@ switch (domain) {
         </template>
         <!-- 在 #fallback 插槽中显示 “正在加载中” -->
         <template #fallback>
-            <c-link>{{ url }}</c-link>
+            <Link>{{ url }}</Link>
         </template>
     </Suspense>
 </template>

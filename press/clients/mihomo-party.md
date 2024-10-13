@@ -2,7 +2,7 @@
 
 一个Electron框架开发的Mihomo GUI程序，使用Mihomo作为内核。
 
-<c-embed>https://github.com/mihomo-party-org/mihomo-party</c-embed>
+<Embed>https://github.com/mihomo-party-org/mihomo-party</Embed>
 
 #### 特点
 
