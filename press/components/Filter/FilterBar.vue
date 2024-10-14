@@ -23,7 +23,7 @@ const filterList = computed({
 </script>
 <template>
     <span
-        class="inline-flex -space-x-px overflow-hidden rounded-md border bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700 shadow-sm">
+        class="flex items-center -space-x-px overflow-hidden rounded-md border bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700 shadow-md">
         <button @click="toggleFilter('windows')"
             class="inline-block px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 focus:relative">
             Windows
