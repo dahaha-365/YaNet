@@ -1,10 +1,20 @@
+<script setup>
+import { ref } from 'vue'
+const clients = ref(null)
+const applyFilter = (filters) => {
+    console.log(filters)
+    const eles = document.getElementById('clients').querySelectorAll(`[data-filter-value~='${filters.join(' ')}']`)
+    console.log(eles)
+}
+</script>
+
 # 梯子客户端汇总
 
-<filter-bar></filter-bar>
+<filter-bar @applyFilter="applyFilter"></filter-bar>
 
-## PC/Mac/Linux平台
+<filter-container filterId="clients" ref="clients" id="clients">
 
-<filter-item filterValue="windows mac linux clash mihomo gui" filterScope="client">
+<filter-item dataFilterValue="windows mac linux clash mihomo gui" filterScope="client">
 
 <template #content>
 
@@ -16,7 +26,7 @@
 
 -----
 
-<filter-item filterValue="windows mac linux clash mihomo gui" filterScope="client">
+<filter-item dataFilterValue="windows mac linux clash mihomo gui" filterScope="client">
 
 <template #content>
 
@@ -28,7 +38,7 @@
 
 -----
 
-<filter-item filterValue="windows mac linux clash mihomo gui" filterScope="client">
+<filter-item dataFilterValue="windows mac linux clash mihomo gui" filterScope="client">
 
 <template #content>
 
@@ -40,7 +50,7 @@
 
 -----
 
-<filter-item filterValue="windows mac linux clash mihomo singbox gui" filterScope="client">
+<filter-item dataFilterValue="windows mac linux clash mihomo singbox gui" filterScope="client">
 
 <template #content>
 
@@ -52,7 +62,7 @@
 
 -----
 
-<filter-item filterValue="windows mac linux clash mihomo gui" filterScope="client">
+<filter-item dataFilterValue="windows mac linux clash mihomo gui" filterScope="client">
 
 <template #content>
 
@@ -64,7 +74,7 @@
 
 -----
 
-<filter-item filterValue="windows mac linux android clash mihomo gui" filterScope="client">
+<filter-item dataFilterValue="windows mac linux android clash mihomo gui" filterScope="client">
 
 <template #content>
 
@@ -74,9 +84,7 @@
 
 </filter-item>
 
-## Android/iOS/Apple TV平台
-
-<filter-item filterValue="ios iphone ipad appletv gui" filterScope="client">
+<filter-item dataFilterValue="ios iphone ipad appletv gui" filterScope="client">
 
 <template #content>
 
@@ -88,7 +96,7 @@
 
 -----
 
-<filter-item filterValue="mac ios iphone ipad appletv gui" filterScope="client">
+<filter-item dataFilterValue="mac ios iphone ipad appletv gui" filterScope="client">
 
 <template #content>
 
@@ -100,7 +108,7 @@
 
 -----
 
-<filter-item filterValue="ios iphone ipad appletv gui" filterScope="client">
+<filter-item dataFilterValue="ios iphone ipad appletv gui" filterScope="client">
 
 <template #content>
 
@@ -112,7 +120,7 @@
 
 -----
 
-<filter-item filterValue="mac ios iphone ipad appletv gui" filterScope="client">
+<filter-item dataFilterValue="mac ios iphone ipad appletv gui" filterScope="client">
 
 <template #content>
 
@@ -124,7 +132,7 @@
 
 -----
 
-<filter-item filterValue="ios iphone ipad gui" filterScope="client">
+<filter-item dataFilterValue="ios iphone ipad gui" filterScope="client">
 
 <template #content>
 
@@ -136,7 +144,7 @@
 
 -----
 
-<filter-item filterValue="windows mac android ios iphone ipad appletv gui" filterScope="client">
+<filter-item dataFilterValue="windows mac android ios iphone ipad appletv gui" filterScope="client">
 
 <template #content>
 
@@ -146,6 +154,6 @@
 
 </filter-item>
 
-## 路由器/其他平台
+</filter-container>
 
 [[toc]]

@@ -1,12 +1,12 @@
 <script setup>
 const props = defineProps({
-    'filter-value': String,
-    'filter-scope': String,
+    filterValue: String,
+    filterScope: String,
+    dataFilterValue: String,
 })
-console.log(props)
 </script>
 <template>
-    <div v-bind="props">
+    <div v-bind="props" :data-filter-value="props.dataFilterValue">
         <slot name="content"></slot>
     </div>
 </template>
