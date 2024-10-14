@@ -16,4 +16,4 @@
 
 | Windows | MacOS | Linux | Android | iOS | Apple TV | 路由器 |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| :white_check_mark: | :white_check_mark: | 需要自行编译 | :x: | :x: | :x: | :x: |
+| :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x: | :x: | :x: |

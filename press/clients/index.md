@@ -1,16 +1,26 @@
-<script setup>
+<script setup lang="ts">
+import { queryClients } from './clients.ts'
 import { ref } from 'vue'
 const clients = ref(null)
+const filter = ref([])
+console.log(queryClients([]))
 const applyFilter = (filters) => {
     console.log(filters)
-    const eles = document.getElementById('clients').querySelectorAll(`[data-filter-value~='${filters.join(' ')}']`)
-    console.log(eles)
+    filter.value = filters
 }
 </script>
 
 # 梯子客户端汇总
 
 <filter-bar @applyFilter="applyFilter"></filter-bar>
+
+<div border="solid gray-300 rounded-md dark:gray-7" bg="gray-100 dark:gray-800" shadow="md" class="p-4 m-4" v-for="(item, index) in queryClients(filter)">
+    <h3 class="important:my-0">
+        <i i-carbon-link mr-2 mt--1></i>
+        <a class="important:no-underline" :href="'./' + item.slug ">{{ item.name }}</a>
+    </h3>
+    <p class="important:mb-0 line-clamp-2">{{ item.description }}</p>
+</div>
 
 <filter-container filterId="clients" ref="clients" id="clients">
 

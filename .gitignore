@@ -1,5 +1,7 @@
 node_modules
 press/.vitepress/cache
-.vitepress
+press/.vitepress/dist
+.vitepress/cache
+.vitepress/dist
 .env
 stats.html

@@ -2,6 +2,7 @@
 import { h, defineAsyncComponent } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
+import FilterBar from '../../components/Filter/FilterBar.vue'
 import './style.css'
 import "virtual:uno.css";
 
@@ -29,10 +30,7 @@ export default {
       "Link",
       defineAsyncComponent(() => import("../../components/Embeds/Link.vue"))
     );
-    app.component(
-      "FilterBar",
-      defineAsyncComponent(() => import("../../components/Filter/FilterBar.vue"))
-    );
+    app.component("FilterBar", FilterBar);
     app.component(
       "FilterItem",
       defineAsyncComponent(() => import("../../components/Filter/FilterItem.vue"))
