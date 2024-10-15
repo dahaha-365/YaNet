@@ -44,19 +44,19 @@ const clients = [
     "platforms": ["ios"]
   },
   {
-    "name": "karing",
+    "name": "Karing",
     "description": "简单而强大，基于规则的网络代理工具",
     "slug": "karing",
-    "platforms": ["ios"]
+    "platforms": ["ios", "mac"]
   },
   {
-    "name": "loon",
+    "name": "Loon",
     "description": "Loon是一款iOS上强大的网络工具，支持基于域名、IP、URL，SSID规则进行分流，强大的策略组组合可以满足任何的网络分流需求；Loon可以抓取、保存、修改HTTP/HTTPs流量，配合Javascript可以处理任何复杂的需求",
     "slug": "loon",
     "platforms": ["ios", "appletv"]
   },
   {
-    "name": "nekoray",
+    "name": "NekoRay",
     "description": "基于 Qt 的跨平台代理配置管理器 (后端 sing-box)",
     "slug": "nekoray",
     "platforms": ["windows", "linux", "mac"]
@@ -100,9 +100,7 @@ const queryClients = (filters: Array<string>, relation: String = "or") => {
       case 'or':
       default:
         return clients.filter(client => {
-          return client.platforms.filter(platform => {
-            return filters.includes(platform)
-          }).length > 0
+          return client.platforms.filter(platform => filters.includes(platform)).length > 0
         })
         break;
     }
