@@ -15,7 +15,7 @@ export default {
   enhanceApp({ app, router, siteData }) {
     app.component(
       "Embed",
-      defineAsyncComponent(() => import("../../components/Embeds/Embed.vue"))
+      defineAsyncComponent(() => import("../../components/Embed.vue"))
     );
     app.component(
       "AppStore",
