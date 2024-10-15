@@ -7,6 +7,7 @@ import {
     transformerVariantGroup,
     presetAttributify, presetMini,
 } from 'unocss'
+import { presetScrollbar } from 'unocss-preset-scrollbar'
 
 export default defineConfig({
     presets: [
@@ -33,6 +34,7 @@ export default defineConfig({
                 sans: 'Inter',
             },
         }),
+        presetScrollbar(),
     ],
     transformers: [
         transformerDirectives(),
