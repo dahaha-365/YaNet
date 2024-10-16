@@ -278,10 +278,10 @@ const airports = [
         "coupons": []
     },
     {
-        "name": "TLS",
+        "name": "TLS🔥",
         "slogan": "高级套餐附带 Emby 服务，提供了 4K 片源，并且直连 Emby 的速度也是不错的，不需要梯子就能直接看。影视库更新速度也挺快，最新电视剧集基本第二天就上了，基本可以替代国内视频平台。",
         "url": "https://s.yanet.app/RQ3LmG",
-        "features": ["周期付费", "解锁流媒体", "中转", "gpt", "ss", "不限速", "不限设备数量"],
+        "features": ["周期付费", "解锁流媒体", "中转", "gpt", "ss", "不限速", "不限设备数量", "emby"],
         "coupons": []
     },
 ]

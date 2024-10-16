@@ -5,7 +5,7 @@
     "baseUrl": "./",
     "moduleResolution": "node",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*", "press/**/*", "press/**/*.vue", "press/**/*.js"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   }

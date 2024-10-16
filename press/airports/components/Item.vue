@@ -1,13 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { UseClipboard } from '@vueuse/components/index.mjs'
-const props = defineProps(['item'])
-const clipboards = ref([])
-if (props.item.coupons.length > 0) {
-    for (const coupon in props.item.coupons) {
-        console.log(coupon)
-    }
-}
+defineProps(['item'])
 </script>
 <template>
     <div border="solid gray-300 width-1 rounded-md dark:gray-7" bg="gray-100 dark:gray-800" shadow="md" class="p-4 m-4">
