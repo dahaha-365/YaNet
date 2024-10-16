@@ -635,7 +635,7 @@ function main(config) {
   if (ruleOptions.japan) {
     rules.push(
       'RULE-SET,category-bank-jp,日本网站',
-      'GEOIP,JP,日本网站,no-resolve'
+      'GEOIP,jp,日本网站,no-resolve'
     )
     ruleProviders.set('category-bank-jp', {
       ...ruleProviderCommon,
@@ -657,7 +657,8 @@ function main(config) {
   rules.push(
     'GEOSITE,private,DIRECT',
     'GEOIP,private,DIRECT,no-resolve',
-    'GEOIP,CN,国内网站,no-resolve',
+    'GEOSITE,cn,国内网站',
+    'GEOIP,cn,国内网站,no-resolve',
     'MATCH,其他外网'
   )
   config['proxy-groups'].push(

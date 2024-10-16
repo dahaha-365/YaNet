@@ -8,6 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@vueuse/components':
+        specifier: ^11.1.0
+        version: 11.1.0(vue@3.5.11)
+      '@vueuse/core':
+        specifier: ^11.1.0
+        version: 11.1.0(vue@3.5.11)
       dotenv:
         specifier: ^16.4.5
         version: 16.4.5
@@ -777,6 +783,9 @@ packages:
 
   '@vue/shared@3.5.11':
     resolution: {integrity: sha512-W8GgysJVnFo81FthhzurdRAWP/byq3q2qIw70e0JWblzVhjgOMiC2GyovXrZTFQJnFVryYaKGP3Tc9vYzYm6PQ==}
+
+  '@vueuse/components@11.1.0':
+    resolution: {integrity: sha512-8CTbvH1rHfAlqsMdMg6G2OiIvHiHn8HRx0yyJ+Ri/C8J6cLylXAd7VESawoCAkRdAXT4ucPnj/uYHZqEb0JbBQ==}
 
   '@vueuse/core@11.1.0':
     resolution: {integrity: sha512-P6dk79QYA6sKQnghrUz/1tHi0n9mrb/iO1WTMk/ElLmTyNqgDeSZ3wcDf6fRBGzRJbeG1dxzEOvLENMjr+E3fg==}
@@ -2128,6 +2137,15 @@ snapshots:
       vue: 3.5.11
 
   '@vue/shared@3.5.11': {}
+
+  '@vueuse/components@11.1.0(vue@3.5.11)':
+    dependencies:
+      '@vueuse/core': 11.1.0(vue@3.5.11)
+      '@vueuse/shared': 11.1.0(vue@3.5.11)
+      vue-demi: 0.14.10(vue@3.5.11)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
 
   '@vueuse/core@11.1.0(vue@3.5.11)':
     dependencies:
