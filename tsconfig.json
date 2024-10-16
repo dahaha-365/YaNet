@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    /* other configs */
+    "paths": {
+      "@/*": [
+        "./src/*", // set path `@/*` as alias of `src/*`
+        "./press/*",
+        "./press/**/*.vue"
+      ]
+    }
+    /* other configs */
+  }
+}
