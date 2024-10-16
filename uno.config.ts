@@ -24,6 +24,7 @@ export default defineConfig({
             collections: {
                 carbon: () => import('@iconify-json/carbon/icons.json').then(i => i.default),
                 logos: () => import('@iconify-json/logos/icons.json').then(i => i.default),
+                custom: {}
             }
         }),
         presetAttributify(),
@@ -40,4 +41,16 @@ export default defineConfig({
         transformerDirectives(),
         transformerVariantGroup(),
     ],
+    theme: {
+        colors: {
+            veryCool: '#0000ff', // class="text-very-cool"
+            brand: {
+                youtube: '#ff0000', //class="bg-brand-primary"
+                hulu: '#66aa33', //class="bg-brand"
+                netflix: '#e50914',
+                google: '#4285f4',
+                spotify: '#1db954',
+            },
+        },
+    }
 })

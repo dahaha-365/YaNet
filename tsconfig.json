@@ -5,7 +5,7 @@
       "@/*": [
         "./src/*", // set path `@/*` as alias of `src/*`
         "./press/*",
-        "./press/**/*.vue"
+        "./press/*.vue"
       ]
     }
     /* other configs */
