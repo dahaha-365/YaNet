@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { UseClipboard } from '@vueuse/components/index'
+import { UseClipboard } from '@vueuse/components/index.mjs'
 const props = defineProps(['item'])
 const clipboards = ref([])
 if (props.item.coupons.length > 0) {
