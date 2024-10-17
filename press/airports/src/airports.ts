@@ -232,7 +232,7 @@ const airports = [
         "name": "CokeCloud可乐云🔥",
         "slogan": "主打速度快，节点稳老牌机场，可定制原生千兆独享节点，亦有9.9元超值400G流量不限速，亦有不限时套餐选择。",
         "url": "https://s.yanet.app/jxUQE6",
-        "features": ["周期付费", "按量付费", "中转", "解锁流媒体", "gpt", "trojan", "iplc", "不限速", "不限设备数量"],
+        "features": ["周期付费", "按量付费", "中转", "解锁流媒体", "gpt", "trojan", "ss", "v2ray", "iplc", "不限速", "不限设备数量"],
         "coupons": []
     },
     {

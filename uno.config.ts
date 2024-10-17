@@ -45,8 +45,8 @@ export default defineConfig({
         colors: {
             veryCool: '#0000ff', // class="text-very-cool"
             brand: {
-                youtube: '#ff0000', //class="bg-brand-primary"
-                hulu: '#66aa33', //class="bg-brand"
+                youtube: '#ff0000', //class="bg-brand-youtube"
+                hulu: '#66aa33', //class="bg-brand-hulu"
                 netflix: '#e50914',
                 google: '#4285f4',
                 spotify: '#1db954',
