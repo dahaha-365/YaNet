@@ -62,4 +62,22 @@ const sites = [
         "categories": ["影音流媒体"],
         "keywords": "抖音 tiktok 短视频 流媒体",
     },
+    {
+        "name": "動畫瘋",
+        "icon": "carbon:spotify",
+        "url": "https://ani.gamer.com.tw/",
+        "color": "",
+        "description": "全球最大视频网站",
+        "categories": ["影音流媒体"],
+        "keywords": "巴哈姆特 动画疯 流媒体",
+    },
+    {
+        "name": "hulu",
+        "icon": "carbon:spotify",
+        "url": "https://www.hulu.com/",
+        "color": "",
+        "description": "全球最大视频网站",
+        "categories": ["影音流媒体"],
+        "keywords": "抖音 tiktok 短视频 流媒体",
+    },
 ]
