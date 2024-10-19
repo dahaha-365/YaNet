@@ -14,31 +14,31 @@ import { querySites } from '../src/sites.tsx'
             </ul>
         </nav>
         <div class="nav-cols flex-row flex items-start">
-            <ul class="flex-auto block">
+            <ul class="flex-1 block">
                 <li v-for="(item, index) in querySites(['常用网站'], true)">
                     <i :class="item.icon"></i>
                     <a :href="item.url" target="_blank">{{ item.name }}</a>
                 </li>
             </ul>
-            <ul class="flex-auto block">
+            <ul class="flex-1 block">
                 <li v-for="(item, index) in querySites(['流媒体'], true)">
                     <i :class="item.icon"></i>
                     <a :href="item.url" target="_blank">{{ item.name }}</a>
                 </li>
             </ul>
-            <ul class="flex-auto block">
+            <ul class="flex-1 block">
                 <li v-for="(item, index) in querySites(['社交媒体'], true)">
                     <i :class="item.icon"></i>
                     <a :href="item.url" target="_blank">{{ item.name }}</a>
                 </li>
             </ul>
-            <ul class="flex-auto block">
+            <ul class="flex-1 block">
                 <li v-for="(item, index) in querySites(['人工智能'], true)">
                     <i :class="item.icon"></i>
                     <a :href="item.url" target="_blank">{{ item.name }}</a>
                 </li>
             </ul>
-            <ul class="flex-auto block">
+            <ul class="flex-1 block">
                 <li v-for="(item, index) in querySites(['效率工具'], true)">
                     <i :class="item.icon"></i>
                     <a :href="item.url" target="_blank">{{ item.name }}</a>
@@ -72,6 +72,7 @@ ul li {
 .nav-cols li i {
     margin-right: 0.4em;
     margin-top: -0.25em;
+    margin-left: -1.6em;
 }
 
 .i-cib\:instagram {
