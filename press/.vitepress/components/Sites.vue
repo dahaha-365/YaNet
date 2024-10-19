@@ -74,13 +74,4 @@ ul li {
     margin-top: -0.25em;
     margin-left: -1.6em;
 }
-
-.i-cib\:instagram {
-    background: radial-gradient(circle at 30% 110%,
-            #ffdb8b 0%,
-            #ee653d 25%,
-            #d42e81 50%,
-            #a237b6 75%,
-            #3e57bc 100%);
-}
 </style>
