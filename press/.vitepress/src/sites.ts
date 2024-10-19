@@ -2,11 +2,20 @@ const sites = [
     {
         "name": "Google",
         "icon": "carbon:youtube",
-        "url": "https://www.Google.com/",
+        "url": "https://www.google.com/",
         "color": "#ff0000",
         "description": "全球最大社交平台",
         "categories": ["搜索引擎"],
-        "keywords": "谷歌 google 搜索",
+        "keywords": "谷歌 google 搜索 常用网站",
+    },
+    {
+        "name": "DuckDuckGo",
+        "icon": "carbon:youtube",
+        "url": "https://www.duckduckgo.com/",
+        "color": "#ff0000",
+        "description": "全球最大社交平台",
+        "categories": ["搜索引擎"],
+        "keywords": "鸭鸭子 duckduckgo 搜索 常用网站",
     },
     {
         "name": "facebook",
