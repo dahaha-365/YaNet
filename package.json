@@ -27,6 +27,11 @@
     "vitepress": "^1.4.0"
   },
   "dependencies": {
+    "@iconify-json/arcticons": "^1.2.4",
+    "@iconify-json/cbi": "^1.2.5",
+    "@iconify-json/cib": "^1.2.1",
+    "@iconify-json/simple-icons": "^1.2.8",
+    "@iconify-json/twemoji": "^1.2.1",
     "@vueuse/components": "^11.1.0",
     "@vueuse/core": "^11.1.0",
     "dotenv": "^16.4.5",
