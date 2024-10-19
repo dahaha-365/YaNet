@@ -28,6 +28,7 @@ export default defineConfig({
                 arcticons: () => import('@iconify-json/arcticons/icons.json').then(i => i.default),
                 simple: () => import('@iconify-json/simple-icons/icons.json').then(i => i.default),
                 twemoji: () => import('@iconify-json/twemoji/icons.json').then(i => i.default),
+                skill: () => import('@iconify-json/skill-icons/icons.json').then(i => i.default),
                 custom: {}
             }
         }),
