@@ -819,6 +819,15 @@
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
 
+.clip {
+  background: linear-gradient(109deg, #5c22fa, #c9cfc8, #eb796c, #4c349c) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text;
+  -webkit-text-fill-color: var(--vp-home-hero-name-color);
+  background-size: 240% 240%;
+  animation: gradient-animation 12s ease infinite;
+}
+
 .gradient-background-primary {
   background: linear-gradient(109deg, #5c22fa, #c9cfc8, #eb796c, #4c349c);
   background-size: 240% 240%;
