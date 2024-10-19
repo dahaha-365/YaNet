@@ -24,6 +24,11 @@ export default defineConfig({
             collections: {
                 carbon: () => import('@iconify-json/carbon/icons.json').then(i => i.default),
                 logos: () => import('@iconify-json/logos/icons.json').then(i => i.default),
+                cib: () => import('@iconify-json/cib/icons.json').then(i => i.default),
+                arcticons: () => import('@iconify-json/arcticons/icons.json').then(i => i.default),
+                simple: () => import('@iconify-json/simple-icons/icons.json').then(i => i.default),
+                twemoji: () => import('@iconify-json/twemoji/icons.json').then(i => i.default),
+                custom: {}
             }
         }),
         presetAttributify(),
@@ -40,4 +45,16 @@ export default defineConfig({
         transformerDirectives(),
         transformerVariantGroup(),
     ],
+    theme: {
+        colors: {
+            veryCool: '#0000ff', // class="text-very-cool"
+            brand: {
+                youtube: '#ff0000', //class="bg-brand-youtube"
+                hulu: '#66aa33', //class="bg-brand-hulu"
+                netflix: '#e50914',
+                google: '#4285f4',
+                spotify: '#1db954',
+            },
+        },
+    }
 })

@@ -1,13 +1,10 @@
 {
   "compilerOptions": {
-    /* other configs */
-    "paths": {
-      "@/*": [
-        "./src/*", // set path `@/*` as alias of `src/*`
-        "./press/*",
-        "./press/**/*.vue"
-      ]
-    }
-    /* other configs */
-  }
+    "module": "es2015",
+    "moduleResolution": "node",
+    "target": "es5",
+    "sourceMap": true,
+    "allowJs": true
+  },
+  "include": ["src/**/*", "press/**/*.vue", "press/**/*.ts"]
 }

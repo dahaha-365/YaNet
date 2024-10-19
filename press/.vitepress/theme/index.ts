@@ -14,20 +14,24 @@ export default {
   },
   enhanceApp({ app, router, siteData }) {
     app.component(
+      "Sites",
+      defineAsyncComponent(() => import("../components/Sites.vue"))
+    );
+    app.component(
       "Embed",
-      defineAsyncComponent(() => import("../../components/Embed.vue"))
+      defineAsyncComponent(() => import("../components/Embed.vue"))
     );
     app.component(
       "AppStore",
-      defineAsyncComponent(() => import("../../components/Embeds/AppStore.vue"))
+      defineAsyncComponent(() => import("../components/Embeds/AppStore.vue"))
     );
     app.component(
       "Github",
-      defineAsyncComponent(() => import("../../components/Embeds/Github.vue"))
+      defineAsyncComponent(() => import("../components/Embeds/Github.vue"))
     );
     app.component(
       "Link",
-      defineAsyncComponent(() => import("../../components/Embeds/Link.vue"))
+      defineAsyncComponent(() => import("../components/Embeds/Link.vue"))
     );
   }
 } satisfies Theme
