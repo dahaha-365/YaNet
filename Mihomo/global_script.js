@@ -361,7 +361,8 @@ function main(config) {
     rules.push(
       'DOMAIN-SUFFIX,grazie.ai,国外AI',
       'DOMAIN-SUFFIX,grazie.aws.intellij.net,国外AI',
-      'RULE-SET,ai,国外AI'
+      'RULE-SET,ai,国外AI',
+      'RULE-SET,category-ai-chat-excluded-cn,国外AI'
     )
     ruleProviders.set('ai', {
       ...ruleProviderCommon,
@@ -369,6 +370,13 @@ function main(config) {
       format: 'mrs',
       url: 'https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/ai.mrs',
       path: './ruleset/DustinWin/ai.mrs',
+    })
+    ruleProviders.set('category-ai-chat-excluded-cn', {
+      ...ruleProviderCommon,
+      behavior: 'domain',
+      format: 'mrs',
+      url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-chat-!cn.mrs',
+      path: './ruleset/MetaCubeX/category-ai-chat-excluded-cn.mrs',
     })
     config['proxy-groups'].push({
       ...groupBaseOption,
