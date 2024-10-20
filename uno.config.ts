@@ -33,6 +33,10 @@ export default defineConfig({
                 custom: {
                     'google-gemini-icon': () => fs.readFile('./IconSet/google-gemini-icon.svg', 'utf-8'),
                     'microsoft-copilot-icon': () => fs.readFile('./IconSet/copilot-icon.svg', 'utf-8'),
+                    'dropbox-icon': () => fs.readFile('./IconSet/dropbox-icon.svg', 'utf-8'),
+                    'evernote-icon': () => fs.readFile('./IconSet/evernote-icon.svg', 'utf-8'),
+                    'quora-icon': () => fs.readFile('./IconSet/quora-icon.svg', 'utf-8'),
+                    'slack-icon': () => fs.readFile('./IconSet/slack-icon.svg', 'utf-8'),
                 }
             }
         }),
