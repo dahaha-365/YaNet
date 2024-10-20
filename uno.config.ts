@@ -1,3 +1,4 @@
+import fs from 'node:fs/promises'
 import {
     defineConfig,
     presetUno,
@@ -29,7 +30,10 @@ export default defineConfig({
                 simple: () => import('@iconify-json/simple-icons/icons.json').then(i => i.default),
                 twemoji: () => import('@iconify-json/twemoji/icons.json').then(i => i.default),
                 skill: () => import('@iconify-json/skill-icons/icons.json').then(i => i.default),
-                custom: {}
+                custom: {
+                    'google-gemini-icon': () => fs.readFile('./IconSet/google-gemini-icon.svg', 'utf-8'),
+                    'microsoft-copilot-icon': () => fs.readFile('./IconSet/copilot-icon.svg', 'utf-8'),
+                }
             }
         }),
         presetAttributify(),

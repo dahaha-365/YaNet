@@ -191,12 +191,22 @@ const sites = [
     },
     {
         "name": "Gemini",
-        "icon": "i-simple-icons:googlegemini",
+        "icon": "i-custom:google-gemini-icon",
         "url": "https://gemini.google.com/",
         "color": "",
         "description": "全球最大视频网站",
         "categories": ["AI", "人工智能"],
         "keywords": "google gemini 人工智能",
+        "recommend": true,
+    },
+    {
+        "name": "Copilot",
+        "icon": "i-custom:microsoft-copilot-icon",
+        "url": "https://copilot.microsoft.com/",
+        "color": "",
+        "description": "全球最大视频网站",
+        "categories": ["AI", "人工智能"],
+        "keywords": "microsoft copilot 人工智能",
         "recommend": true,
     },
     {
