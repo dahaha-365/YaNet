@@ -284,6 +284,13 @@ const airports = [
         "features": ["周期付费", "解锁流媒体", "中转", "gpt", "ss", "不限速", "不限设备数量", "emby"],
         "coupons": []
     },
+    {
+        "name": "Pocker Cloud扑克云",
+        "slogan": "✅全部节点隧道中转稳定在线✅支持流媒体解锁✅不限制节点使用速度✅不限制设备数连接数",
+        "url": "https://s.yanet.app/2cf46T",
+        "features": ["周期付费", "按量付费", "解锁流媒体", "中转", "gpt", "ss", "不限速", "不限设备数量", "emby"],
+        "coupons": []
+    },
 ]
 
 const queryAirports = (filters: Array<string>, relation: String = "or") => {
