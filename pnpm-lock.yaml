@@ -14,6 +14,9 @@ importers:
       '@vueuse/core':
         specifier: ^11.1.0
         version: 11.1.0(vue@3.5.12)
+      alova:
+        specifier: ^3.1.0
+        version: 3.1.0
       dotenv:
         specifier: ^16.4.5
         version: 16.4.5
@@ -145,6 +148,9 @@ packages:
 
   '@algolia/transporter@4.24.0':
     resolution: {integrity: sha512-86nI7w6NzWxd1Zp9q3413dRshDqAzSbsQjhcDhPIatEFiZrL1/TjnHL8S7jVKFePlIMzDsZWXAXwXzcok9c5oA==}
+
+  '@alova/shared@1.0.6':
+    resolution: {integrity: sha512-W89j64InjFIsW/u5YmYvpXGWz8JerBAYWyu/Fc7xfc5B+95SSA3ybW4nyHacBUW6yYQyGZwa8S8bVPePqa7bmA==}
 
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
@@ -884,6 +890,10 @@ packages:
   algoliasearch@4.24.0:
     resolution: {integrity: sha512-bf0QV/9jVejssFBmz2HQLxUadxk574t4iwjCKp5E7NBzwKkrDEhKPISIIjAU/p6K5qDx3qoeh4+26zWN1jmw3g==}
 
+  alova@3.1.0:
+    resolution: {integrity: sha512-blccCirLgTqAJgMkQnAECiP7zs+rYLgfVHbghoIHryCXHVDbKdVsEg/PFrN04NexCN+UUFPzmKcdfaCyYCAeuw==}
+    engines: {node: '>= 18.0.0'}
+
   ansi-regex@5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
     engines: {node: '>=8'}
@@ -1242,6 +1252,9 @@ packages:
 
   property-information@6.5.0:
     resolution: {integrity: sha512-PgTgs/BlvHxOu8QuEN7wi5A0OmXaBcHpmCSTehcs6Uuu9IkDIEo13Hy7n898RHfrQ49vKCoGeWZSaAK01nwVig==}
+
+  rate-limiter-flexible@5.0.4:
+    resolution: {integrity: sha512-ftYHrIfSqWYDIJZ4yPTrgOduByAp+86gUS9iklv0JoXVM8eQCAjTnydCj1hAT4MmhmkSw86NaFEJ28m/LC1pKA==}
 
   readdirp@3.6.0:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
@@ -1719,6 +1732,8 @@ snapshots:
       '@algolia/cache-common': 4.24.0
       '@algolia/logger-common': 4.24.0
       '@algolia/requester-common': 4.24.0
+
+  '@alova/shared@1.0.6': {}
 
   '@ampproject/remapping@2.3.0':
     dependencies:
@@ -2415,6 +2430,11 @@ snapshots:
       '@algolia/requester-node-http': 4.24.0
       '@algolia/transporter': 4.24.0
 
+  alova@3.1.0:
+    dependencies:
+      '@alova/shared': 1.0.6
+      rate-limiter-flexible: 5.0.4
+
   ansi-regex@5.0.1: {}
 
   ansi-styles@4.3.0:
@@ -2782,6 +2802,8 @@ snapshots:
   prettier@3.3.3: {}
 
   property-information@6.5.0: {}
+
+  rate-limiter-flexible@5.0.4: {}
 
   readdirp@3.6.0:
     dependencies:

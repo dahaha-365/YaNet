@@ -1,18 +1,34 @@
 <script setup>
 import { useSlots } from 'vue'
 import { format } from 'timeago.js';
+import { createAlova } from 'alova';
+import adapterFetch from 'alova/fetch';
 const slots = useSlots()
 const url = slots.default()[0].children
 let [, , repo] = /https?:\/\/(www\.)?github\.com\/([a-z0-9-]+\/[a-z0-9-\.]+)/i.exec(url)
-const response = await fetch('https://api.github.com/repos/' + repo + '?' + new URLSearchParams({
+const alova = createAlova({
+    requestAdapter: adapterFetch(),
+    responded: response => response.json(),
+    id: 'api-github-repo',
+    cacheFor: {
+        // 统一设置POST的缓存模式
+        GET: {
+            mode: 'restore',
+            expire: 60 * 60 * 1000
+        },
+        // 统一设置HEAD请求的缓存模式
+        HEAD: 60 * 60 * 1000,
+        OPTIONS: 60 * 60 * 1000,
+    }
+})
+const githubData = await alova.Get('https://api.github.com/repos/' + repo + '?' + new URLSearchParams({
     client_id: GITHUB_CLIENT_ID,
     client_secret: GITHUB_CLIENT_SECRET,
 }))
-const githubData = await response.json();
 </script>
 <template>
     <div class="github-card my5">
-        <div v-if="response.ok">
+        <div v-if="githubData?.id">
             <div bg="gray-50 dark:gray-800" border="~ solid gray-3 hover:gray-4 dark:gray-7 dark:hover:gray-5"
                 class="p3 rd-md transition-all ease-linear">
                 <div class="flex gap-4">
