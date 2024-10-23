@@ -21,7 +21,12 @@ const alova = createAlova({
         OPTIONS: 60 * 60 * 1000,
     }
 })
-const appStoreData = await alova.Get('https://itunes.apple.com/lookup?output=json&id=' + appId)
+const appStoreData = await alova.Get('https://itunes.apple.com/lookup?output=json&id=' + appId, {
+    headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': location.host,
+    }
+})
 </script>
 <template>
     <div class="appstore-card my5">
@@ -53,7 +58,7 @@ const appStoreData = await alova.Get('https://itunes.apple.com/lookup?output=jso
                             <span class="price"><i i-carbon-currency-dollar text="yellow-4"></i>
                                 <span bg="yellow-4" text="emerald-8 shadow" px-1 rounded-sm>{{
                                     appStoreData.results[0].price
-                                    }}</span>
+                                }}</span>
                             </span>
                             <span><i i-carbon-star></i> {{ Math.round(appStoreData.results[0].averageUserRating * 100) /
                                 100
