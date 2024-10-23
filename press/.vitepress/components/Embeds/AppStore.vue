@@ -1,5 +1,5 @@
 <script setup>
-import { useSlots } from 'vue'
+import { useSlots, ref } from 'vue'
 import { format } from 'timeago.js';
 import { createAlova } from 'alova';
 import adapterFetch from 'alova/fetch';
@@ -21,16 +21,16 @@ const alova = createAlova({
         OPTIONS: 60 * 60 * 1000,
     }
 })
-const appStoreData = await alova.Get('https://itunes.apple.com/lookup?output=json&id=' + appId, {
+const appStoreData = ref()
+appStoreData.value = await alova.Get('https://itunes.apple.com/lookup?output=json&id=' + appId, {
     headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': location.host,
+        'Content-Type': 'application/json'
     }
 })
 </script>
 <template>
     <div class="appstore-card my5">
-        <div v-if="appStoreData.resultCount === 1">
+        <div v-if="appStoreData?.resultCount === 1">
             <div bg="gray-50 dark:gray-800" border="~ solid gray-3 hover:gray-4 dark:gray-7 dark:hover:gray-5"
                 class="p3 rd-md transition-all ease-linear">
                 <div class="flex gap-4">
@@ -58,7 +58,7 @@ const appStoreData = await alova.Get('https://itunes.apple.com/lookup?output=jso
                             <span class="price"><i i-carbon-currency-dollar text="yellow-4"></i>
                                 <span bg="yellow-4" text="emerald-8 shadow" px-1 rounded-sm>{{
                                     appStoreData.results[0].price
-                                }}</span>
+                                    }}</span>
                             </span>
                             <span><i i-carbon-star></i> {{ Math.round(appStoreData.results[0].averageUserRating * 100) /
                                 100
