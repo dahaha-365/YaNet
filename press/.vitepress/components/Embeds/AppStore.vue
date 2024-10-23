@@ -1,14 +1,27 @@
 <script setup>
 import { useSlots } from 'vue'
-import fetchJsonp from 'fetch-jsonp';
 import { format } from 'timeago.js';
+import { createAlova } from 'alova';
+import adapterFetch from 'alova/fetch';
 const slots = useSlots()
 const url = slots.default()[0].children
 let [, , , , appId] = /https?:\/\/apps.apple.com\/((cn|us|hk|sg|jp)\/)*app\/([a-z-]+\/)*id(\d+)/i.exec(url)
-const response = await fetchJsonp('https://itunes.apple.com/lookup?output=json&id=' + appId, {
-    jsonpCallback: 'callback',
+const alova = createAlova({
+    requestAdapter: adapterFetch(),
+    responded: response => response.json(),
+    id: 'itunes-apple-lookup',
+    cacheFor: {
+        // 统一设置POST的缓存模式
+        GET: {
+            mode: 'restore',
+            expire: 60 * 60 * 1000
+        },
+        // 统一设置HEAD请求的缓存模式
+        HEAD: 60 * 60 * 1000,
+        OPTIONS: 60 * 60 * 1000,
+    }
 })
-const appStoreData = await response.json()
+const appStoreData = await alova.Get('https://itunes.apple.com/lookup?output=json&id=' + appId)
 </script>
 <template>
     <div class="appstore-card my5">
