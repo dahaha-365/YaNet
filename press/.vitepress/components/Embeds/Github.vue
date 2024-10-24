@@ -19,9 +19,19 @@ const alova = createAlova({
             mode: 'restore',
             expire: 60 * 60 * 1000
         },
+        POST: {
+            mode: 'restore',
+            expire: 60 * 60 * 1000
+        },
         // 统一设置HEAD请求的缓存模式
-        HEAD: 60 * 60 * 1000,
-        OPTIONS: 60 * 60 * 1000,
+        HEAD: {
+            mode: 'restore',
+            expire: 60 * 60 * 1000
+        },
+        OPTIONS: {
+            mode: 'restore',
+            expire: 60 * 60 * 1000
+        },
     }
 })
 const { data } = useRequest(

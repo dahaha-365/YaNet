@@ -10,6 +10,9 @@ const url = slots.default()[0].children
 let [, , , , appId] = /https?:\/\/apps.apple.com\/((cn|us|hk|sg|jp)\/)*app\/([a-z-]+\/)*id(\d+)/i.exec(url)
 const alova = createAlova({
     requestAdapter: adapterFetch(),
+    beforeRequest(method) {
+        method.config.headers['Content-Type'] = 'text/javascript; charset=utf-8';
+    },
     responded: response => response.json(),
     statesHook: VueHook,
     id: 'itunes-apple-lookup',
@@ -19,14 +22,27 @@ const alova = createAlova({
             mode: 'restore',
             expire: 60 * 60 * 1000
         },
+        POST: {
+            mode: 'restore',
+            expire: 60 * 60 * 1000
+        },
         // 统一设置HEAD请求的缓存模式
-        HEAD: 60 * 60 * 1000,
-        OPTIONS: 60 * 60 * 1000,
+        HEAD: {
+            mode: 'restore',
+            expire: 60 * 60 * 1000
+        },
+        OPTIONS: {
+            mode: 'restore',
+            expire: 60 * 60 * 1000
+        },
     }
 })
 const { data } = useRequest(
     alova.Get('https://itunes.apple.com/lookup?output=json&id=' + appId),
     {
+        transform(rawData, headers) {
+            console.log(rawData, headers)
+        },
         initialData: {
             resultCount: 0
         },
