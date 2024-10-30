@@ -5,3 +5,4 @@ press/.vitepress/dist
 .vitepress/dist
 .env
 stats.html
+/dist/rulesets/mihomo/*.list

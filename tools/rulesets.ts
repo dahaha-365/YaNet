@@ -2,7 +2,9 @@ import { createAlova } from 'alova'
 import { useRequest } from 'alova/client'
 import VueHook from 'alova/vue';
 import adapterFetch from 'alova/fetch'
-import { classicalExtractor, singJsonExtrator } from './src/ruleset-extrator.ts'
+import { classicalExtractor, singJsonExtrator } from './src/ruleset-extrator'
+import * as path from 'node:path'
+import { writeFileSync } from 'node:fs'
 
 const alova = createAlova({
   requestAdapter: adapterFetch(),
@@ -58,7 +60,7 @@ const build = async () => {
   rules.sort()
   // console.log(rules)
   const header = `# AI ruleset\n# Creator URL: https://yanet.app\n# Created at ${new Date().toISOString}\n\n`
-  // console.log(String(jetbrainsAiRules))
+  writeFileSync(path.resolve('./dist/rulesets/mihomo/ai.list'), header + rules.join('\n'))
 }
 
 build()
