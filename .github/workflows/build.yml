@@ -1,0 +1,7 @@
+name: build
+on:
+  schedule:
+    - cron: '0 23 * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
