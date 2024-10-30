@@ -9,5 +9,5 @@
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
-  "include": ["src/**/*.*", "press/**/*.vue", "press/**/*.js"]
+  "include": ["src/**/*.*", "press/**/*.vue", "press/**/*.js", "tools/**/*.js"]
 }

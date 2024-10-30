@@ -6,5 +6,8 @@
     "sourceMap": true,
     "allowJs": true
   },
-  "include": ["src/**/*", "press/**/*.vue", "press/**/*.ts"]
+  "ts-node": {
+    "esm": true
+  },
+  "include": ["src/**/*", "press/**/*.vue", "press/**/*.ts", "tools/**/*.ts"]
 }
