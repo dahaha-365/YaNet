@@ -1,6 +1,6 @@
 ### Mihomo Party
 
-一个Electron框架开发的Mihomo GUI程序，使用Mihomo作为内核。
+一个 Electron 框架开发的 Mihomo GUI 程序，使用 Mihomo 作为内核。
 
 <Embed>https://github.com/mihomo-party-org/mihomo-party</Embed>
 

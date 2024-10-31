@@ -2,7 +2,7 @@
 
 基于 Qt 的跨平台代理配置管理器 (后端 sing-box)，目前支持 Windows / Linux 开箱即用。
 
-Google Play版本的NekoBox非官方发布，不建议下载。
+Google Play 版本的 NekoBox 非官方发布，不建议下载。
 
 <Embed>https://github.com/MatsuriDayo/nekoray</Embed>
 
