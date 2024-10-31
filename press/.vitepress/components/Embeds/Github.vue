@@ -84,7 +84,7 @@ const { data } = useRequest(
     </div>
     <div v-else>
       <div>
-        <i i-logos-github-icon mr-2 bg="white" class="rounded-full"></i>
+        <i i-cib:github mr-2></i>
         <a :href="url" target="_blank">
           {{ url }}
         </a>
