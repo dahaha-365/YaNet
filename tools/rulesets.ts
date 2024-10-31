@@ -4,7 +4,7 @@ import VueHook from 'alova/vue';
 import adapterFetch from 'alova/fetch'
 import { classicalExtractor, singJsonExtrator } from './src/ruleset-extrator'
 import * as path from 'node:path'
-import { writeFileSync } from 'node:fs'
+import { writeFileSync, mkdirSync } from 'node:fs'
 
 const alova = createAlova({
   requestAdapter: adapterFetch(),
@@ -58,8 +58,10 @@ const build = async () => {
   const [AIChatNotCNRules, jetbrainsAiRules, claudeRules, openAIRules, bardAIRules, copilotRules, notionRules] = await Promise.all([getAIChatNotCNRules(), getJetbrainsAiRules(), getClaudeRules(), getOpenAIRules(), getBardAIRules(), getCopilotRules(), getNotionRules()]);
   const rules = Array.from(new Set([...AIChatNotCNRules, ...jetbrainsAiRules, ...claudeRules, ...openAIRules, ...bardAIRules, ...copilotRules, ...notionRules]))
   rules.sort()
-  // console.log(rules)
-  const header = `# AI ruleset\n# Creator URL: https://yanet.app\n# Created at ${new Date().toISOString}\n\n`
+  const header = `# AI ruleset\n# Creator URL: https://yanet.app\n# Created at ${new Date().toISOString()}\n\n`
+  mkdirSync(path.resolve('./dist/rulesets/mihomo/'), {
+    recursive: true
+  })
   writeFileSync(path.resolve('./dist/rulesets/mihomo/ai.list'), header + rules.join('\n'))
 }
 
