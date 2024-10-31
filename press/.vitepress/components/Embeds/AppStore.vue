@@ -38,7 +38,7 @@ const alova = createAlova({
     }
 })
 const { data } = useRequest(
-    alova.Get('https://itunes.apple.com/lookup?output=json&callback=fetchUser&id=' + appId),
+    alova.Get('https://itunes.apple.com/lookup?output=json&id=' + appId),
     {
         initialData: {
             resultCount: 0
