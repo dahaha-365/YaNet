@@ -365,10 +365,10 @@ function main(config) {
     )
     ruleProviders.set('ai', {
       ...ruleProviderCommon,
-      behavior: 'domain',
-      format: 'mrs',
-      url: 'https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/ai.mrs',
-      path: './ruleset/DustinWin/ai.mrs',
+      behavior: 'classical',
+      format: 'text',
+      url: 'https://github.com/dahaha-365/YaNet/raw/refs/heads/dist/rulesets/mihomo/ai.list',
+      path: './ruleset/YaNet/ai.list',
     })
     config['proxy-groups'].push({
       ...groupBaseOption,
