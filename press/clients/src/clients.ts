@@ -84,7 +84,25 @@ const clients = [
     "description": "适用于 Mac 和 iOS 的高级网络工具箱",
     "slug": "surge",
     "platforms": ["mac", "ios", "appletv"]
-  }
+  },
+  {
+    "name": "v2RayN",
+    "description": "适用于 Windows 的图形用户界面客户端，支持 Xray core 和 v2fly core 等",
+    "slug": "v2rayn",
+    "platforms": ["windows"]
+  },
+  {
+    "name": "FlClash",
+    "description": "基于 ClashMeta 的多平台代理客户端，简单易用，开源且无广告",
+    "slug": "flclash",
+    "platforms": ["windows", "mac", "linux", "android"]
+  },
+  {
+    "name": "ClashTui",
+    "description": "Mihomo (Clash.Meta) TUI 客户端",
+    "slug": "clashtui",
+    "platforms": ["windows", "linux"]
+  },
 ]
 
 const queryClients = (filters: Array<string>, relation: String = "or") => {
