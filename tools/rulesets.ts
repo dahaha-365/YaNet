@@ -62,7 +62,7 @@ const build = async () => {
   mkdirSync(path.resolve('./dist/rulesets/mihomo/'), {
     recursive: true
   })
-  writeFileSync(path.resolve('./dist/rulesets/mihomo/ai.list'), rules.join('\n'))
+  writeFileSync(path.resolve('./dist/rulesets/mihomo/ai.list'), header + rules.join('\n'))
 }
 
 build()
