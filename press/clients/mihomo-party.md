@@ -1,4 +1,4 @@
-### Mihomo Party
+# Mihomo Party
 
 一个 Electron 框架开发的 Mihomo GUI 程序，使用 Mihomo 作为内核。
 

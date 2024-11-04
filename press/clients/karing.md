@@ -1,4 +1,4 @@
-### Karing
+# Karing
 
 一个基于 flutter 的 singbox 图形用户界面。
 

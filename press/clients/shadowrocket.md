@@ -1,4 +1,4 @@
-### Shadowrocket
+# Shadowrocket
 
 基于规则的代理实用客户端，适用于 iPhone/iPad。
 

@@ -1,4 +1,4 @@
-### Stash
+# Stash
 
 Stash 是 Clash Premium 内核在 Apple 设备上的最佳实现客户端，为 iOS、tvOS、macOS 与 visionOS 平台完整适配 Clash 功能。
 

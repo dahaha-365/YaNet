@@ -1,4 +1,4 @@
-### Clash Verge Rev
+# Clash Verge Rev
 
 一个 Tauri 框架开发的 Mihomo GUI 程序，使用 Mihomo 作为内核。
 

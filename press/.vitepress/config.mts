@@ -8,6 +8,7 @@ import env from 'dotenv'
 export default defineConfig({
   lang: "zh-CN",
   title: "YaNet",
+  titleTemplate: ':title - YaNet',
   description: "Yet another Internet.",
   vite: {
     plugins: [

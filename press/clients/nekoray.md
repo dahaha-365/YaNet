@@ -1,4 +1,4 @@
-### Nekoray
+# Nekoray
 
 基于 Qt 的跨平台代理配置管理器 (后端 sing-box)，目前支持 Windows / Linux 开箱即用。
 

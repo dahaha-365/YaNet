@@ -1,4 +1,4 @@
-### Pandora Box
+# Pandora Box
 
 一个简易的 Mihomo 桌面客户端，采用 Go 语言开发。
 
