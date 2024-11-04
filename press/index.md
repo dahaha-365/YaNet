@@ -1,4 +1,8 @@
 ---
+title: YaNet
+
+titleTemplate: ':title - 另一个互联网，无限新可能'
+
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
