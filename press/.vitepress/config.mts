@@ -10,6 +10,9 @@ export default defineConfig({
   title: "YaNet",
   titleTemplate: ':title - YaNet',
   description: "Yet another Internet.",
+  sitemap: {
+    hostname: 'https://yanet.app'
+  },
   vite: {
     plugins: [
       AutoSidebar({
