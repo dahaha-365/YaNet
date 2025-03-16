@@ -19,6 +19,7 @@ const enable = true
 const ruleOptions = {
   apple: true, // 苹果服务
   microsoft: true, // 微软服务
+  linkedin: true, // LinkedIn
   google: true, // Google服务
   openai: true, // 国外AI和GPT
   spotify: true, // Spotify
@@ -629,6 +630,18 @@ function main(config) {
       proxies: ['默认节点', ...proxyGroupsRegionNames, '直连'],
       url: 'http://www.msftconnecttest.com/connecttest.txt',
       icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Microsoft.png',
+    })
+  }
+  
+  if (ruleOptions.linkedin) {
+    rules.push('DOMAIN-SUFFIX,linkedin.com,LinkedIn','DOMAIN-SUFFIX,licdn.com,LinkedIn','DOMAIN-KEYWORD,linkedin,LinkedIn')
+    config['proxy-groups'].push({
+      ...groupBaseOption,
+      name: 'LinkedIn',
+      type: 'select',
+      proxies: ['默认节点', ...proxyGroupsRegionNames, '直连'],
+      url: 'http://www.msftconnecttest.com/connecttest.txt',
+      icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Linkedin.png',
     })
   }
 
