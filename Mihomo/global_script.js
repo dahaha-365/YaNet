@@ -374,7 +374,7 @@ function main(config) {
       ...groupBaseOption,
       name: '国外AI',
       type: 'select',
-      proxies: ['默认节点', ...proxyGroupsRegionNames, '直连'],
+      proxies: ['默认节点', ...proxyGroupsRegionNames.filter(name => name !== 'HK香港'), '直连'],
       url: 'https://chat.openai.com/cdn-cgi/trace',
       icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png',
     })
