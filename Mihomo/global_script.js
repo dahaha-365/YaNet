@@ -641,7 +641,7 @@ function main(config) {
       type: 'select',
       proxies: ['默认节点', ...proxyGroupsRegionNames, '直连'],
       url: 'https://github.com/robots.txt',
-      icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Github.png',
+      icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/GitHub.png',
     })
   }
 
