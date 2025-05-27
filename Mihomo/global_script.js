@@ -252,7 +252,7 @@ function main(config) {
     enable: true,
     'force-dns-mapping': true,
     'parse-pure-ip': true,
-    'override-destination': false,
+    'override-destination': true,
     sniff: {
       TLS: {
         ports: [443, 8443],
