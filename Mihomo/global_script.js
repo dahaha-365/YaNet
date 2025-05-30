@@ -44,6 +44,18 @@ const ruleOptions = {
 }
 
 /**
+ * 前置规则
+ * 如果有需要前置的自定义规则，可以自行修改
+ */
+const rules = [
+  'RULE-SET,applications,下载软件',
+  'PROCESS-NAME,SunloginClient,DIRECT',
+  'PROCESS-NAME,SunloginClient.exe,DIRECT',
+  'PROCESS-NAME,AnyDesk,DIRECT',
+  'PROCESS-NAME,AnyDesk.exe,DIRECT',
+]
+
+/**
  * 地区配置，通过regex匹配代理节点名称
  * regex会有一定概率误判，自己调整一下吧
  * excludeHighPercentage是排除高倍率节点的开关，只对地区分组有效
@@ -184,12 +196,6 @@ ruleProviders.set('applications', {
   url: 'https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/applications.list',
   path: './ruleset/DustinWin/applications.list',
 })
-
-const rules = [
-  'RULE-SET,applications,下载软件',
-  'PROCESS-NAME,SunloginClient,DIRECT',
-  'PROCESS-NAME,SunloginClient.exe,DIRECT',
-]
 
 // 程序入口
 function main(config) {
