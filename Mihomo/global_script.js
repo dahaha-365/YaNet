@@ -251,7 +251,7 @@ function main(config) {
   config['sniffer'] = {
     enable: true,
     'force-dns-mapping': true,
-    'parse-pure-ip': true,
+    'parse-pure-ip': false,
     'override-destination': true,
     sniff: {
       TLS: {
@@ -264,7 +264,22 @@ function main(config) {
         ports: [443, 8443],
       },
     },
-    'force-domain': [],
+    'skip-src-address': [
+      '127.0.0.0/8',
+      '192.168.0.0/16',
+      '10.0.0.0/8',
+      '172.16.0.0/12',
+    ],
+    'force-domain': [
+      '+.google.com',
+      '+.googleapis.com',
+      '+.googleusercontent.com',
+      '+.youtube.com',
+      '+.facebook.com',
+      '+.messenger.com',
+      '+.fbcdn.net',
+      'fbcdn-a.akamaihd.net',
+    ],
     'skip-domain': ['Mijia Cloud', '+.oray.com'],
   }
 
