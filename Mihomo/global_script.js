@@ -609,7 +609,7 @@ function main(config) {
 
   if (ruleOptions.ads) {
     rules.push('GEOSITE,category-ads-all,广告过滤')
-    rules.push('RULE-SET,adblockmihomo,AdBlock')
+    rules.push('RULE-SET,adblockmihomo,广告过滤')
     ruleProviders.set('adblockmihomo', {
       ...ruleProviderCommon,
       behavior: 'domain',
