@@ -609,6 +609,14 @@ function main(config) {
 
   if (ruleOptions.ads) {
     rules.push('GEOSITE,category-ads-all,广告过滤')
+    rules.push('RULE-SET,adblockmihomo,AdBlock')
+    ruleProviders.set('adblockmihomo', {
+      ...ruleProviderCommon,
+      behavior: 'domain',
+      format: 'mrs',
+      url: 'https://github.com/217heidai/adblockfilters/raw/refs/heads/main/rules/adblockmihomo.mrs',
+      path: './ruleset/adblockfilters/adblockmihomo.mrs',
+    })
     config['proxy-groups'].push({
       ...groupBaseOption,
       name: '广告过滤',
