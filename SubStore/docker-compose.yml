@@ -1,0 +1,26 @@
+name: "Sub Store"
+services:
+    sub-store:
+        image: "xream/sub-store:http-meta"
+        container_name: "sub-store"
+        restart: always
+        network_mode: bridge
+        ports:
+            - "3000:3000"
+        environment:
+          - HOST=0.0.0.0
+          - PORT=5432
+          - SUB_STORE_BACKEND_API_PORT=3000
+          - SUB_STORE_BACKEND_API_HOST=0.0.0.0
+          - SUB_STORE_BACKEND_MERGE=true
+          - SUB_STORE_FRONTEND_BACKEND_PATH=/pr1vateSubSt0re  # 安全相关，自行修改为大小写字母数字的字符串，切记不能泄露
+          - META_DISABLE_AUTO_CLEAN=true
+          - META_TEMP_FOLDER=/opt/app/data/meta
+          - SUB_STORE_BACKEND_UPLOAD_CRON=30 23 * * *
+          - SUB_STORE_MMDB_COUNTRY_URL=https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb
+          - SUB_STORE_MMDB_COUNTRY_PATH=/opt/app/data/Country.mmdb
+          - SUB_STORE_MMDB_ASN_URL=https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/GeoLite2-ASN.mmdb
+          - SUB_STORE_MMDB_ASN_PATH=/opt/app/data/ASN.mmdb
+          - SUB_STORE_MMDB_CRON=0 6 * * *
+        volumes:
+          - /vol1/1000/sub-store/run:/opt/app/data
