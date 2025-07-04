@@ -650,6 +650,18 @@ function main(config) {
     })
   }
 
+  if (ruleOptions.github) {
+    rules.push('GEOSITE,github,Github')
+    config['proxy-groups'].push({
+      ...groupBaseOption,
+      name: 'Github',
+      type: 'select',
+      proxies: ['默认节点', ...proxyGroupsRegionNames, '直连'],
+      url: 'https://github.com/robots.txt',
+      icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/GitHub.png',
+    })
+  }
+
   if (ruleOptions.microsoft) {
     rules.push('GEOSITE,microsoft@cn,国内网站', 'GEOSITE,microsoft,微软服务')
     config['proxy-groups'].push({
@@ -659,18 +671,6 @@ function main(config) {
       proxies: ['默认节点', ...proxyGroupsRegionNames, '直连'],
       url: 'http://www.msftconnecttest.com/connecttest.txt',
       icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Microsoft.png',
-    })
-  }
-
-  if (ruleOptions.microsoft) {
-    rules.push('GEOSITE,github,Github')
-    config['proxy-groups'].push({
-      ...groupBaseOption,
-      name: 'Github',
-      type: 'select',
-      proxies: ['默认节点', ...proxyGroupsRegionNames, '直连'],
-      url: 'https://github.com/robots.txt',
-      icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/GitHub.png',
     })
   }
 
