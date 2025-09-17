@@ -130,6 +130,18 @@ const regionOptions = {
       ratioLimit: 2,
       icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Turkey.png',
     },
+    {
+      name: 'CA加拿大',
+      regex: /加拿大|🇨🇦|ca|canada/i,
+      ratioLimit: 2,
+      icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Canada.png',
+    },
+    {
+      name: 'AU澳大利亚',
+      regex: /澳大利亚|🇦🇺|au|australia|sydney/i,
+      ratioLimit: 2,
+      icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Australia.png',
+    },
   ],
 }
 
