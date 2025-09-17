@@ -72,7 +72,7 @@ const regionOptions = {
     },
     {
       name: 'US美国',
-      regex: /美|🇺🇸|us|united state|america/i,
+      regex: /(?!.*aus)(?=.*(美|🇺🇸|us(?!t)|usa|american|united states)).*/i,
       ratioLimit: 2,
       icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png',
     },
@@ -120,7 +120,7 @@ const regionOptions = {
     },
     {
       name: 'MY马来西亚',
-      regex: /马来|🇩🇪|my|malaysia/i,
+      regex: /马来|🇲🇾|my|malaysia/i,
       ratioLimit: 2,
       icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Malaysia.png',
     },
