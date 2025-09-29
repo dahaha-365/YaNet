@@ -53,6 +53,17 @@ const rules = [
   'PROCESS-NAME,SunloginClient.exe,DIRECT',
   'PROCESS-NAME,AnyDesk,DIRECT',
   'PROCESS-NAME,AnyDesk.exe,DIRECT',
+  'PROCESS-NAME,节点小宝,DIRECT',
+  'PROCESS-NAME,nblink.exe,DIRECT',
+  'PROCESS-NAME,NodeBabyLinkBackup,DIRECT',
+  'PROCESS-NAME,NodeBabyLinkClient,DIRECT',
+  'PROCESS-NAME,NodeBabyLinkRfile,DIRECT',
+  'PROCESS-NAME,NodeBabyLinkBackup.exe,DIRECT',
+  'PROCESS-NAME,NodeBabyLinkClient.exe,DIRECT',
+  'PROCESS-NAME,NodeBabyLinkDevice.exe,DIRECT',
+  'PROCESS-NAME,NodeBabyLinkOwjdxb.exe,DIRECT',
+  'PROCESS-NAME,NodeBabyLinkRfile.exe,DIRECT',
+  'PROCESS-NAME,NodeBabyLinkService.exe,DIRECT',
 ]
 
 /**
