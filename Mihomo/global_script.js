@@ -321,6 +321,19 @@ function main(config) {
     server: 'cn.ntp.org.cn',
   }
 
+  config['tun'] = {
+    'exclude-interface': [
+      'NodeBabyLink',
+    ],
+    'route-exclude-address': [
+      '10.0.0.0/8',
+      '127.0.0.0/8',
+      '172.16.0.0/12',
+      '192.168.0.0/16',
+      '198.18.0.0/15',
+    ],
+  }
+
   config['geox-url'] = {
     geoip:
       'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat',
