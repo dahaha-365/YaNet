@@ -39,7 +39,7 @@ const ruleOptions = {
   whatsapp: true, // Whatsapp
   games: true, // 游戏策略组
   japan: true, // 日本网站策略组
-  tracker: true, // 网络分析和跟踪服务
+  // tracker: true, // 网络分析和跟踪服务
   ads: true, // 常见的网络广告
 }
 
@@ -218,7 +218,7 @@ ruleProviders.set('applications', {
   ...ruleProviderCommon,
   behavior: 'classical',
   format: 'text',
-  url: 'https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/applications.list',
+  url: 'https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/mihomo-ruleset/applications.list',
   path: './ruleset/DustinWin/applications.list',
 })
 
@@ -634,16 +634,16 @@ function main(config) {
     })
   }
 
-  if (ruleOptions.tracker) {
-    rules.push('GEOSITE,tracker,跟踪分析')
-    config['proxy-groups'].push({
-      ...groupBaseOption,
-      name: '跟踪分析',
-      type: 'select',
-      proxies: ['REJECT', '直连', '默认节点'],
-      icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Reject.png',
-    })
-  }
+  // if (ruleOptions.tracker) {
+  //   rules.push('GEOSITE,tracker,跟踪分析')
+  //   config['proxy-groups'].push({
+  //     ...groupBaseOption,
+  //     name: '跟踪分析',
+  //     type: 'select',
+  //     proxies: ['REJECT', '直连', '默认节点'],
+  //     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Reject.png',
+  //   })
+  // }
 
   if (ruleOptions.ads) {
     rules.push('GEOSITE,category-ads-all,广告过滤')
