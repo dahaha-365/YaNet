@@ -10,6 +10,9 @@
  */
 const enable = true
 
+// ---- 直连绕过的IP配置 ----
+const PASS_IP = []
+
 /**
  * 分流规则配置，会自动生成对应的策略组
  * 设置的时候可遵循“最小，可用”原则，把自己不需要的规则全禁用掉，提高效率
@@ -41,6 +44,7 @@ const ruleOptions = {
   japan: true, // 日本网站策略组
   // tracker: true, // 网络分析和跟踪服务
   ads: true, // 常见的网络广告
+  passip: true, // 直连绕过特定IP
 }
 
 /**
@@ -771,6 +775,13 @@ function main(config) {
       icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/StreamingCN.png',
     }
   )
+
+  // 添加直连绕过IP配置
+  if (ruleOptions.passip) {
+    PASS_IP.forEach(ip => {
+      rules.push(`IP-CIDR,${ip}/32,DIRECT,no-resolve`);
+    });
+  }
 
   config['proxy-groups'] = config['proxy-groups'].concat(regionProxyGroups)
 
