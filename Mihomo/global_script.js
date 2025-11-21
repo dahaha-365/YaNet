@@ -1,38 +1,49 @@
 /***
  * Clash Verge Rev / Mihomo Party 优化脚本
- * 作者: dahaha-365 (YaNet)
+ * 原作者: dahaha-365 (YaNet)
  * Github：https://github.com/dahaha-365/YaNet
  */
 
 // --- 1. 静态配置区域 ---
 
+/**
+ * 整个脚本的总开关，在Mihomo Party使用的话，请保持为true
+ * true = 启用
+ * false = 禁用
+ */
 const enable = true;
 
-// 功能开关
+/**
+ * 分流规则配置，会自动生成对应的策略组
+ * 设置的时候可遵循“最小，可用”原则，把自己不需要的规则全禁用掉，提高效率
+ * true = 启用
+ * false = 禁用
+ */
 const ruleOptions = {
-  apple: true,
-  microsoft: true,
-  github: true,
-  google: true,
-  openai: true,
-  spotify: true,
-  youtube: true,
-  bahamut: true,
-  netflix: true,
-  tiktok: true,
-  disney: true,
-  pixiv: true,
-  hbo: true,
-  biliintl: true,
-  tvb: true,
-  hulu: true,
-  primevideo: true,
-  telegram: true,
-  line: true,
-  whatsapp: true,
-  games: true,
-  japan: true,
-  ads: true,
+  apple: true, // 苹果服务
+  microsoft: true, // 微软服务
+  github: true, // Github服务
+  google: true, // Google服务
+  openai: true, // 国外AI和GPT
+  spotify: true, // Spotify
+  youtube: true, // YouTube
+  bahamut: true, // 巴哈姆特/动画疯
+  netflix: true, // Netflix网飞
+  tiktok: true, // 国际版抖音
+  disney: true, // 迪士尼
+  pixiv: true, // Pixiv
+  hbo: true, // HBO
+  biliintl: true, // 哔哩哔哩东南亚
+  tvb: true, // TVB
+  hulu: true, // Hulu
+  primevideo: true, // 亚马逊prime video
+  telegram: true, // Telegram通讯软件
+  line: true, // Line通讯软件
+  whatsapp: true, // Whatsapp
+  games: true, // 游戏策略组
+  japan: true, // 日本网站策略组
+  // tracker: true, // 网络分析和跟踪服务
+  ads: true, // 常见的网络广告
 };
 
 // 初始规则
