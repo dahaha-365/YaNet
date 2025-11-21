@@ -132,7 +132,7 @@ const globalRatioLimit = 2;
 
 // DNS 配置
 const chinaDNS = ['119.29.29.29', '223.5.5.5'];
-const foreignDNS = ['https://doh.pub/dns-query', 'https://223.5.5.5/dns-query'];
+const foreignDNS = ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query'];
 const dnsConfig = {
   enable: true,
   listen: ':1053',
@@ -145,6 +145,10 @@ const dnsConfig = {
   'fake-ip-range': '198.18.0.1/16',
   'fake-ip-filter': ['*', '+.lan', '+.local', '+.market.xiaomi.com'],
   nameserver: foreignDNS,
+  fallback: chinaDNS,
+  'fallback-filter': {
+    geoip: true,
+  },
   'proxy-server-nameserver': foreignDNS,
   'nameserver-policy': {
     'geosite:private': 'system',
