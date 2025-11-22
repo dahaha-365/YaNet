@@ -417,7 +417,7 @@ function main(config) {
         ports: [443, 8443]
       }
     },
-    'skip-src-address': ['127.0.0.0/8', '192.168.0.0/16', '10.0.0.0/8', '172.16.0.0/12'],
+    'skip-src-address': ['10.0.0.0/8', '127.0.0.1/32', '172.16.0.0/12', '192.168.0.0/16', 'fc00::/7'],
     'force-domain': ['+.google.com', '+.googleapis.com', '+.googleusercontent.com', '+.youtube.com', '+.facebook.com', '+.messenger.com', '+.fbcdn.net', 'fbcdn-a.akamaihd.net'],
     'skip-domain': ['Mijia Cloud', '+.oray.com'],
   };
@@ -428,8 +428,9 @@ function main(config) {
     server: 'cn.ntp.org.cn'
   };
   config['tun'] = {
+    stack: 'mixed',
     'exclude-interface': ['NodeBabyLink'],
-    'route-exclude-address': ['10.0.0.0/8', '127.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16', '198.18.0.0/15'],
+    'route-exclude-address': ['10.0.0.0/8', '127.0.0.1/32', '172.16.0.0/12', '192.168.0.0/16', 'fc00::/7'],
   };
   config['geox-url'] = {
     geoip: 'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat',
