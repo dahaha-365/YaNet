@@ -33,6 +33,7 @@ const ruleOptions = {
   disney: true, // 迪士尼
   pixiv: true, // Pixiv
   hbo: true, // HBO
+  'media-cn@!cn': true, // 港澳台媒体
   biliintl: true, // 哔哩哔哩东南亚
   tvb: true, // TVB
   hulu: true, // Hulu
@@ -143,7 +144,8 @@ const dnsConfig = {
   'respect-rules': true,
   'enhanced-mode': 'fake-ip',
   'fake-ip-range': '198.18.0.1/16',
-  'fake-ip-filter': ['*', '+.lan', '+.local', '+.market.xiaomi.com'],
+  'fake-ip-filter-mode': 'whitelist',
+  'fake-ip-filter': ['geosite:gfw', 'geosite:category-ai-!cn', 'geosite:category-ai-chat-!cn', 'geosite:category-games-!cn', 'geosite:google@!cn', 'geosite:telegram', 'geosite:facebook', 'geosite:google', 'geosite:amazon', 'geosite:category-bank-jp', 'geosite:category-bank-cn@!cn'],
   nameserver: foreignDNS,
   fallback: chinaDNS,
   'fallback-filter': {
@@ -192,14 +194,7 @@ const serviceConfigs = [{
     name: '国外AI',
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png',
     url: 'https://chat.openai.com/cdn-cgi/trace',
-    rules: ['DOMAIN-SUFFIX,grazie.ai,国外AI', 'DOMAIN-SUFFIX,grazie.aws.intellij.net,国外AI', 'RULE-SET,ai,国外AI'],
-    provider: {
-      key: 'ai',
-      url: 'https://github.com/dahaha-365/YaNet/raw/refs/heads/dist/rulesets/mihomo/ai.list',
-      path: './ruleset/YaNet/ai.list',
-      format: 'text',
-      behavior: 'classical'
-    }
+    rules: ['geosite:category-ai-!cn,国外AI', 'geosite:category-ai-chat-!cn,国外AI']
   },
   {
     key: 'youtube',
@@ -207,6 +202,20 @@ const serviceConfigs = [{
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png',
     url: 'https://www.youtube.com/s/desktop/494dd881/img/favicon.ico',
     rules: ['GEOSITE,youtube,YouTube']
+  },
+  {
+    key: 'media-cn@!cn',
+    name: '港澳台媒体',
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming!CN.png',
+    url: 'https://viu.tv/',
+    rules: ['GEOSITE,tvb,港澳台媒体', 'GEOSITE,hkt,港澳台媒体', 'GEOSITE,hkt,港澳台媒体', 'GEOSITE,hkopentv,港澳台媒体', 'GEOSITE,hkopentv,港澳台媒体', 'RULE-SET,hk-media,港澳台媒体'],
+    provider: {
+      key: 'hk-media',
+      url: 'https://ruleset.skk.moe/List/non_ip/stream_hk.conf',
+      path: './ruleset/hk-media/hk-media.mrs',
+      format: 'text',
+      behavior: 'classical'
+    }
   },
   {
     key: 'biliintl',
