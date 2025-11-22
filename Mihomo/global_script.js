@@ -194,7 +194,7 @@ const serviceConfigs = [{
     name: '国外AI',
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png',
     url: 'https://chat.openai.com/cdn-cgi/trace',
-    rules: ['geosite:category-ai-!cn,国外AI', 'geosite:category-ai-chat-!cn,国外AI']
+    rules: ['GEOSITE,category-ai-!cn,国外AI', 'GEOSITE,category-ai-chat-!cn,国外AI']
   },
   {
     key: 'youtube',
