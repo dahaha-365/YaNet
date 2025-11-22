@@ -206,7 +206,7 @@ const serviceConfigs = [{
   {
     key: 'media-cn@!cn',
     name: '港澳台媒体',
-    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming!CN.png',
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TVB.png',
     url: 'https://viu.tv/',
     rules: ['GEOSITE,tvb,港澳台媒体', 'GEOSITE,hkt,港澳台媒体', 'GEOSITE,hkt,港澳台媒体', 'GEOSITE,hkopentv,港澳台媒体', 'GEOSITE,hkopentv,港澳台媒体', 'RULE-SET,hk-media,港澳台媒体'],
     provider: {
