@@ -145,7 +145,7 @@ const dnsConfig = {
   'enhanced-mode': 'fake-ip',
   'fake-ip-range': '198.18.0.1/16',
   'fake-ip-filter-mode': 'whitelist',
-  'fake-ip-filter': ['geosite:gfw', 'geosite:category-ai-!cn', 'geosite:category-ai-chat-!cn', 'geosite:category-games-!cn', 'geosite:google@!cn', 'geosite:telegram', 'geosite:facebook', 'geosite:google', 'geosite:amazon', 'geosite:category-bank-jp', 'geosite:category-bank-cn@!cn'],
+  'fake-ip-filter': ['geosite:gfw', 'geosite:jetbrains-ai', 'geosite:category-ai-!cn', 'geosite:category-ai-chat-!cn', 'geosite:category-games-!cn', 'geosite:google@!cn', 'geosite:telegram', 'geosite:facebook', 'geosite:google', 'geosite:amazon', 'geosite:category-bank-jp', 'geosite:category-bank-cn@!cn'],
   nameserver: foreignDNS,
   fallback: chinaDNS,
   'fallback-filter': {
@@ -194,7 +194,7 @@ const serviceConfigs = [{
     name: '国外AI',
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png',
     url: 'https://chat.openai.com/cdn-cgi/trace',
-    rules: ['GEOSITE,category-ai-!cn,国外AI', 'GEOSITE,category-ai-chat-!cn,国外AI']
+    rules: ['geosite,jetbrains-ai,国外AI', 'GEOSITE,category-ai-!cn,国外AI', 'GEOSITE,category-ai-chat-!cn,国外AI', 'DOMAIN-SUFFIX,meta.ai,国外AI', 'DOMAIN-SUFFIX,meta.com,国外AI']
   },
   {
     key: 'youtube',
