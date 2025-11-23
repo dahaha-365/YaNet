@@ -154,7 +154,7 @@ const dnsConfig = {
   'proxy-server-nameserver': foreignDNS,
   'nameserver-policy': {
     'geosite:private': 'system',
-    'geosite:cn,steam@cn,category-games@cn,microsoft@cn,apple@cn': chinaDNS,
+    'geosite:tld-cn,cn,steam@cn,category-games@cn,microsoft@cn,apple@cn': chinaDNS,
   },
 };
 
