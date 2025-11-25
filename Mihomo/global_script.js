@@ -47,6 +47,8 @@ const ruleOptions = {
   ads: true, // 常见的网络广告
 };
 
+const skipIps = ['10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16', '169.254.0.0/16', '127.0.0.0/8', 'FC00::/7', 'FE80::/10', '::1/128'];
+
 // 初始规则
 const rules = [
   'RULE-SET,applications,下载软件',
@@ -426,7 +428,8 @@ function main(config) {
         ports: [443, 8443]
       }
     },
-    'skip-src-address': ['10.0.0.0/8', '127.0.0.1/32', '172.16.0.0/12', '192.168.0.0/16', 'fc00::/7'],
+    'skip-src-address': skipIps,
+    'skip-dst-address': skipIps,
     'force-domain': ['+.google.com', '+.googleapis.com', '+.googleusercontent.com', '+.youtube.com', '+.facebook.com', '+.messenger.com', '+.fbcdn.net', 'fbcdn-a.akamaihd.net'],
     'skip-domain': ['Mijia Cloud', '+.oray.com'],
   };
@@ -439,7 +442,7 @@ function main(config) {
   config['tun'] = {
     stack: 'mixed',
     'exclude-interface': ['NodeBabyLink'],
-    'route-exclude-address': ['10.0.0.0/8', '127.0.0.1/32', '172.16.0.0/12', '192.168.0.0/16', 'fc00::/7'],
+    'route-exclude-address': skipIps,
   };
   config['geox-url'] = {
     geoip: 'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat',
