@@ -214,7 +214,7 @@ const serviceConfigs = [{
     provider: {
       key: 'hk-media',
       url: 'https://ruleset.skk.moe/List/non_ip/stream_hk.conf',
-      path: './ruleset/hk-media/hk-media.mrs',
+      path: './ruleset/ruleset.skk.moe/stream_hk.conf',
       format: 'text',
       behavior: 'classical'
     }
@@ -274,13 +274,6 @@ const serviceConfigs = [{
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/HBO.png',
     url: 'https://www.hbo.com/favicon.ico',
     rules: ['GEOSITE,hbo,HBO']
-  },
-  {
-    key: 'tvb',
-    name: 'TVB',
-    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TVB.png',
-    url: 'https://www.tvb.com/logo_b.svg',
-    rules: ['GEOSITE,tvb,TVB']
   },
   {
     key: 'primevideo',
