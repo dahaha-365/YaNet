@@ -424,7 +424,7 @@ function main(config) {
     'skip-src-address': skipIps,
     'skip-dst-address': skipIps,
     'force-domain': ['+.google.com', '+.googleapis.com', '+.googleusercontent.com', '+.youtube.com', '+.facebook.com', '+.messenger.com', '+.fbcdn.net', 'fbcdn-a.akamaihd.net'],
-    'skip-domain': ['Mijia Cloud', '+.oray.com'],
+    'skip-domain': ['Mijia Cloud', '+.oray.com']
   };
 
   config['ntp'] = {
@@ -436,12 +436,13 @@ function main(config) {
     stack: 'mixed',
     'exclude-interface': ['NodeBabyLink'],
     'route-exclude-address': skipIps,
+    'dns-hijack': ['any:53', 'tcp://any:53']
   };
   config['geox-url'] = {
     geoip: 'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat',
     geosite: 'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat',
     mmdb: 'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country-lite.mmdb',
-    asn: 'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb',
+    asn: 'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb'
   };
 
   config.proxies.push({
