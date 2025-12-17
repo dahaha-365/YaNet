@@ -6,3 +6,4 @@ press/.vitepress/dist
 .env
 stats.html
 /dist/rulesets/mihomo/*.list
+/.idea/
