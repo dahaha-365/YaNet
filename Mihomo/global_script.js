@@ -33,7 +33,7 @@ const ruleOptions = {
   disney: true, // 迪士尼
   pixiv: true, // Pixiv
   hbo: true, // HBO
-  'media-cn@!cn': true, // 港澳台媒体
+  mediaHMT: true, // 港澳台媒体
   biliintl: true, // 哔哩哔哩东南亚
   tvb: true, // TVB
   hulu: true, // Hulu
@@ -263,16 +263,18 @@ const serviceConfigs = [
     rules: ['GEOSITE,youtube,YouTube'],
   },
   {
-    key: 'media-cn@!cn',
+    key: 'mediaHMT',
     name: '港澳台媒体',
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TVB.png',
     url: 'https://viu.tv/',
     rules: [
       'GEOSITE,tvb,港澳台媒体',
       'GEOSITE,hkt,港澳台媒体',
-      'GEOSITE,hkt,港澳台媒体',
+      'GEOSITE,hkbn,港澳台媒体',
       'GEOSITE,hkopentv,港澳台媒体',
-      'GEOSITE,hkopentv,港澳台媒体',
+      'GEOSITE,hkedcity,港澳台媒体',
+      'GEOSITE,hkgolden,港澳台媒体',
+      'GEOSITE,hketgroup,港澳台媒体',
       'RULE-SET,hk-media,港澳台媒体',
     ],
     provider: {
