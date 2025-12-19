@@ -280,8 +280,8 @@ const serviceConfigs = [
     ],
     provider: {
       key: 'hk-media',
-      url: 'https://ruleset.skk.moe/List/non_ip/stream_hk.conf',
-      path: './ruleset/ruleset.skk.moe/stream_hk.conf',
+      url: 'https://ruleset.skk.moe/Clash/non_ip/stream_hk.txt',
+      path: './ruleset/ruleset.skk.moe/stream_hk.txt',
       format: 'text',
       behavior: 'classical',
     },
@@ -683,7 +683,7 @@ function main(config) {
       name: '国内网站',
       type: 'select',
       proxies: ['直连', '默认节点', ...regionGroupNames],
-      url: 'http://wifi.vivo.com.cn/generate_204',
+      url: 'https://wifi.vivo.com.cn/generate_204',
       icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/StreamingCN.png',
     }
   )
