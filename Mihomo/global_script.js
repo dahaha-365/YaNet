@@ -360,7 +360,7 @@ const serviceConfigs = [
     key: 'telegram',
     name: 'Telegram',
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png',
-    url: 'http://www.telegram.org/img/website_icon.svg',
+    url: 'https://www.telegram.org/img/website_icon.svg',
     rules: ['GEOIP,telegram,Telegram'],
   },
   {
@@ -407,14 +407,14 @@ const serviceConfigs = [
     key: 'apple',
     name: '苹果服务',
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_2.png',
-    url: 'http://www.apple.com/library/test/success.html',
+    url: 'https://www.apple.com/library/test/success.html',
     rules: ['GEOSITE,apple-cn,苹果服务'],
   },
   {
     key: 'google',
     name: '谷歌服务',
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png',
-    url: 'http://www.google.com/generate_204',
+    url: 'https://www.google.com/generate_204',
     rules: ['GEOSITE,google,谷歌服务'],
   },
   {
@@ -428,7 +428,7 @@ const serviceConfigs = [
     key: 'microsoft',
     name: '微软服务',
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png',
-    url: 'http://www.msftconnecttest.com/connecttest.txt',
+    url: 'https://www.msftconnecttest.com/connecttest.txt',
     rules: ['GEOSITE,microsoft@cn,国内网站', 'GEOSITE,microsoft,微软服务'],
   },
   {
