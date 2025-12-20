@@ -188,8 +188,6 @@ if (regionSet === 'all') {
   })
 }
 
-console.log(regionDefinitions)
-
 // DNS 配置
 const chinaDNS = [
   'https://doh.pub/dns-query',
