@@ -277,14 +277,24 @@ const serviceConfigs = [
       'GEOSITE,hkgolden,港澳台媒体',
       'GEOSITE,hketgroup,港澳台媒体',
       'RULE-SET,hk-media,港澳台媒体',
+      'RULE-SET,tw-media,港澳台媒体',
     ],
-    provider: {
-      key: 'hk-media',
-      url: 'https://ruleset.skk.moe/Clash/non_ip/stream_hk.txt',
-      path: './ruleset/ruleset.skk.moe/stream_hk.txt',
-      format: 'text',
-      behavior: 'classical',
-    },
+    providers: [
+      {
+        key: 'hk-media',
+        url: 'https://ruleset.skk.moe/Clash/non_ip/stream_hk.txt',
+        path: './ruleset/ruleset.skk.moe/stream_hk.txt',
+        format: 'text',
+        behavior: 'classical',
+      },
+      {
+        key: 'tw-media',
+        url: 'https://ruleset.skk.moe/Clash/non_ip/stream_tw.txt',
+        path: './ruleset/ruleset.skk.moe/stream_tw.txt',
+        format: 'text',
+        behavior: 'classical',
+      }
+    ],
   },
   {
     key: 'biliintl',
@@ -394,13 +404,15 @@ const serviceConfigs = [
       'GEOSITE,category-ads-all,广告过滤',
       'RULE-SET,adblockmihomo,广告过滤',
     ],
-    provider: {
-      key: 'adblockmihomo',
-      url: 'https://github.com/217heidai/adblockfilters/raw/refs/heads/main/rules/adblockmihomo.mrs',
-      path: './ruleset/adblockfilters/adblockmihomo.mrs',
-      format: 'mrs',
-      behavior: 'domain',
-    },
+    providers: [
+      {
+        key: 'adblockmihomo',
+        url: 'https://github.com/217heidai/adblockfilters/raw/refs/heads/main/rules/adblockmihomo.mrs',
+        path: './ruleset/adblockfilters/adblockmihomo.mrs',
+        format: 'mrs',
+        behavior: 'domain',
+      }
+    ],
     reject: true,
   },
   {
@@ -440,13 +452,15 @@ const serviceConfigs = [
       'RULE-SET,category-bank-jp,日本网站',
       'GEOIP,jp,日本网站,no-resolve',
     ],
-    provider: {
-      key: 'category-bank-jp',
-      url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-bank-jp.mrs',
-      path: './ruleset/MetaCubeX/category-bank-jp.mrs',
-      format: 'mrs',
-      behavior: 'domain',
-    },
+    providers: [
+      {
+        key: 'category-bank-jp',
+        url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-bank-jp.mrs',
+        path: './ruleset/MetaCubeX/category-bank-jp.mrs',
+        format: 'mrs',
+        behavior: 'domain',
+      }
+    ],
   },
 ]
 
@@ -622,14 +636,17 @@ function main(config) {
   serviceConfigs.forEach((svc) => {
     if (ruleOptions[svc.key]) {
       rules.push(...svc.rules)
-      if (svc.provider) {
-        ruleProviders[svc.provider.key] = {
-          ...ruleProviderCommon,
-          behavior: svc.provider.behavior,
-          format: svc.provider.format,
-          url: svc.provider.url,
-          path: svc.provider.path,
-        }
+
+      if (Array.isArray(svc.providers)) {
+        svc.providers.forEach((p) => {
+          ruleProviders[p.key] = {
+            ...ruleProviderCommon,
+            behavior: p.behavior,
+            format: p.format,
+            url: p.url,
+            path: p.path,
+          }
+        })
       }
 
       let groupProxies
