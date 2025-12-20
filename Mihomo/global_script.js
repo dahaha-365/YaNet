@@ -11,7 +11,21 @@
  * true = 启用
  * false = 禁用
  */
-const enable = true
+const args = (typeof $arguments !== 'undefined') ? $arguments : {
+  enable: true,
+  ruleSet: 'all',
+  regionSet: 'all',
+  excludeHighPercentage: true,
+  globalRatioLimit: 2,
+};
+
+const {
+  enable = true,
+  ruleSet = 'all',   // 支持 'all' 或 'openai,youtube,ads' 这种格式
+  regionSet = 'all', // 匹配 regionDefinitions.name 前两个字母 (严格大小写)
+  excludeHighPercentage = true,
+  globalRatioLimit = 2,
+} = args;
 
 /**
  * 分流规则配置，会自动生成对应的策略组
@@ -19,32 +33,42 @@ const enable = true
  * true = 启用
  * false = 禁用
  */
-const ruleOptions = {
-  apple: true, // 苹果服务
-  microsoft: true, // 微软服务
-  github: true, // Github服务
-  google: true, // Google服务
-  openai: true, // 国外AI和GPT
-  spotify: true, // Spotify
-  youtube: true, // YouTube
-  bahamut: true, // 巴哈姆特/动画疯
-  netflix: true, // Netflix网飞
-  tiktok: true, // 国际版抖音
-  disney: true, // 迪士尼
-  pixiv: true, // Pixiv
-  hbo: true, // HBO
-  mediaHMT: true, // 港澳台媒体
-  biliintl: true, // 哔哩哔哩东南亚
-  tvb: true, // TVB
-  hulu: true, // Hulu
-  primevideo: true, // 亚马逊prime video
-  telegram: true, // Telegram通讯软件
-  line: true, // Line通讯软件
-  whatsapp: true, // Whatsapp
-  games: true, // 游戏策略组
-  japan: true, // 日本网站策略组
-  // tracker: true, // 网络分析和跟踪服务
-  ads: true, // 常见的网络广告
+let ruleOptions = {
+  apple: false,
+  microsoft: false,
+  github: false,
+  google: false,
+  openai: false,
+  spotify: false,
+  youtube: false,
+  bahamut: false,
+  netflix: false,
+  tiktok: false,
+  disney: false,
+  pixiv: false,
+  hbo: false,
+  mediaHMT: false,
+  biliintl: false,
+  tvb: false,
+  hulu: false,
+  primevideo: false,
+  telegram: false,
+  line: false,
+  whatsapp: false,
+  games: false,
+  japan: false,
+  ads: false,
+}
+
+if (ruleSet === 'all') {
+  Object.keys(ruleOptions).forEach(key => ruleOptions[key] = true);
+} else if (typeof ruleSet === 'string') {
+  const enabledKeys = ruleSet.split(',').map(s => s.trim());
+  enabledKeys.forEach(key => {
+    if (Object.prototype.hasOwnProperty.call(ruleOptions, key)) {
+      ruleOptions[key] = true;
+    }
+  });
 }
 
 const skipIps = [
@@ -85,7 +109,7 @@ const rules = [
 ]
 
 // 地区定义 (Icons 更新为 GitHub Raw)
-const regionDefinitions = [
+const allRegionDefinitions = [
   {
     name: 'HK香港',
     regex: /港|🇭🇰|hk|hongkong|hong kong/i,
@@ -152,8 +176,19 @@ const regionDefinitions = [
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Australia.png',
   },
 ]
-const excludeHighPercentage = true
-const globalRatioLimit = 2
+
+let regionDefinitions = []
+if (regionSet === 'all') {
+  regionDefinitions = allRegionDefinitions
+} else {
+  const enabledRegions = regionSet.split(',').map(s => s.trim())
+  regionDefinitions = allRegionDefinitions.filter(r => {
+    const prefix = r.name.substring(0, 2) // 获取前两个字母
+    return enabledRegions.includes(prefix)
+  })
+}
+
+console.log(regionDefinitions)
 
 // DNS 配置
 const chinaDNS = [
