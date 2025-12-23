@@ -90,6 +90,7 @@ const rules = [
   'PROCESS-NAME-REGEX,(?i).*NodeBaby.*,DIRECT',
   'PROCESS-NAME-REGEX,(?i).*nblink.*,DIRECT',
   'PROCESS-NAME-REGEX,(?i).*vpn.*,DIRECT',
+  'PROCESS-NAME-REGEX,(?i).*vnc.*,DIRECT',
   'PROCESS-NAME-REGEX,(?i).*节点小宝.*,DIRECT',
   'PROCESS-NAME-REGEX,(?i).*AnyDesk.*,DIRECT',
   'PROCESS-NAME-REGEX,(?i).*ToDesk.*,DIRECT',
