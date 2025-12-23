@@ -110,6 +110,10 @@ const rules = [
   'DOMAIN-SUFFIX,iepose.com,DIRECT',
   'DOMAIN-SUFFIX,ionewu.com,DIRECT',
   'DOMAIN-SUFFIX,vicp.net,DIRECT',
+  'DOMAIN-KEYWORD,copilot,Proxy',
+  'DOMAIN-KEYWORD,teams,DIRECT',
+  'DOMAIN-KEYWORD,outlook,DIRECT',
+  'DOMAIN-KEYWORD,mcas.ms,DIRECT',
 ]
 
 // 地区定义 (Icons 更新为 GitHub Raw)
