@@ -7,3 +7,5 @@ press/.vitepress/dist
 stats.html
 /dist/rulesets/mihomo/*.list
 /.idea/
+/docs/.vuepress/.cache/
+/docs/.vuepress/.temp/

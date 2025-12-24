@@ -4,7 +4,40 @@
  * Github：https://github.com/dahaha-365/YaNet
  */
 
+function stringToArray(str) {
+  if (typeof str !== 'string') return [];
+  return str
+    .split(';')
+    .map(item => item.trim())
+    .filter(item => item.length > 0);
+}
+
 // --- 1. 静态配置区域 ---
+
+const _skipIps = [
+  '10.0.0.0/8',
+  '100.64.0.0/10',
+  '169.254.0.0/16',
+  '172.16.0.0/12',
+  '192.0.0.0/24',
+  '192.168.0.0/16',
+  '198.18.0.0/15',
+  'FC00::/7',
+  'FE80::/10',
+  '::1/128',
+]
+
+// DNS 配置
+const _chinaDNS = [
+  'https://doh.pub/dns-query',
+  'https://dns.alidns.com/dns-query'
+]
+const _foreignDNS = [
+  'https://dns.google/dns-query',
+  'https://dns.adguard-dns.com/dns-query'
+]
+const _defaultDNS = ['119.29.29.29', '223.5.5.5']
+const _directDNS = ['119.29.29.29', '223.5.5.5']
 
 /**
  * 整个脚本的总开关，在Mihomo Party使用的话，请保持为true
@@ -17,15 +50,80 @@ const args = (typeof $arguments !== 'undefined') ? $arguments : {
   regionSet: 'all',
   excludeHighPercentage: true,
   globalRatioLimit: 2,
+  skipIps: _skipIps,
+  defaultDNS: _defaultDNS,
+  directDNS: _directDNS,
+  chinaDNS: _chinaDNS,
+  foreignDNS: _foreignDNS,
+  mode: 'speed'
 };
 
-const {
+let {
   enable = true,
   ruleSet = 'all',   // 支持 'all' 或 'openai,youtube,ads' 这种格式
   regionSet = 'all', // 匹配 regionDefinitions.name 前两个字母 (严格大小写)
   excludeHighPercentage = true,
   globalRatioLimit = 2,
+  skipIps = _skipIps,
+  defaultDNS = _defaultDNS,
+  directDNS = _directDNS,
+  chinaDNS = _chinaDNS,
+  foreignDNS = _foreignDNS,
+  mode = 'speed'
 } = args;
+
+if (args.skipIps) {
+  skipIps = stringToArray(args.skipIps);
+}
+
+if (args.defaultDNS) {
+  defaultDNS = stringToArray(args.defaultDNS);
+}
+
+if (args.directDNS) {
+  directDNS = stringToArray(args.directDNS);
+}
+
+if (args.chinaDNS) {
+  chinaDNS = stringToArray(args.chinaDNS);
+}
+
+if (args.foreignDNS) {
+  foreignDNS = stringToArray(args.foreignDNS);
+}
+
+if (['securest', 'secure', 'default', 'fast', 'fastest'].includes(mode)) {
+  switch (mode) {
+    case 'securest':
+      defaultDNS = ['8.8.8.8', '94.140.14.14']
+      directDNS = ['https://dns.google/dns-query', 'https://dns.adguard-dns.com/dns-query']
+      break;
+    case 'secure':
+      defaultDNS = ['8.8.8.8', '94.140.14.14']
+      directDNS = ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
+      chinaDNS = ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
+      foreignDNS = ['https://dns.google/dns-query', 'https://dns.adguard-dns.com/dns-query']
+      break;
+    case 'fast':
+      defaultDNS = ['119.29.29.29', '223.5.5.5']
+      directDNS = ['119.29.29.29', '223.5.5.5']
+      chinaDNS = ['119.29.29.29', '223.5.5.5']
+      foreignDNS = ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
+      break;
+    case 'fastest':
+      defaultDNS = ['119.29.29.29', '223.5.5.5']
+      directDNS = ['119.29.29.29', '223.5.5.5']
+      chinaDNS = ['119.29.29.29', '223.5.5.5']
+      foreignDNS = ['119.29.29.29', '223.5.5.5']
+      break;
+    default:
+      defaultDNS = ['119.29.29.29', '223.5.5.5']
+      directDNS = ['119.29.29.29', '223.5.5.5']
+      chinaDNS = ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
+      foreignDNS = ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
+      break;
+  }
+}
 
 /**
  * 分流规则配置，会自动生成对应的策略组
@@ -70,19 +168,6 @@ if (ruleSet === 'all') {
     }
   });
 }
-
-const skipIps = [
-  '10.0.0.0/8',
-  '100.64.0.0/10',
-  '169.254.0.0/16',
-  '172.16.0.0/12',
-  '192.0.0.0/24',
-  '192.168.0.0/16',
-  '198.18.0.0/15',
-  'FC00::/7',
-  'FE80::/10',
-  '::1/128',
-]
 
 // 初始规则
 const rules = [
@@ -195,18 +280,6 @@ if (regionSet === 'all') {
   })
 }
 
-// DNS 配置
-const chinaDNS = [
-  'https://doh.pub/dns-query',
-  'https://dns.alidns.com/dns-query',
-]
-const foreignDNS = [
-  'https://dns.opendns.com/dns-query',
-  'https://dns.google/dns-query',
-  'https://dns.cloudflare.com/dns-query',
-  'https://dns.adguard-dns.com/dns-query',
-]
-const defaultDNS = ['119.29.29.29', '223.5.5.5']
 const dnsConfig = {
   enable: true,
   listen: ':1053',
@@ -234,18 +307,18 @@ const dnsConfig = {
   ],
   nameserver: chinaDNS,
   'default-nameserver': defaultDNS,
-  'direct-nameserver': defaultDNS,
+  'direct-nameserver': directDNS,
   // fallback: foreignDNS,
   // 'fallback-filter': {
   //   geoip: true,
   //   'geoip-code': 'CN',
   // },
-  'proxy-server-nameserver': defaultDNS,
+  'proxy-server-nameserver': chinaDNS,
   'nameserver-policy': {
     'geosite:private': 'system',
     'geosite:tld-cn,cn,steam@cn,category-games@cn,microsoft@cn,apple@cn,category-game-platforms-download@cn,category-public-tracker':
-      defaultDNS,
-    'geosite:gfw': chinaDNS,
+      chinaDNS,
+    'geosite:gfw': foreignDNS,
     // 'geosite:telegram': foreignDNS,
   },
 }

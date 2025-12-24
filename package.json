@@ -1,14 +1,16 @@
 {
-  "name": "YaNet",
+  "name": "ya-net",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docs:dev": "vitepress dev press",
-    "docs:build": "vitepress build press",
-    "docs:preview": "vitepress preview press"
+    "press:dev": "vitepress dev press",
+    "press:build": "vitepress build press",
+    "press:preview": "vitepress preview press",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "keywords": [],
   "author": "",
@@ -25,13 +27,17 @@
     "@types/node": "^22.7.5",
     "@unocss/preset-icons": "^0.63.4",
     "@unocss/transformer-directives": "^0.63.4",
+    "@vuepress/bundler-vite": "2.0.0-rc.26",
     "prettier": "3.3.3",
     "rollup-plugin-visualizer": "^5.12.0",
     "sass-embedded": "^1.80.2",
     "tsx": "^4.19.2",
     "unocss": "^0.63.3",
     "unocss-preset-scrollbar": "^0.3.1",
-    "vitepress": "^1.4.0"
+    "vitepress": "^1.4.0",
+    "vue": "^3.5.12",
+    "vuepress": "2.0.0-rc.26",
+    "vuepress-theme-plume": "1.0.0-rc.183"
   },
   "dependencies": {
     "@vueuse/components": "^11.1.0",
@@ -41,8 +47,7 @@
     "timeago.js": "^4.0.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3",
-    "vite-plugin-vitepress-auto-sidebar": "^1.7.0",
-    "vue": "^3.5.12"
+    "vite-plugin-vitepress-auto-sidebar": "^1.7.0"
   },
   "packageManager": "pnpm@9.15.2"
 }
