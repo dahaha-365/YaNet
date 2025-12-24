@@ -28,6 +28,7 @@
     "@unocss/preset-icons": "^0.63.4",
     "@unocss/transformer-directives": "^0.63.4",
     "@vuepress/bundler-vite": "2.0.0-rc.26",
+    "@vuepress/client": "2.0.0-rc.26",
     "prettier": "3.3.3",
     "rollup-plugin-visualizer": "^5.12.0",
     "sass-embedded": "^1.80.2",

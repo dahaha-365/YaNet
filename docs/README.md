@@ -1,10 +1,9 @@
 ---
-pageLayout: home
+home: true
 title: YaNet
 config:
-  type: custom
+  -
+    type: custom
 ---
 
-# YaNet
-
-你好吗
+# Yet another Internet.

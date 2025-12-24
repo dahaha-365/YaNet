@@ -1,7 +1,7 @@
 import { defineThemeConfig } from 'vuepress-theme-plume'
 
 export default defineThemeConfig({
-  logo: '/logo.png',
+  logo: '/logo@0.1x.png',
   profile: {
     name: 'YaNet',
   },
