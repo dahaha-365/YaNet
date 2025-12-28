@@ -9,3 +9,4 @@ stats.html
 /.idea/
 /docs/.vuepress/.cache/
 /docs/.vuepress/.temp/
+/docs/.vuepress/public/avatar.png
