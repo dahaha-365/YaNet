@@ -66,9 +66,9 @@ Qwen AI
   </Card>
   <Card title="AI 智能" icon="twemoji:fire">
 
-[OpenAI](https://openai.com/) - 最出名的大模型
+[WONG公益站](https://wzw.pp.ua/register?aff=fibF) - 公益的大模型代理池
 
-[Gemini](https://gemini.google.com/) - 谷歌出品的大模型
+[Monica](https://monica.im/invitation-affiliate?ref=ntrjyjm&ref_aff=ntrjyjm) - 强大的浏览器 AI 助手
 
 [Cherry Studio](https://github.com/CherryHQ/cherry-studio) - 一个很方便的 AI 工具
 
