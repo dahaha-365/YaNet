@@ -53,14 +53,26 @@ Qwen AI
 下面是一些我喜欢的网站：
 
 <CardGrid :cols="{ md: 1, lg: 2 }">
-  <Card title="卡片标题" icon="twemoji:astonished-face">
-    这里是卡片内容。
-  </Card>
-  <Card title="卡片标题" icon="twemoji:astonished-face">
-    这里是卡片内容。
-  </Card>
-</CardGrid>
+  <Card title="工具资源" icon="twemoji:axe">
 
 [freepik](https://zh.freepik.com/) - 一个很强大的图片、视频、音频等资源网站
 
 [马克喵](https://www.macat.vip?aff=954779) - Mac 平台 crack 软件下载网站
+
+[公共 DNS 大全](https://dns.iui.im/)
+
+[菜鸟教程](https://www.runoob.com/) - 一个很方便的学习网站
+
+  </Card>
+  <Card title="AI 智能" icon="twemoji:fire">
+
+[OpenAI](https://openai.com/) - 最出名的大模型
+
+[Gemini](https://gemini.google.com/) - 谷歌出品的大模型
+
+[Cherry Studio](https://github.com/CherryHQ/cherry-studio) - 一个很方便的 AI 工具
+
+[UniAPI](https://uniapi.ai/register?aff=yARG) - 高效且稳定的访问所有AI模型
+
+</Card>
+</CardGrid>
