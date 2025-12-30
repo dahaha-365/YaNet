@@ -75,26 +75,6 @@ let {
   mode = 'default',
 } = args
 
-if (args.skipIps) {
-  skipIps = stringToArray(args.skipIps);
-}
-
-if (args.defaultDNS) {
-  defaultDNS = stringToArray(args.defaultDNS);
-}
-
-if (args.directDNS) {
-  directDNS = stringToArray(args.directDNS);
-}
-
-if (args.chinaDNS) {
-  chinaDNS = stringToArray(args.chinaDNS);
-}
-
-if (args.foreignDNS) {
-  foreignDNS = stringToArray(args.foreignDNS);
-}
-
 if (['securest', 'secure', 'default', 'fast', 'fastest'].includes(mode)) {
   switch (mode) {
     case 'securest':
@@ -126,6 +106,26 @@ if (['securest', 'secure', 'default', 'fast', 'fastest'].includes(mode)) {
       foreignDNS = ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
       break;
   }
+}
+
+if (args.skipIps) {
+  skipIps = stringToArray(args.skipIps)
+}
+
+if (args.defaultDNS) {
+  defaultDNS = stringToArray(args.defaultDNS)
+}
+
+if (args.directDNS) {
+  directDNS = stringToArray(args.directDNS)
+}
+
+if (args.chinaDNS) {
+  chinaDNS = stringToArray(args.chinaDNS)
+}
+
+if (args.foreignDNS) {
+  foreignDNS = stringToArray(args.foreignDNS)
 }
 
 /**
