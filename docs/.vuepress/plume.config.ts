@@ -31,6 +31,11 @@ export async function getPlumeConfig() {
         link: profile.html_url,
       },
     ],
+    autoFrontmatter: {
+      permalink: true, // 生成永久链接
+      createTime: true, // 生成创建时间
+      title: true, // 生成标题
+    },
     collections: [
       {
         type: 'post',
