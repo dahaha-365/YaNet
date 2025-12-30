@@ -44,23 +44,26 @@ const _directDNS = ['119.29.29.29', '223.5.5.5']
  * true = 启用
  * false = 禁用
  */
-const args = (typeof $arguments !== 'undefined') ? $arguments : {
-  enable: true,
-  ruleSet: 'all',
-  regionSet: 'all',
-  excludeHighPercentage: true,
-  globalRatioLimit: 2,
-  skipIps: _skipIps,
-  defaultDNS: _defaultDNS,
-  directDNS: _directDNS,
-  chinaDNS: _chinaDNS,
-  foreignDNS: _foreignDNS,
-  mode: 'speed'
-};
+const args =
+  typeof $arguments !== 'undefined'
+    ? $arguments
+    : {
+        enable: true,
+        ruleSet: 'all',
+        regionSet: 'all',
+        excludeHighPercentage: true,
+        globalRatioLimit: 2,
+        skipIps: _skipIps,
+        defaultDNS: _defaultDNS,
+        directDNS: _directDNS,
+        chinaDNS: _chinaDNS,
+        foreignDNS: _foreignDNS,
+        mode: 'default',
+      }
 
 let {
   enable = true,
-  ruleSet = 'all',   // 支持 'all' 或 'openai,youtube,ads' 这种格式
+  ruleSet = 'all', // 支持 'all' 或 'openai,youtube,ads' 这种格式
   regionSet = 'all', // 匹配 regionDefinitions.name 前两个字母 (严格大小写)
   excludeHighPercentage = true,
   globalRatioLimit = 2,
@@ -69,8 +72,8 @@ let {
   directDNS = _directDNS,
   chinaDNS = _chinaDNS,
   foreignDNS = _foreignDNS,
-  mode = 'speed'
-} = args;
+  mode = 'default',
+} = args
 
 if (args.skipIps) {
   skipIps = stringToArray(args.skipIps);
