@@ -161,7 +161,7 @@ let ruleOptions = {
 if (ruleSet === 'all') {
   Object.keys(ruleOptions).forEach(key => ruleOptions[key] = true);
 } else if (typeof ruleSet === 'string') {
-  const enabledKeys = ruleSet.split(',').map(s => s.trim());
+  const enabledKeys = ruleSet.split(';').map(s => s.trim());
   enabledKeys.forEach(key => {
     if (Object.prototype.hasOwnProperty.call(ruleOptions, key)) {
       ruleOptions[key] = true;
@@ -273,7 +273,7 @@ let regionDefinitions = []
 if (regionSet === 'all') {
   regionDefinitions = allRegionDefinitions
 } else {
-  const enabledRegions = regionSet.split(',').map(s => s.trim())
+  const enabledRegions = regionSet.split(';').map(s => s.trim())
   regionDefinitions = allRegionDefinitions.filter(r => {
     const prefix = r.name.substring(0, 2) // 获取前两个字母
     return enabledRegions.includes(prefix)
