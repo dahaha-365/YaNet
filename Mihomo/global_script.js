@@ -604,7 +604,12 @@ function main(config) {
   config['mode'] = 'rule'
   config['ipv6'] = ipv6
   config['external-controller'] = '0.0.0.0:9090'
+  config['mixed-port'] = 7890
+  config['redir-port'] = 7891
+  config['tproxy-port'] = 7892
   config['external-ui'] = 'ui'
+  config['external-ui-url'] =
+    'https://github.com/Zephyruso/zashboard/releases/download/v2.5.0/dist.zip'
   config['dns'] = dnsConfig
   config['profile'] = {
     'store-selected': true,
@@ -656,17 +661,18 @@ function main(config) {
     server: 'cn.ntp.org.cn',
   }
   config['tun'] = {
+    enable: true,
     stack: 'mixed',
     device: 'utun1999',
     'auto-route': true,
     'auto-redirect': true,
     'auto-detect-interface': true,
     'strict-route': true,
-    'mtu': 1500,
+    mtu: 1500,
     gso: true,
     'gso-max-size': 65536,
     'exclude-interface': ['NodeBabyLink'],
-    'route-exclude-address': skipIps.filter(ip => ip !== '198.18.0.0/15'),
+    'route-exclude-address': skipIps.filter((ip) => ip !== '198.18.0.0/15'),
     'dns-hijack': ['any:53', 'tcp://any:53'],
   }
   config['geox-url'] = {
