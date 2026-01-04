@@ -603,6 +603,8 @@ function main(config) {
   config['bind-address'] = '*'
   config['mode'] = 'rule'
   config['ipv6'] = ipv6
+  config['external-controller'] = '0.0.0.0:9090'
+  config['external-ui'] = 'ui'
   config['dns'] = dnsConfig
   config['profile'] = {
     'store-selected': true,
