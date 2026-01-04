@@ -622,9 +622,6 @@ function main(config) {
     'force-dns-mapping': true,
     'parse-pure-ip': false,
     'override-destination': true,
-    'auto-route': true,
-    'auto-redirect': true,
-    'auto-detect-interface': true,
     sniff: {
       TLS: {
         ports: [443, 8443],
@@ -658,8 +655,14 @@ function main(config) {
   }
   config['tun'] = {
     stack: 'mixed',
+    device: 'utun1999',
+    'auto-route': true,
+    'auto-redirect': true,
+    'auto-detect-interface': true,
     'strict-route': true,
     'mtu': 1500,
+    gso: true,
+    'gso-max-size': 65536,
     'exclude-interface': ['NodeBabyLink'],
     'route-exclude-address': skipIps,
     'dns-hijack': ["any:53", "tcp://any:53"],
