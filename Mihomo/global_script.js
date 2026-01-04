@@ -672,7 +672,7 @@ function main(config) {
     gso: true,
     'gso-max-size': 65536,
     'exclude-interface': ['NodeBabyLink'],
-    'route-exclude-address': skipIps.filter((ip) => ip !== '198.18.0.0/15'),
+    'route-exclude-address': skipIps.filter((ip) => ip !== '198.18.0.1/16'),
     'dns-hijack': ['any:53', 'tcp://any:53'],
   }
   config['geox-url'] = {
