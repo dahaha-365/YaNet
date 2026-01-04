@@ -48,18 +48,19 @@ const args =
   typeof $arguments !== 'undefined'
     ? $arguments
     : {
-        enable: true,
-        ruleSet: 'all',
-        regionSet: 'all',
-        excludeHighPercentage: true,
-        globalRatioLimit: 2,
-        skipIps: _skipIps,
-        defaultDNS: _defaultDNS,
-        directDNS: _directDNS,
-        chinaDNS: _chinaDNS,
-        foreignDNS: _foreignDNS,
-        mode: 'default',
-      }
+      enable: true,
+      ruleSet: 'all',
+      regionSet: 'all',
+      excludeHighPercentage: true,
+      globalRatioLimit: 2,
+      skipIps: _skipIps,
+      defaultDNS: _defaultDNS,
+      directDNS: _directDNS,
+      chinaDNS: _chinaDNS,
+      foreignDNS: _foreignDNS,
+      mode: 'default',
+      ipv6: false,
+    }
 
 let {
   enable = true,
@@ -73,6 +74,7 @@ let {
   chinaDNS = _chinaDNS,
   foreignDNS = _foreignDNS,
   mode = 'default',
+  ipv6 = false,
 } = args
 
 if (['securest', 'secure', 'default', 'fast', 'fastest'].includes(mode)) {
@@ -286,7 +288,7 @@ if (regionSet === 'all') {
 const dnsConfig = {
   enable: true,
   listen: ':1053',
-  ipv6: true,
+  ipv6: ipv6,
   'prefer-h3': true,
   'use-hosts': true,
   'use-system-hosts': true,
@@ -600,6 +602,7 @@ function main(config) {
   config['allow-lan'] = true
   config['bind-address'] = '*'
   config['mode'] = 'rule'
+  config['ipv6'] = ipv6
   config['dns'] = dnsConfig
   config['profile'] = {
     'store-selected': true,
@@ -619,6 +622,9 @@ function main(config) {
     'force-dns-mapping': true,
     'parse-pure-ip': false,
     'override-destination': true,
+    'auto-route': true,
+    'auto-redirect': true,
+    'auto-detect-interface': true,
     sniff: {
       TLS: {
         ports: [443, 8443],
@@ -652,6 +658,8 @@ function main(config) {
   }
   config['tun'] = {
     stack: 'mixed',
+    'strict-route': true,
+    'mtu': 1500,
     'exclude-interface': ['NodeBabyLink'],
     'route-exclude-address': skipIps,
     'dns-hijack': ['any:53', 'tcp://any:53'],
