@@ -287,7 +287,7 @@ if (regionSet === 'all') {
 
 const dnsConfig = {
   enable: true,
-  listen: ':1053',
+  listen: ':53',
   ipv6: ipv6,
   'prefer-h3': true,
   'use-hosts': true,
