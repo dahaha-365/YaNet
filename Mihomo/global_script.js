@@ -612,7 +612,7 @@ function main(config) {
   config['tcp-concurrent'] = true
   config['keep-alive-interval'] = 1800
   config['find-process-mode'] = 'strict'
-  config['geodata-mode'] = true
+  config['geodata-mode'] = false
   config['geodata-loader'] = 'memconservative'
   config['geo-auto-update'] = true
   config['geo-update-interval'] = 24
