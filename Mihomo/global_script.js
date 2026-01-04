@@ -337,7 +337,7 @@ const ruleProviderCommon = {
 const groupBaseOption = {
   interval: 300,
   timeout: 3000,
-  url: 'http://cp.cloudflare.com/generate_204',
+  url: 'https://cp.cloudflare.com/generate_204',
   lazy: true,
   'max-failed-times': 3,
   hidden: false,
@@ -453,7 +453,7 @@ const serviceConfigs = [
     key: 'spotify',
     name: 'Spotify',
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png',
-    url: 'http://spclient.wg.spotify.com/signup/public/v1/account',
+    url: 'https://spclient.wg.spotify.com/signup/public/v1/account',
     rules: ['GEOSITE,spotify,Spotify'],
   },
   {
@@ -669,7 +669,7 @@ function main(config) {
       'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat',
     geosite:
       'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat',
-    mmdb: 'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.metadb',
+    mmdb: 'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.mmdb',
     asn: 'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb',
   }
 
