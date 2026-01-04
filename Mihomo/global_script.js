@@ -662,7 +662,7 @@ function main(config) {
     'mtu': 1500,
     'exclude-interface': ['NodeBabyLink'],
     'route-exclude-address': skipIps,
-    'dns-hijack': ["tcp://53", "udp://53"],
+    'dns-hijack': ["any:53", "tcp://any:53"],
   }
   config['geox-url'] = {
     geoip:
