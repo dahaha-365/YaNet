@@ -337,7 +337,7 @@ const ruleProviderCommon = {
 const groupBaseOption = {
   interval: 300,
   timeout: 3000,
-  url: 'https://cp.cloudflare.com/generate_204',
+  url: 'https://www.gstatic.com/generate_204',
   lazy: true,
   'max-failed-times': 3,
   hidden: false,
