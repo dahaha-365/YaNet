@@ -287,7 +287,7 @@ if (regionSet === 'all') {
 
 const dnsConfig = {
   enable: true,
-  listen: ':53',
+  listen: '0.0.0.0:1053',
   ipv6: ipv6,
   'prefer-h3': true,
   'use-hosts': true,
@@ -666,8 +666,8 @@ function main(config) {
     gso: true,
     'gso-max-size': 65536,
     'exclude-interface': ['NodeBabyLink'],
-    'route-exclude-address': skipIps,
-    'dns-hijack': ["any:53", "tcp://any:53"],
+    'route-exclude-address': skipIps.filter(ip => ip !== '198.18.0.0/15'),
+    'dns-hijack': ['any:53', 'tcp://any:53'],
   }
   config['geox-url'] = {
     geoip:
