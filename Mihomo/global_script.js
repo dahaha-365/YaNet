@@ -326,7 +326,7 @@ const dnsConfig = {
     'geosite:private': 'system',
     'geosite:tld-cn,cn,steam@cn,category-games@cn,microsoft@cn,apple@cn,category-game-platforms-download@cn,category-public-tracker':
       chinaDNS,
-    'geosite:gfw': foreignDNS,
+    'geosite:gfw,jetbrains-ai,category-ai-!cn,category-ai-chat-!cn': foreignDNS,
     // 'geosite:telegram': foreignDNS,
   },
 }
