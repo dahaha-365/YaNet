@@ -21,7 +21,7 @@ const _skipIps = [
   '172.16.0.0/12',
   '192.0.0.0/24',
   '192.168.0.0/16',
-  '198.18.0.0/15',
+  '198.18.0.0/16',
   'FC00::/7',
   'FE80::/10',
   '::1/128',
@@ -675,7 +675,7 @@ function main(config) {
     gso: true,
     'gso-max-size': 65536,
     'exclude-interface': ['NodeBabyLink'],
-    'route-exclude-address': skipIps.filter((ip) => ip !== '198.18.0.1/16'),
+    'route-exclude-address': skipIps.filter((ip) => ip !== '198.18.0.0/16'),
     'dns-hijack': ['any:53', 'tcp://any:53'],
   }
   config['geox-url'] = {
