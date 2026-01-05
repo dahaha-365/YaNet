@@ -297,7 +297,7 @@ const dnsConfig = {
   'use-system-hosts': true,
   // 'respect-rules': true,
   'enhanced-mode': 'fake-ip',
-  'fake-ip-range': '198.18.0.1/16',
+  'fake-ip-range': '198.18.0.0/16',
   'fake-ip-filter-mode': 'whitelist',
   'fake-ip-filter': [
     'geosite:gfw',
