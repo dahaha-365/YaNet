@@ -60,6 +60,7 @@ const args =
       foreignDNS: _foreignDNS,
       mode: 'default',
       ipv6: false,
+      logLevel: 'error',
     }
 
 let {
@@ -75,6 +76,7 @@ let {
   foreignDNS = _foreignDNS,
   mode = 'default',
   ipv6 = false,
+  logLevel = 'error',
 } = args
 
 if (['securest', 'secure', 'default', 'fast', 'fastest'].includes(mode)) {
@@ -289,6 +291,7 @@ const dnsConfig = {
   enable: true,
   listen: '0.0.0.0:1053',
   ipv6: ipv6,
+  'log-level': logLevel,
   'prefer-h3': true,
   'use-hosts': true,
   'use-system-hosts': true,
@@ -603,7 +606,7 @@ function main(config) {
   config['bind-address'] = '*'
   config['mode'] = 'rule'
   config['ipv6'] = ipv6
-  config['external-controller'] = '0.0.0.0:9090'
+  config['external-controller'] = '0.0.0.0:1906'
   config['mixed-port'] = 7890
   config['redir-port'] = 7891
   config['tproxy-port'] = 7892
