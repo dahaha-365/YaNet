@@ -191,6 +191,7 @@ const rules = [
   'PROCESS-NAME-REGEX,(?i).*节点小宝.*,DIRECT',
   'PROCESS-NAME-REGEX,(?i).*AnyDesk.*,DIRECT',
   'PROCESS-NAME-REGEX,(?i).*ToDesk.*,DIRECT',
+  'PROCESS-NAME-REGEX,(?i).*RustDesk.*,DIRECT',
   'PROCESS-NAME-REGEX,(?i).*TeamViewer.*,DIRECT',
   'PROCESS-NAME-REGEX,(?i).*Zerotier.*,DIRECT',
   'PROCESS-NAME-REGEX,(?i).*Tailscaled.*,DIRECT',
