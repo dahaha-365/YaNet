@@ -203,6 +203,7 @@ const rules = [
   'PROCESS-NAME-REGEX,(?i).*xmqtunnel.*,DIRECT',
   'PROCESS-NAME-REGEX,(?i).*Navicat.*,DIRECT',
   'DOMAIN-SUFFIX,iepose.com,DIRECT',
+  'DOMAIN-SUFFIX,iepose.cn,DIRECT',
   'DOMAIN-SUFFIX,ionewu.com,DIRECT',
   'DOMAIN-SUFFIX,vicp.net,DIRECT',
 ]
