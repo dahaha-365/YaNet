@@ -19,7 +19,6 @@ const _skipIps = [
   '100.64.0.0/10',
   '169.254.0.0/16',
   '172.16.0.0/12',
-  '192.0.0.0/24',
   '192.168.0.0/16',
   '198.18.0.0/16',
   'FC00::/7',
@@ -681,11 +680,11 @@ function main(config) {
   }
   config['geox-url'] = {
     geoip:
-      'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat',
+      'https://cdn.gh-proxy.org/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat',
     geosite:
-      'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat',
-    mmdb: 'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.metadb',
-    asn: 'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb',
+      'https://cdn.gh-proxy.org/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat',
+    mmdb: 'https://cdn.gh-proxy.org/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.metadb',
+    asn: 'https://cdn.gh-proxy.org/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb',
   }
 
   config.proxies.push({
