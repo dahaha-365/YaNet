@@ -33,21 +33,24 @@ const args =
   typeof $arguments !== 'undefined'
     ? $arguments
     : {
-      enable: true,
-      ruleSet: 'all',
-      regionSet: 'all',
-      excludeHighPercentage: true,
-      globalRatioLimit: 2,
-      skipIps: _skipIps,
-      defaultDNS: _defaultDNS,
-      directDNS: _directDNS,
-      chinaDNS: _chinaDNS,
-      foreignDNS: _foreignDNS,
-      mode: 'default',
-      ipv6: false,
-      logLevel: 'error',
-    }
+        enable: true,
+        ruleSet: 'all',
+        regionSet: 'all',
+        excludeHighPercentage: true,
+        globalRatioLimit: 2,
+        skipIps: _skipIps,
+        defaultDNS: _defaultDNS,
+        directDNS: _directDNS,
+        chinaDNS: _chinaDNS,
+        foreignDNS: _foreignDNS,
+        mode: 'default',
+        ipv6: false,
+        logLevel: 'error',
+      }
 
+/**
+ * 如果是直接在软件中粘贴脚本的，就手动修改下面这几个变量实现自定义配置
+ */
 let {
   enable = true,
   ruleSet = 'all', // 支持 'all' 或 'openai,youtube,ads' 这种格式
