@@ -100,23 +100,23 @@ if (['securest', 'secure', 'default', 'fast', 'fastest'].includes(mode)) {
   }
 }
 
-if (args.skipIps || skipIps instanceof String) {
+if (args.skipIps || typeof skipIps === 'string') {
   skipIps = stringToArray(args.skipIps)
 }
 
-if (args.defaultDNS || defaultDNS instanceof String) {
+if (args.defaultDNS || typeof defaultDNS === 'string') {
   defaultDNS = stringToArray(args.defaultDNS)
 }
 
-if (args.directDNS || directDNS instanceof String) {
+if (args.directDNS || typeof directDNS === 'string') {
   directDNS = stringToArray(args.directDNS)
 }
 
-if (args.chinaDNS || chinaDNS instanceof String) {
+if (args.chinaDNS || typeof chinaDNS === 'string') {
   chinaDNS = stringToArray(args.chinaDNS)
 }
 
-if (args.foreignDNS || foreignDNS instanceof String) {
+if (args.foreignDNS || typeof foreignDNS === 'string') {
   foreignDNS = stringToArray(args.foreignDNS)
 }
 
