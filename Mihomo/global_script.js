@@ -14,29 +14,15 @@ function stringToArray(str) {
 
 // --- 1. 静态配置区域 ---
 
-const _skipIps = [
-  '10.0.0.0/8',
-  '100.64.0.0/10',
-  '169.254.0.0/16',
-  '172.16.0.0/12',
-  '192.168.0.0/16',
-  '198.18.0.0/16',
-  'FC00::/7',
-  'FE80::/10',
-  '::1/128',
-]
+const _skipIps =
+  '10.0.0.0/8;100.64.0.0/10;169.254.0.0/16;172.16.0.0/12;192.168.0.0/16;198.18.0.0/16;FC00::/7;FE80::/10;::1/128'
 
 // DNS 配置
-const _chinaDNS = [
-  'https://doh.pub/dns-query',
-  'https://dns.alidns.com/dns-query'
-]
-const _foreignDNS = [
-  'https://dns.google/dns-query',
-  'https://dns.adguard-dns.com/dns-query'
-]
-const _defaultDNS = ['119.29.29.29', '223.5.5.5']
-const _directDNS = ['119.29.29.29', '223.5.5.5']
+const _chinaDNS = 'https://doh.pub/dns-query;https://dns.alidns.com/dns-query'
+const _foreignDNS =
+  'https://dns.google/dns-query;https://dns.adguard-dns.com/dns-query'
+const _defaultDNS = '119.29.29.29;223.5.5.5'
+const _directDNS = '119.29.29.29;223.5.5.5'
 
 /**
  * 整个脚本的总开关，在Mihomo Party使用的话，请保持为true
