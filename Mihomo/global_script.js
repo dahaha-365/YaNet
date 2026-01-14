@@ -191,7 +191,6 @@ const rules = [
   'PROCESS-NAME-REGEX,(?i).*cloudflared.*,DIRECT',
   'PROCESS-NAME-REGEX,(?i).*xmqtunnel.*,DIRECT',
   'PROCESS-NAME-REGEX,(?i).*Navicat.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*Antigravity.*,国外AI',
   'DOMAIN-SUFFIX,iepose.com,DIRECT',
   'DOMAIN-SUFFIX,iepose.cn,DIRECT',
   'DOMAIN-SUFFIX,ionewu.com,DIRECT',
@@ -366,6 +365,8 @@ const serviceConfigs = [
       'GEOSITE,category-ai-chat-!cn,国外AI',
       'DOMAIN-SUFFIX,meta.ai,国外AI',
       'DOMAIN-SUFFIX,meta.com,国外AI',
+      'PROCESS-NAME-REGEX,(?i).*Antigravity.*,国外AI',
+      'PROCESS-NAME-REGEX,(?i).*language_server_.*,国外AI',
     ],
   },
   {
@@ -405,7 +406,7 @@ const serviceConfigs = [
         path: './ruleset/ruleset.skk.moe/stream_tw.txt',
         format: 'text',
         behavior: 'classical',
-      }
+      },
     ],
   },
   {
@@ -523,7 +524,7 @@ const serviceConfigs = [
         path: './ruleset/adblockfilters/adblockmihomo.mrs',
         format: 'mrs',
         behavior: 'domain',
-      }
+      },
     ],
     reject: true,
   },
@@ -571,7 +572,7 @@ const serviceConfigs = [
         path: './ruleset/MetaCubeX/category-bank-jp.mrs',
         format: 'mrs',
         behavior: 'domain',
-      }
+      },
     ],
   },
 ]
