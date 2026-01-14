@@ -191,6 +191,7 @@ const rules = [
   'PROCESS-NAME-REGEX,(?i).*cloudflared.*,DIRECT',
   'PROCESS-NAME-REGEX,(?i).*xmqtunnel.*,DIRECT',
   'PROCESS-NAME-REGEX,(?i).*Navicat.*,DIRECT',
+  'PROCESS-NAME-REGEX,(?i).*Antigravity.*,国外AI',
   'DOMAIN-SUFFIX,iepose.com,DIRECT',
   'DOMAIN-SUFFIX,iepose.cn,DIRECT',
   'DOMAIN-SUFFIX,ionewu.com,DIRECT',
