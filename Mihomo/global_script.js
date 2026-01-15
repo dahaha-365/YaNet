@@ -193,6 +193,7 @@ const rules = [
   'PROCESS-NAME-REGEX,(?i).*Navicat.*,DIRECT',
   'DOMAIN-SUFFIX,iepose.com,DIRECT',
   'DOMAIN-SUFFIX,iepose.cn,DIRECT',
+  'DOMAIN-SUFFIX,nblink.cc,DIRECT',
   'DOMAIN-SUFFIX,ionewu.com,DIRECT',
   'DOMAIN-SUFFIX,vicp.net,DIRECT',
 ]
@@ -231,7 +232,7 @@ const allRegionDefinitions = [
   },
   {
     name: 'TW台湾省',
-    regex: /台湾|🇹🇼|tw|taiwan|tai wan/i,
+    regex: /台湾|台灣|🇹🇼|tw|taiwan|tai wan/i,
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png',
   },
   {
