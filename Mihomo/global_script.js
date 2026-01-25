@@ -167,35 +167,35 @@ if (ruleSet === 'all') {
 // 初始规则
 const rules = [
   'RULE-SET,applications,下载软件',
-  'PROCESS-NAME-REGEX,(?i).*Oray.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*Sunlogin.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*AweSun.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*NodeBaby.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*Node Baby.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*nblink.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*vpn.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*vnc.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*tvnserver.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*节点小宝.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*AnyDesk.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*ToDesk.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*RustDesk.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*TeamViewer.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*Zerotier.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*Tailscaled.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*phddns.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*ngrok.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*frpc.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*frps.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*natapp.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*cloudflared.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*xmqtunnel.*,DIRECT',
-  'PROCESS-NAME-REGEX,(?i).*Navicat.*,DIRECT',
-  'DOMAIN-SUFFIX,iepose.com,DIRECT',
-  'DOMAIN-SUFFIX,iepose.cn,DIRECT',
-  'DOMAIN-SUFFIX,nblink.cc,DIRECT',
-  'DOMAIN-SUFFIX,ionewu.com,DIRECT',
-  'DOMAIN-SUFFIX,vicp.net,DIRECT',
+  'PROCESS-NAME-REGEX,(?i).*Oray.*,直连',
+  'PROCESS-NAME-REGEX,(?i).*Sunlogin.*,直连',
+  'PROCESS-NAME-REGEX,(?i).*AweSun.*,直连',
+  'PROCESS-NAME-REGEX,(?i).*NodeBaby.*,直连',
+  'PROCESS-NAME-REGEX,(?i).*Node Baby.*,直连',
+  'PROCESS-NAME-REGEX,(?i).*nblink.*,直连',
+  'PROCESS-NAME-REGEX,(?i).*vpn.*,直连',
+  'PROCESS-NAME-REGEX,(?i).*vnc.*,直连',
+  'PROCESS-NAME-REGEX,(?i).*tvnserver.*,直连',
+  'PROCESS-NAME-REGEX,(?i).*节点小宝.*,直连',
+  'PROCESS-NAME-REGEX,(?i).*AnyDesk.*,直连',
+  'PROCESS-NAME-REGEX,(?i).*ToDesk.*,直连',
+  'PROCESS-NAME-REGEX,(?i).*RustDesk.*,直连',
+  'PROCESS-NAME-REGEX,(?i).*TeamViewer.*,直连',
+  'PROCESS-NAME-REGEX,(?i).*Zerotier.*,直连',
+  'PROCESS-NAME-REGEX,(?i).*Tailscaled.*,直连',
+  'PROCESS-NAME-REGEX,(?i).*phddns.*,直连',
+  'PROCESS-NAME-REGEX,(?i).*ngrok.*,直连',
+  'PROCESS-NAME-REGEX,(?i).*frpc.*,直连',
+  'PROCESS-NAME-REGEX,(?i).*frps.*,直连',
+  'PROCESS-NAME-REGEX,(?i).*natapp.*,直连',
+  'PROCESS-NAME-REGEX,(?i).*cloudflared.*,直连',
+  'PROCESS-NAME-REGEX,(?i).*xmqtunnel.*,直连',
+  'PROCESS-NAME-REGEX,(?i).*Navicat.*,直连',
+  'DOMAIN-SUFFIX,iepose.com,直连',
+  'DOMAIN-SUFFIX,iepose.cn,直连',
+  'DOMAIN-SUFFIX,nblink.cc,直连',
+  'DOMAIN-SUFFIX,ionewu.com,直连',
+  'DOMAIN-SUFFIX,vicp.net,直连',
 ]
 
 // 地区定义 (Icons 更新为 GitHub Raw)
@@ -686,6 +686,12 @@ function main(config) {
     udp: true,
   })
 
+  config.proxies.push({
+    name: '拒绝',
+    type: 'reject',
+    udp: true,
+  })
+
   // 3.2 高效代理分类 (单次遍历)
   const regionGroups = {}
   regionDefinitions.forEach(
@@ -802,10 +808,10 @@ function main(config) {
 
   // 3.4 添加通用兜底策略组
   rules.push(
-    'GEOSITE,private,DIRECT',
-    'GEOSITE,category-public-tracker,DIRECT',
-    'GEOSITE,category-game-platforms-download@cn,DIRECT',
-    'GEOIP,private,DIRECT,no-resolve',
+    'GEOSITE,private,直连',
+    'GEOSITE,category-public-tracker,直连',
+    'GEOSITE,category-game-platforms-download@cn,直连',
+    'GEOIP,private,直连,no-resolve',
     'GEOSITE,cn,国内网站',
     'GEOIP,cn,国内网站,no-resolve',
     'MATCH,其他外网'
