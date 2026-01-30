@@ -4,12 +4,13 @@
  * Github：https://github.com/dahaha-365/YaNet
  */
 
-function stringToArray(str) {
-  if (typeof str !== 'string') return [];
-  return str
+function stringToArray(val) {
+  if (Array.isArray(val)) return val
+  if (typeof val !== 'string') return []
+  return val
     .split(';')
-    .map(item => item.trim())
-    .filter(item => item.length > 0);
+    .map((item) => item.trim())
+    .filter((item) => item.length > 0)
 }
 
 // --- 1. 静态配置区域 ---
@@ -18,11 +19,11 @@ const _skipIps =
   '10.0.0.0/8;100.64.0.0/10;127.0.0.0/8;169.254.0.0/16;172.16.0.0/12;192.168.0.0/16;198.18.0.0/16;FC00::/7;FE80::/10;::1/128'
 
 // DNS 配置
-const _chinaDNS = 'https://doh.pub/dns-query;https://dns.alidns.com/dns-query'
-const _foreignDNS =
+const _chinaDohDns = 'https://doh.pub/dns-query;https://dns.alidns.com/dns-query'
+const _foreignDohDns =
   'https://dns.google/dns-query;https://dns.adguard-dns.com/dns-query'
-const _defaultDNS = '119.29.29.29;223.5.5.5'
-const _directDNS = '119.29.29.29;223.5.5.5'
+const _chinaIpDns = '119.29.29.29;223.5.5.5'
+const _foreignIpDns = "8.8.8.8;94.140.14.14"
 
 /**
  * 整个脚本的总开关，在Mihomo Party使用的话，请保持为true
@@ -39,10 +40,10 @@ const args =
         excludeHighPercentage: true,
         globalRatioLimit: 2,
         skipIps: _skipIps,
-        defaultDNS: _defaultDNS,
-        directDNS: _directDNS,
-        chinaDNS: _chinaDNS,
-        foreignDNS: _foreignDNS,
+        defaultDNS: _chinaIpDns,
+        directDNS: _chinaIpDns,
+        chinaDNS: _chinaDohDns,
+        foreignDNS: _foreignDohDns,
         mode: 'default',
         ipv6: false,
         logLevel: 'error',
@@ -52,73 +53,62 @@ const args =
  * 如果是直接在软件中粘贴脚本的，就手动修改下面这几个变量实现自定义配置
  */
 let {
-  enable = true,
-  ruleSet = 'all', // 支持 'all' 或 'openai,youtube,ads' 这种格式
-  regionSet = 'all', // 匹配 regionDefinitions.name 前两个字母 (严格大小写)
-  excludeHighPercentage = true,
-  globalRatioLimit = 2,
-  skipIps = _skipIps,
-  defaultDNS = _defaultDNS,
-  directDNS = _directDNS,
-  chinaDNS = _chinaDNS,
-  foreignDNS = _foreignDNS,
-  mode = 'default',
-  ipv6 = false,
-  logLevel = 'error',
+  enable = args.enable || true,
+  ruleSet = args.ruleSet || 'all', // 支持 'all' 或 'openai,youtube,ads' 这种格式
+  regionSet = args.regionSet || 'all', // 匹配 regionDefinitions.name 前两个字母 (严格大小写)
+  excludeHighPercentage = args.excludeHighPercentage || true,
+  globalRatioLimit = args.globalRatioLimit || 2,
+  skipIps = args.skipIps || _skipIps,
+  defaultDNS = args.defaultDNS || _chinaIpDns,
+  directDNS = args.directDNS || _chinaIpDns,
+  chinaDNS = args.chinaDNS || _chinaDohDns,
+  foreignDNS = args.foreignDNS || _foreignDohDns,
+  mode = args.mode || '',
+  ipv6 = args.ipv6 || false,
+  logLevel = args.logLevel || 'error',
 } = args
 
+/**
+ * 模式配置
+ */
 if (['securest', 'secure', 'default', 'fast', 'fastest'].includes(mode)) {
   switch (mode) {
     case 'securest':
-      defaultDNS = ['8.8.8.8', '94.140.14.14']
-      directDNS = ['https://dns.google/dns-query', 'https://dns.adguard-dns.com/dns-query']
+      defaultDNS = _foreignIpDns
+      directDNS = _foreignDohDns
       break;
     case 'secure':
-      defaultDNS = ['8.8.8.8', '94.140.14.14']
-      directDNS = ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
-      chinaDNS = ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
-      foreignDNS = ['https://dns.google/dns-query', 'https://dns.adguard-dns.com/dns-query']
+      defaultDNS = _foreignIpDns
+      directDNS = _chinaDohDns
+      chinaDNS = _chinaDohDns
+      foreignDNS = _foreignDohDns
       break;
     case 'fast':
-      defaultDNS = ['119.29.29.29', '223.5.5.5']
-      directDNS = ['119.29.29.29', '223.5.5.5']
-      chinaDNS = ['119.29.29.29', '223.5.5.5']
-      foreignDNS = ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
+      defaultDNS = _chinaIpDns
+      directDNS = _chinaIpDns
+      chinaDNS = _chinaIpDns
+      foreignDNS = _chinaDohDns
       break;
     case 'fastest':
-      defaultDNS = ['119.29.29.29', '223.5.5.5']
-      directDNS = ['119.29.29.29', '223.5.5.5']
-      chinaDNS = ['119.29.29.29', '223.5.5.5']
-      foreignDNS = ['119.29.29.29', '223.5.5.5']
+      defaultDNS = _chinaIpDns
+      directDNS = _chinaIpDns
+      chinaDNS = _chinaIpDns
+      foreignDNS = _chinaIpDns
       break;
     default:
-      defaultDNS = ['119.29.29.29', '223.5.5.5']
-      directDNS = ['119.29.29.29', '223.5.5.5']
-      chinaDNS = ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
-      foreignDNS = ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
+      defaultDNS = _chinaIpDns
+      directDNS = _chinaIpDns
+      chinaDNS = _chinaDohDns
+      foreignDNS = _chinaDohDns
       break;
   }
 }
 
-if (args.skipIps || typeof skipIps === 'string') {
-  skipIps = stringToArray(args.skipIps)
-}
-
-if (args.defaultDNS || typeof defaultDNS === 'string') {
-  defaultDNS = stringToArray(args.defaultDNS)
-}
-
-if (args.directDNS || typeof directDNS === 'string') {
-  directDNS = stringToArray(args.directDNS)
-}
-
-if (args.chinaDNS || typeof chinaDNS === 'string') {
-  chinaDNS = stringToArray(args.chinaDNS)
-}
-
-if (args.foreignDNS || typeof foreignDNS === 'string') {
-  foreignDNS = stringToArray(args.foreignDNS)
-}
+skipIps = stringToArray(skipIps)
+defaultDNS = stringToArray(defaultDNS)
+directDNS = stringToArray(directDNS)
+chinaDNS = stringToArray(chinaDNS)
+foreignDNS = stringToArray(foreignDNS)
 
 /**
  * 分流规则配置，会自动生成对应的策略组
@@ -605,7 +595,7 @@ function main(config) {
   config['tproxy-port'] = 7892
   config['external-ui'] = 'ui'
   config['external-ui-url'] =
-    'https://github.com/Zephyruso/zashboard/releases/download/v2.5.0/dist.zip'
+    'https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip'
   config['dns'] = dnsConfig
   config['profile'] = {
     'store-selected': true,
