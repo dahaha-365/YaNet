@@ -592,10 +592,12 @@ function main(config) {
   config['bind-address'] = '*'
   config['mode'] = 'rule'
   config['ipv6'] = ipv6
-  config['external-controller'] = '0.0.0.0:1906'
-  config['mixed-port'] = 7890
-  config['redir-port'] = 7891
-  config['tproxy-port'] = 7892
+  config['external-controller'] = '0.0.0.0:9090'
+  config['port'] = 7890
+  config['socks-port'] = 7891
+  config['mixed-port'] = 7892
+  config['redir-port'] = 7893
+  config['tproxy-port'] = 7894
   config['external-ui'] = 'ui'
   config['external-ui-url'] =
     `${githubProxy}https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip`
