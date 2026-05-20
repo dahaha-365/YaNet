@@ -55,19 +55,20 @@ const args =
  * 如果是直接在软件中粘贴脚本的，就手动修改下面这几个变量实现自定义配置
  */
 let {
-  enable = args.enable || true,
+  enable = Boolean(parseInt(args.enable)) || false,
   ruleSet = args.ruleSet || 'all', // 支持 'all' 或 'openai,youtube,ads' 这种格式
   regionSet = args.regionSet || 'all', // 匹配 regionDefinitions.name 前两个字母 (严格大小写)
-  excludeHighPercentage = args.excludeHighPercentage || true,
+  excludeHighPercentage = Boolean(parseInt(args.excludeHighPercentage)) ||
+    false,
   globalRatioLimit = args.globalRatioLimit || 2,
   skipIps = args.skipIps || _skipIps,
   defaultDNS = args.defaultDNS || _chinaIpDns,
   directDNS = args.directDNS || _chinaIpDns,
   chinaDNS = args.chinaDNS || _chinaDohDns,
   foreignDNS = args.foreignDNS || _foreignDohDns,
-  dns = args.dns || false,
+  dns = Boolean(parseInt(args.dns)) || false,
   mode = args.mode || '',
-  ipv6 = args.ipv6 || false,
+  ipv6 = Boolean(parseInt(args.ipv6)) || false,
   logLevel = args.logLevel || 'error',
   githubProxy = args.githubProxy || 'https://ghfast.top/',
 } = args
