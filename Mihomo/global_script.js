@@ -44,6 +44,7 @@ const args =
         directDNS: _chinaIpDns,
         chinaDNS: _chinaDohDns,
         foreignDNS: _foreignDohDns,
+        dns: true,
         mode: 'default',
         ipv6: false,
         logLevel: 'error',
@@ -64,6 +65,7 @@ let {
   directDNS = args.directDNS || _chinaIpDns,
   chinaDNS = args.chinaDNS || _chinaDohDns,
   foreignDNS = args.foreignDNS || _foreignDohDns,
+  dns = args.dns || false,
   mode = args.mode || '',
   ipv6 = args.ipv6 || false,
   logLevel = args.logLevel || 'error',
@@ -272,7 +274,7 @@ if (regionSet === 'all') {
 }
 
 const dnsConfig = {
-  enable: true,
+  enable: dns,
   listen: '0.0.0.0:53',
   ipv6: ipv6,
   'log-level': logLevel,
