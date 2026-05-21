@@ -25,37 +25,41 @@ const _foreignDohDns =
 const _chinaIpDns = '119.29.29.29;223.5.5.5'
 const _foreignIpDns = "8.8.8.8;94.140.14.14"
 
-/**
- * 整个脚本的总开关，在Mihomo Party使用的话，请保持为true
- * true = 启用
- * false = 禁用
- */
-const args =
+const defaultArgs = {
+  enable: true,
+  ruleSet: 'all',
+  regionSet: 'all',
+  excludeHighPercentage: true,
+  globalRatioLimit: 2,
+  skipIps: _skipIps,
+  defaultDNS: _chinaIpDns,
+  directDNS: _chinaIpDns,
+  chinaDNS: _chinaDohDns,
+  foreignDNS: _foreignDohDns,
+  dns: true,
+  mode: 'default',
+  ipv6: false,
+  logLevel: 'error',
+  githubProxy: 'https://ghfast.top/',
+}
+
+let args =
   typeof $arguments !== 'undefined'
     ? $arguments
-    : {
-        enable: true,
-        ruleSet: 'all',
-        regionSet: 'all',
-        excludeHighPercentage: true,
-        globalRatioLimit: 2,
-        skipIps: _skipIps,
-        defaultDNS: _chinaIpDns,
-        directDNS: _chinaIpDns,
-        chinaDNS: _chinaDohDns,
-        foreignDNS: _foreignDohDns,
-        dns: true,
-        mode: 'default',
-        ipv6: false,
-        logLevel: 'error',
-        githubProxy: 'https://ghfast.top/',
-      }
+    : defaultArgs
+
+args = {
+  ...defaultArgs,
+  ...Object.fromEntries(
+    Object.entries(args).filter(([_, value]) => value !== undefined)
+  )
+}
 
 /**
  * 如果是直接在软件中粘贴脚本的，就手动修改下面这几个变量实现自定义配置
  */
 let {
-  enable = args.enable || false,
+  enable = args.enable || true,
   ruleSet = args.ruleSet || 'all', // 支持 'all' 或 'openai,youtube,ads' 这种格式
   regionSet = args.regionSet || 'all', // 匹配 regionDefinitions.name 前两个字母 (严格大小写)
   excludeHighPercentage = !!args.excludeHighPercentage ||
@@ -312,7 +316,7 @@ const dnsConfig = {
   'nameserver-policy': {
     'geosite:private': 'system',
     'geosite:tld-cn,cn,steam@cn,category-games@cn,microsoft@cn,apple@cn,category-game-platforms-download@cn,category-public-tracker':
-      chinaDNS,
+    chinaDNS,
     'geosite:gfw,jetbrains-ai,category-ai-!cn,category-ai-chat-!cn': foreignDNS,
     // 'geosite:telegram': foreignDNS,
   },
