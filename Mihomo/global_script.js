@@ -25,31 +25,37 @@ const _foreignDohDns =
 const _chinaIpDns = '119.29.29.29;223.5.5.5'
 const _foreignIpDns = "8.8.8.8;94.140.14.14"
 
-/**
- * 整个脚本的总开关，在Mihomo Party使用的话，请保持为true
- * true = 启用
- * false = 禁用
- */
-const args =
+const defaultArgs = {
+  enable: true,
+  ruleSet: 'all',
+  regionSet: 'all',
+  excludeHighPercentage: true,
+  globalRatioLimit: 2,
+  skipIps: _skipIps,
+  defaultDNS: _chinaIpDns,
+  directDNS: _chinaIpDns,
+  chinaDNS: _chinaDohDns,
+  foreignDNS: _foreignDohDns,
+  dns: true,
+  mode: 'default',
+  ipv6: false,
+  logLevel: 'error',
+  githubProxy: 'https://ghfast.top/',
+}
+
+let args =
   typeof $arguments !== 'undefined'
     ? $arguments
-    : {
-        enable: true,
-        ruleSet: 'all',
-        regionSet: 'all',
-        excludeHighPercentage: true,
-        globalRatioLimit: 2,
-        skipIps: _skipIps,
-        defaultDNS: _chinaIpDns,
-        directDNS: _chinaIpDns,
-        chinaDNS: _chinaDohDns,
-        foreignDNS: _foreignDohDns,
-        dns: true,
-        mode: 'default',
-        ipv6: false,
-        logLevel: 'error',
-        githubProxy: 'https://ghfast.top/',
-      }
+    : defaultArgs
+
+const mergedArgs = {
+  ...defaultArgs,
+  ...Object.fromEntries(
+    Object.entries(_args).filter(([_, value]) => value !== undefined)
+  )
+}
+
+args = mergedArgs;
 
 /**
  * 如果是直接在软件中粘贴脚本的，就手动修改下面这几个变量实现自定义配置
@@ -312,7 +318,7 @@ const dnsConfig = {
   'nameserver-policy': {
     'geosite:private': 'system',
     'geosite:tld-cn,cn,steam@cn,category-games@cn,microsoft@cn,apple@cn,category-game-platforms-download@cn,category-public-tracker':
-      chinaDNS,
+    chinaDNS,
     'geosite:gfw,jetbrains-ai,category-ai-!cn,category-ai-chat-!cn': foreignDNS,
     // 'geosite:telegram': foreignDNS,
   },
