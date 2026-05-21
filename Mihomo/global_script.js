@@ -48,14 +48,12 @@ let args =
     ? $arguments
     : defaultArgs
 
-const mergedArgs = {
+args = {
   ...defaultArgs,
   ...Object.fromEntries(
-    Object.entries(_args).filter(([_, value]) => value !== undefined)
+    Object.entries(args).filter(([_, value]) => value !== undefined)
   )
 }
-
-args = mergedArgs;
 
 /**
  * 如果是直接在软件中粘贴脚本的，就手动修改下面这几个变量实现自定义配置
