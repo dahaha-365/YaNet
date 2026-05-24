@@ -600,6 +600,11 @@ function main(config) {
   config['mode'] = 'rule'
   config['ipv6'] = !!ipv6
   config['external-controller'] = '0.0.0.0:9090'
+  config['external-controller-cors'] = {
+    'allow-origins': ['*'],
+    'allow-private-network': true,
+  }
+  config['secret'] = 'YaNet'
   config['port'] = 7890
   config['socks-port'] = 7891
   config['mixed-port'] = 7892
