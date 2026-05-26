@@ -29,6 +29,7 @@ const defaultArgs = {
   enable: true,
   ruleSet: 'all',
   regionSet: 'all',
+  interfaceName: '',
   excludeHighPercentage: true,
   globalRatioLimit: 2,
   skipIps: _skipIps,
@@ -626,6 +627,10 @@ function main(config) {
   config['geodata-loader'] = 'memconservative'
   config['geo-auto-update'] = true
   config['geo-update-interval'] = 24
+
+  if (config.interfaceName.length > 0) {
+    config['interface-name'] = config.interfaceName
+  }
 
   config['sniffer'] = {
     enable: true,
