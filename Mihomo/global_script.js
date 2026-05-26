@@ -629,8 +629,8 @@ function main(config) {
   config['geo-auto-update'] = true
   config['geo-update-interval'] = 24
 
-  if (config.interfaceName.length > 0) {
-    config['interface-name'] = config.interfaceName
+  if (interfaceName.length > 0) {
+    config['interface-name'] = interfaceName
   }
 
   config['sniffer'] = {
