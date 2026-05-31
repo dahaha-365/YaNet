@@ -41,7 +41,7 @@ const defaultArgs = {
   mode: 'default',
   ipv6: false,
   logLevel: 'error',
-  githubProxy: 'https://ghfast.top/',
+  githubProxy: '',
 }
 
 let args =
