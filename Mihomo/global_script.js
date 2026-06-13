@@ -76,7 +76,7 @@ let {
   mode = args.mode || '',
   ipv6 = args.ipv6 || false,
   logLevel = args.logLevel || 'error',
-  githubProxy = args.githubProxy || 'https://ghfast.top/',
+  githubProxy = args.githubProxy || '',
 } = args
 
 /**
