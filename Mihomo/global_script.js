@@ -304,6 +304,8 @@ const dnsConfig = {
     'geosite:google',
     'geosite:amazon',
     'geosite:category-bank-jp',
+    'not,((geosite:github))',
+    'not,((geosite:gitlab))',
     // 'geosite:category-bank-cn@!cn',
   ],
   nameserver: chinaDNS,
@@ -318,7 +320,7 @@ const dnsConfig = {
   'nameserver-policy': {
     'geosite:private': 'system',
     'geosite:tld-cn,cn,steam@cn,category-games@cn,microsoft@cn,apple@cn,category-game-platforms-download@cn,category-public-tracker':
-    chinaDNS,
+      chinaDNS,
     'geosite:gfw,jetbrains-ai,category-ai-!cn,category-ai-chat-!cn': foreignDNS,
     // 'geosite:telegram': foreignDNS,
   },
