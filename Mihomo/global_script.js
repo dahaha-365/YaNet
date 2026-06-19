@@ -293,6 +293,8 @@ const dnsConfig = {
   'fake-ip-range': '198.18.0.0/16',
   'fake-ip-filter-mode': 'whitelist',
   'fake-ip-filter': [
+    'NOT,((geosite:github))',
+    'NOT,((geosite:gitlab))',
     'geosite:gfw',
     'geosite:jetbrains-ai',
     'geosite:category-ai-!cn',
@@ -304,8 +306,6 @@ const dnsConfig = {
     'geosite:google',
     'geosite:amazon',
     'geosite:category-bank-jp',
-    'NOT,((geosite:github))',
-    'NOT,((geosite:gitlab))',
     // 'geosite:category-bank-cn@!cn',
   ],
   nameserver: chinaDNS,
