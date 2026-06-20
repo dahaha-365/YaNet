@@ -173,11 +173,10 @@ const rules = [
   'DST-PORT,7654,直连', // N2N SuperNode端口
   'DST-PORT,9118,直连', // 节点小宝端口
   'DST-PORT,50000-50100,直连', // AnyDesk/RustDesk备用中继端口（关键！）
-  'DST-PORT,21116,UDP,直连', // RustDesk核心P2P端口
-  'DST-PORT,5353,UDP,直连', // 向日葵内网穿透
-  'DST-PORT,4118,UDP,直连', // 蒲公英P2P
-  'DST-PORT,7070,UDP,直连', // AnyDesk音视频UDP通道  'GEOSITE,category-collaborate-cn,直连',
-  'DST-PORT,9118,UDP,直连', // 节点小宝
+  'DST-PORT,21116,直连', // RustDesk核心P2P端口
+  'DST-PORT,5353,直连', // 向日葵内网穿透
+  'GEOSITE,category-collaborate-cn,直连',
+  'DST-PORT,9118,直连', // 节点小宝
   'GEOSITE,category-container,默认节点',
   'GEOSITE,category-netdisk-!cn,默认节点',
   'RULE-SET,applications,下载软件',
