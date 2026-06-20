@@ -826,6 +826,7 @@ function main(config) {
     'GEOSITE,private,直连',
     'GEOSITE,category-public-tracker,直连',
     'GEOSITE,category-game-platforms-download@cn,直连',
+    'GEOSITE,category-remote-control,直连',
     'GEOIP,private,直连,no-resolve',
     'GEOSITE,cn,国内网站',
     'GEOIP,cn,国内网站,no-resolve',
