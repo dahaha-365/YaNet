@@ -165,6 +165,7 @@ if (ruleSet === 'all') {
 // 初始规则
 const rules = [
   'DST-PORT,22,直连', // Git SSH（必须放首位，防止密钥协商失败）
+  'DST-PORT,3389,直连', // Windows远程连接
   'DST-PORT,5938,直连', // TeamViewer（核心端口，含TCP/UDP）
   'DST-PORT,7070,直连', // AnyDesk（主端口，含TCP/UDP音视频流）
   'DST-PORT,19966,直连', // 向日葵远程控制
