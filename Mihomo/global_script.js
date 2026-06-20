@@ -19,11 +19,12 @@ const _skipIps =
   '10.0.0.0/8;100.64.0.0/10;127.0.0.0/8;169.254.0.0/16;172.16.0.0/12;192.168.0.0/16;198.18.0.0/16;FC00::/7;FE80::/10;::1/128'
 
 // DNS 配置
-const _chinaDohDns = 'https://doh.pub/dns-query;https://dns.alidns.com/dns-query'
+const _chinaDohDns =
+  'https://doh.pub/dns-query;https://dns.alidns.com/dns-query'
 const _foreignDohDns =
   'https://dns.google/dns-query;https://dns.adguard-dns.com/dns-query'
 const _chinaIpDns = '119.29.29.29;223.5.5.5'
-const _foreignIpDns = "8.8.8.8;94.140.14.14"
+const _foreignIpDns = '8.8.8.8;94.140.14.14'
 
 const defaultArgs = {
   enable: true,
@@ -44,16 +45,13 @@ const defaultArgs = {
   githubProxy: '',
 }
 
-let args =
-  typeof $arguments !== 'undefined'
-    ? $arguments
-    : defaultArgs
+let args = typeof $arguments !== 'undefined' ? $arguments : defaultArgs
 
 args = {
   ...defaultArgs,
   ...Object.fromEntries(
     Object.entries(args).filter(([_, value]) => value !== undefined)
-  )
+  ),
 }
 
 /**
@@ -64,8 +62,7 @@ let {
   ruleSet = args.ruleSet || 'all', // 支持 'all' 或 'openai,youtube,ads' 这种格式
   regionSet = args.regionSet || 'all', // 匹配 regionDefinitions.name 前两个字母 (严格大小写)
   interfaceName = args.interfaceName || '',
-  excludeHighPercentage = !!args.excludeHighPercentage ||
-    false,
+  excludeHighPercentage = !!args.excludeHighPercentage || false,
   globalRatioLimit = args.globalRatioLimit || 2,
   skipIps = args.skipIps || _skipIps,
   defaultDNS = args.defaultDNS || _chinaIpDns,
@@ -87,31 +84,31 @@ if (['securest', 'secure', 'default', 'fast', 'fastest'].includes(mode)) {
     case 'securest':
       defaultDNS = _foreignIpDns
       directDNS = _foreignDohDns
-      break;
+      break
     case 'secure':
       defaultDNS = _foreignIpDns
       directDNS = _chinaDohDns
       chinaDNS = _chinaDohDns
       foreignDNS = _foreignDohDns
-      break;
+      break
     case 'fast':
       defaultDNS = _chinaIpDns
       directDNS = _chinaIpDns
       chinaDNS = _chinaIpDns
       foreignDNS = _chinaDohDns
-      break;
+      break
     case 'fastest':
       defaultDNS = _chinaIpDns
       directDNS = _chinaIpDns
       chinaDNS = _chinaIpDns
       foreignDNS = _chinaIpDns
-      break;
+      break
     default:
       defaultDNS = _chinaIpDns
       directDNS = _chinaIpDns
       chinaDNS = _chinaDohDns
       foreignDNS = _chinaDohDns
-      break;
+      break
   }
 }
 
@@ -155,52 +152,35 @@ let ruleOptions = {
 }
 
 if (ruleSet === 'all') {
-  Object.keys(ruleOptions).forEach(key => ruleOptions[key] = true);
+  Object.keys(ruleOptions).forEach((key) => (ruleOptions[key] = true))
 } else if (typeof ruleSet === 'string') {
-  const enabledKeys = ruleSet.split(';').map(s => s.trim());
-  enabledKeys.forEach(key => {
+  const enabledKeys = ruleSet.split(';').map((s) => s.trim())
+  enabledKeys.forEach((key) => {
     if (Object.prototype.hasOwnProperty.call(ruleOptions, key)) {
-      ruleOptions[key] = true;
+      ruleOptions[key] = true
     }
-  });
+  })
 }
 
 // 初始规则
 const rules = [
-  'GEOSITE,category-collaborate-cn,直连',
+  'DST-PORT,22,直连', // Git SSH（必须放首位，防止密钥协商失败）
+  'DST-PORT,5938,直连', // TeamViewer（核心端口，含TCP/UDP）
+  'DST-PORT,7070,直连', // AnyDesk（主端口，含TCP/UDP音视频流）
+  'DST-PORT,19966,直连', // 向日葵远程控制
+  'DST-PORT,21114-21119,直连', // RustDesk（含WebSocket中继端口）
+  'DST-PORT,4118,直连', // 蒲公英P2P穿透
+  'DST-PORT,7654,直连', // N2N SuperNode端口
+  'DST-PORT,9118,直连', // 节点小宝端口
+  'DST-PORT,50000-50100,直连', // AnyDesk/RustDesk备用中继端口（关键！）
+  'DST-PORT,21116,UDP,直连', // RustDesk核心P2P端口
+  'DST-PORT,5353,UDP,直连', // 向日葵内网穿透
+  'DST-PORT,4118,UDP,直连', // 蒲公英P2P
+  'DST-PORT,7070,UDP,直连', // AnyDesk音视频UDP通道  'GEOSITE,category-collaborate-cn,直连',
+  'DST-PORT,9118,UDP,直连', // 节点小宝
   'GEOSITE,category-container,默认节点',
   'GEOSITE,category-netdisk-!cn,默认节点',
   'RULE-SET,applications,下载软件',
-  // 'PROCESS-NAME-REGEX,(?i).*Oray.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*Sunlogin.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*AweSun.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*NodeBaby.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*Node Baby.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*nblink.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*owjdxb.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*vpn.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*vnc.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*tvnserver.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*节点小宝.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*AnyDesk.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*ToDesk.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*RustDesk.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*TeamViewer.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*Zerotier.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*Tailscaled.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*phddns.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*ngrok.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*frpc.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*frps.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*natapp.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*cloudflared.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*xmqtunnel.*,直连',
-  // 'PROCESS-NAME-REGEX,(?i).*Navicat.*,直连',
-  // 'DOMAIN-SUFFIX,iepose.com,直连',
-  // 'DOMAIN-SUFFIX,iepose.cn,直连',
-  // 'DOMAIN-SUFFIX,nblink.cc,直连',
-  // 'DOMAIN-SUFFIX,ionewu.com,直连',
-  // 'DOMAIN-SUFFIX,vicp.net,直连',
 ]
 
 // 地区定义 (Icons 更新为 GitHub Raw)
@@ -276,8 +256,8 @@ let regionDefinitions = []
 if (regionSet === 'all') {
   regionDefinitions = allRegionDefinitions
 } else {
-  const enabledRegions = regionSet.split(';').map(s => s.trim())
-  regionDefinitions = allRegionDefinitions.filter(r => {
+  const enabledRegions = regionSet.split(';').map((s) => s.trim())
+  regionDefinitions = allRegionDefinitions.filter((r) => {
     const prefix = r.name.substring(0, 2) // 获取前两个字母
     return enabledRegions.includes(prefix)
   })
@@ -372,8 +352,6 @@ const serviceConfigs = [
       'GEOSITE,category-ai-chat-!cn,国外AI',
       'DOMAIN-SUFFIX,meta.ai,国外AI',
       'DOMAIN-SUFFIX,meta.com,国外AI',
-      'PROCESS-NAME-REGEX,(?i).*Antigravity.*,国外AI',
-      'PROCESS-NAME-REGEX,(?i).*language_server_.*,国外AI',
     ],
   },
   {
