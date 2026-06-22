@@ -146,6 +146,7 @@ let ruleOptions = {
   telegram: false,
   line: false,
   whatsapp: false,
+  communication: false,
   games: false,
   japan: false,
   ads: false,
@@ -283,6 +284,10 @@ const dnsConfig = {
     'geosite:category-ai-chat-!cn',
     'geosite:category-games-!cn',
     'geosite:category-cdn-!cn',
+    'geosite:xiaohongshu@!cn',
+    'geosite:biliintl',
+    'geosite:tiktok',
+    'geosite:pinterest',
     'geosite:telegram',
     'geosite:facebook',
     'geosite:x',
@@ -305,7 +310,8 @@ const dnsConfig = {
     'geosite:private': 'system',
     'geosite:tld-cn,cn,steam@cn,category-games@cn,microsoft@cn,apple@cn,category-game-platforms-download@cn,category-public-tracker':
       chinaDNS,
-    'geosite:gfw,jetbrains-ai,category-ai-!cn,category-ai-chat-!cn': foreignDNS,
+    'geosite:gfw,jetbrains-ai,category-ai-!cn,category-ai-chat-!cn,xiaohongshu@!cn,biliintl,tiktok,pinterest':
+      foreignDNS,
     // 'geosite:telegram': foreignDNS,
   },
 }
@@ -488,6 +494,13 @@ const serviceConfigs = [
     rules: ['GEOSITE,line,Line'],
   },
   {
+    key: 'communication',
+    name: '国际通讯',
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png',
+    url: 'https://line.me/page-data/app-data.json',
+    rules: ['GEOSITE,category-communication,国际通讯'],
+  },
+  {
     key: 'games',
     name: '游戏专用',
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png',
@@ -620,7 +633,7 @@ function main(config) {
   config['sniffer'] = {
     enable: true,
     'force-dns-mapping': true,
-    'parse-pure-ip': false,
+    'parse-pure-ip': true,
     'override-destination': true,
     sniff: {
       TLS: {
