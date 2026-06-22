@@ -310,7 +310,7 @@ const dnsConfig = {
     'geosite:private': 'system',
     'geosite:tld-cn,cn,steam@cn,category-games@cn,microsoft@cn,apple@cn,category-game-platforms-download@cn,category-public-tracker':
       chinaDNS,
-    'geosite:gfw,jetbrains-ai,category-ai-!cn,category-ai-chat-!cn,xiaohongshu@!cn,biliintl,tiktok,pinterest':
+    'geosite:gfw,jetbrains-ai,category-ai-!cn,category-ai-chat-!cn,bytedance@!cn,xiaohongshu@!cn,biliintl,tiktok,pinterest':
       foreignDNS,
     // 'geosite:telegram': foreignDNS,
   },
