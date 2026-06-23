@@ -666,7 +666,7 @@ function main(config) {
     'gso-max-size': 65536,
     'exclude-interface': ['NodeBabyLink'],
     'route-exclude-address': skipIps.filter((ip) => ip !== '198.18.0.0/16'),
-    'dns-hijack': ['any:53', 'tcp://any:53'],
+    'dns-hijack': ['any:53', 'tcp://any:53', 'tcp://any:853'],
   }
   config['geox-url'] = {
     geoip: `${githubProxy}https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat`,
