@@ -679,12 +679,15 @@ function main(config) {
     name: '直连',
     type: 'direct',
     udp: true,
+    'routing-mark': 5555,
+    tfo: true,
+    mptcp: true,
   })
 
   config.proxies.push({
     name: '拒绝',
     type: 'reject',
-    udp: true,
+    udp: false,
   })
 
   // 3.2 高效代理分类 (单次遍历)
