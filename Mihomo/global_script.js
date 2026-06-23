@@ -181,7 +181,7 @@ const rules = [
   'PROCESS-NAME,com.carriez.flutter_hbb,直连',
   'GEOSITE,category-collaborate-cn,直连',
   'GEOSITE,category-container,默认节点',
-  'GEOSITE,category-netdisk-!cn,默认节点',
+  // 'GEOSITE,category-netdisk-!cn,默认节点',
   'RULE-SET,applications,下载软件',
 ]
 
