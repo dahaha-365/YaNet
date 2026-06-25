@@ -39,6 +39,7 @@ const defaultArgs = {
   chinaDNS: _chinaDohDns,
   foreignDNS: _foreignDohDns,
   dns: true,
+  sniffer: false,
   mode: 'default',
   ipv6: false,
   logLevel: 'error',
@@ -50,7 +51,28 @@ let args = typeof $arguments !== 'undefined' ? $arguments : defaultArgs
 args = {
   ...defaultArgs,
   ...Object.fromEntries(
-    Object.entries(args).filter(([_, value]) => value !== undefined)
+    Object.entries(args)
+      .filter(([_, value]) => value !== undefined)
+      .map(([key, value]) => {
+        // 仅处理字符串类型
+        if (typeof value === 'string') {
+          const trimmed = value.trim()
+
+          // 转换布尔字符串
+          if (trimmed === 'true') return [key, true]
+          if (trimmed === 'false') return [key, false]
+
+          // 转换数字字符串（仅当字符串与数字的 toString() 完全一致时）
+          if (
+            trimmed !== '' &&
+            !isNaN(trimmed) &&
+            String(Number(trimmed)) === trimmed
+          ) {
+            return [key, Number(trimmed)]
+          }
+        }
+        return [key, value] // 保持原值
+      })
   ),
 }
 
@@ -70,6 +92,7 @@ let {
   chinaDNS = args.chinaDNS || _chinaDohDns,
   foreignDNS = args.foreignDNS || _foreignDohDns,
   dns = args.dns || false,
+  sniffer = args.sniffer || false,
   mode = args.mode || '',
   ipv6 = args.ipv6 || false,
   logLevel = args.logLevel || 'error',
@@ -304,7 +327,7 @@ const dnsConfig = {
   'nameserver-policy': {
     'geosite:private': 'system',
     'geosite:tld-cn,cn,steam@cn,category-games@cn,microsoft@cn,apple@cn,category-game-platforms-download@cn,category-public-tracker':
-      chinaDNS,
+    chinaDNS,
     'geosite:gfw,jetbrains-ai,category-ai-!cn,category-ai-chat-!cn': foreignDNS,
     // 'geosite:telegram': foreignDNS,
   },
@@ -618,9 +641,9 @@ function main(config) {
   }
 
   config['sniffer'] = {
-    enable: true,
+    enable: sniffer,
     'force-dns-mapping': true,
-    'parse-pure-ip': false,
+    'parse-pure-ip': true,
     'override-destination': true,
     sniff: {
       TLS: {
@@ -666,7 +689,7 @@ function main(config) {
     'gso-max-size': 65536,
     'exclude-interface': ['NodeBabyLink'],
     'route-exclude-address': skipIps.filter((ip) => ip !== '198.18.0.0/16'),
-    'dns-hijack': ['any:53', 'tcp://any:53', 'tcp://any:853'],
+    'dns-hijack': ['any:53', 'tcp://any:53'],
   }
   config['geox-url'] = {
     geoip: `${githubProxy}https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat`,
@@ -680,8 +703,6 @@ function main(config) {
     type: 'direct',
     udp: true,
     'routing-mark': 5555,
-    tfo: true,
-    mptcp: true,
   })
 
   config.proxies.push({
@@ -786,7 +807,7 @@ function main(config) {
 
       let groupProxies
       if (svc.reject) {
-        groupProxies = ['REJECT', '直连', '默认节点']
+        groupProxies = ['拒绝', '直连', '默认节点']
       } else if (svc.key === 'biliintl' || svc.key === 'bahamut') {
         groupProxies = ['默认节点', '直连', ...regionGroupNames]
       } else {
@@ -811,8 +832,9 @@ function main(config) {
     'GEOSITE,category-game-platforms-download@cn,直连',
     'GEOSITE,category-remote-control,直连',
     'GEOIP,private,直连,no-resolve',
-    'GEOSITE,cn,国内网站',
-    'GEOIP,cn,国内网站,no-resolve',
+    'GEOSITE,cn,直连',
+    'GEOIP,cn,直连,no-resolve',
+    'GEOSITE,geolocation-!cn,其他外网',
     'MATCH,其他外网'
   )
 
@@ -821,7 +843,7 @@ function main(config) {
       ...groupBaseOption,
       name: '下载软件',
       type: 'select',
-      proxies: ['直连', 'REJECT', '默认节点', '国内网站', ...regionGroupNames],
+      proxies: ['直连', '拒绝', '默认节点', '国内网站', ...regionGroupNames],
       icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Download.png',
     },
     {
