@@ -307,7 +307,8 @@ const dnsConfig = {
     'geosite:category-games-!cn',
     'geosite:category-cdn-!cn',
     'geosite:telegram',
-    'geosite:facebook',
+    'geosite:telegram',
+    'geosite:geolocation-!cn',
     'geosite:x',
     'geosite:google',
     'geosite:amazon',
@@ -764,7 +765,7 @@ function main(config) {
     }
   })
 
-  const regionGroupNames = generatedRegionGroups.map((g) => g.name)
+  const regionGroupNames = generatedRegionGroups.map((g) => g.name).sort()
 
   if (otherProxies.length > 0) {
     generatedRegionGroups.push({
@@ -852,6 +853,9 @@ function main(config) {
       type: 'select',
       proxies: ['默认节点', '国内网站', ...regionGroupNames],
       icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming!CN.png',
+      rules: [
+        'GEOSITE,geolocation-!cn,其他外网',
+      ],
     },
     {
       ...groupBaseOption,
@@ -864,7 +868,9 @@ function main(config) {
   )
 
   // 3.5 组装最终结果
-  config['proxy-groups'] = [...functionalGroups, ...generatedRegionGroups]
+  config['proxy-groups'] = [...functionalGroups, ...generatedRegionGroups.sort((a, b) =>
+    a.name.localeCompare(b.name, 'en', { sensitivity: 'base' })
+  )]
 
   config['rules'] = rules
   config['rule-providers'] = ruleProviders
