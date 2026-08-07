@@ -389,13 +389,6 @@ const serviceConfigs = [
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TVB.png',
     url: 'https://viu.tv/',
     rules: [
-      'GEOSITE,tvb,港澳台媒体',
-      'GEOSITE,hkt,港澳台媒体',
-      'GEOSITE,hkbn,港澳台媒体',
-      'GEOSITE,hkopentv,港澳台媒体',
-      'GEOSITE,hkedcity,港澳台媒体',
-      'GEOSITE,hkgolden,港澳台媒体',
-      'GEOSITE,hketgroup,港澳台媒体',
       'RULE-SET,hk-media,港澳台媒体',
       'RULE-SET,tw-media,港澳台媒体',
     ],
