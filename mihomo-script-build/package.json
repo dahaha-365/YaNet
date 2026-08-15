@@ -1,0 +1,15 @@
+{
+  "name": "mihomo-script",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm build:unmin && pnpm build:min",
+    "build:unmin": "node scripts/build.mjs --minify=false",
+    "build:min": "node scripts/build.mjs --minify=true",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "typescript": "^5.0.0"
+  }
+}
