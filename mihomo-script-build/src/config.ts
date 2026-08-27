@@ -38,8 +38,8 @@ export const dnsConfig: DnsConfig = {
     'https://dns.alidns.com/dns-query',
   ],
   fallback: [
-    'https://dns.google/dns-query',
     'https://dns.adguard-dns.com/dns-query',
+    'https://dns.cloudflare.com/dns-query',
   ],
   'fallback-filter': {
     geoip: true,
@@ -50,8 +50,8 @@ export const dnsConfig: DnsConfig = {
     'geosite:tld-cn,cn,steam@cn,category-games@cn,microsoft@cn,apple@cn,category-game-platforms-download@cn,category-public-tracker':
       ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query'],
     'geosite:jetbrains-ai,category-ai-!cn,category-ai-chat-!cn': [
-      'https://dns.google/dns-query',
       'https://dns.adguard-dns.com/dns-query',
+      'https://dns.cloudflare.com/dns-query',
     ],
   },
 };
