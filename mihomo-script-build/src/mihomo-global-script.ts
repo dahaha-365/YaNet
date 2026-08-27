@@ -3,7 +3,7 @@
 /// <reference path="../../types/substore.d.ts" />
 
 import MihomoConfig from '../../types/mihomo-config';
-import { dnsConfig, snifferConfig } from './config';
+import { dnsConfig, snifferConfig, ntpConfig } from './config';
 
 /**
  * Mihomo 全局配置脚本
@@ -16,6 +16,7 @@ function main(config: MihomoConfig, profileName?: string): MihomoConfig {
   // ============================================================
   // 在这里编写你的 Mihomo 配置处理逻辑
   // ============================================================
+  config.ntp = ntpConfig;
   config.dns = dnsConfig;
   config.sniffer = snifferConfig;
 

@@ -138,6 +138,15 @@ export interface SnifferConfig {
   'port-whitelist'?: string[] // @废弃
 }
 
+export interface NtpConfig {
+  enable: boolean
+  'write-to-system': boolean
+  server: string
+  port?: number
+  interval?: number
+  'dialer-proxy'?: 'DIRECT' | string
+}
+
 export interface TunnelConfig {
   network: Network[]
   address: string
@@ -1062,6 +1071,7 @@ export interface MihomoConfig {
   rules?: string[]
   'sub-rules'?: Record<string, string[]>
   listeners?: ListenerConfig[]
+  ntp: NtpConfig
 }
 
 export type { MihomoConfig as default }

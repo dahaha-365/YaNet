@@ -1,7 +1,7 @@
 /// <reference path="../../types/mihomo-config.d.ts" />
 /// <reference path="../../types/substore.d.ts" />
 
-import { DnsConfig, SnifferConfig } from '../../types/mihomo-config';
+import { DnsConfig, NtpConfig, SnifferConfig } from '../../types/mihomo-config';
 
 export const bypassProxyCidrs: string[] = [
   // === IPv4 ===
@@ -95,4 +95,10 @@ export const snifferConfig: SnifferConfig = {
     },
   },
   'skip-src-address': bypassProxyCidrs.filter((ip) => ip !== '198.18.0.0/16'),
+};
+
+export const ntpConfig: NtpConfig = {
+  enable: true,
+  'write-to-system': false,
+  server: 'ntp.aliyun.com',
 };
