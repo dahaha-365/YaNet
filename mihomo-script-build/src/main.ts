@@ -9,8 +9,9 @@
  * - 不要通过 default export 暴露 main
  * - 最终通过 globalThis.main = main 暴露给 Mihomo
  */
+import MihomoConfig from '../../types/mihomo-config'
 
-function main(config: MihomoConfig): MihomoConfig {
+function main(config: MihomoConfig, profileName?: string): MihomoConfig {
   // ============================================================
   // 在这里编写你的 Mihomo 配置处理逻辑
   // ============================================================

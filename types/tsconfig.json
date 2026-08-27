@@ -1,16 +1,15 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "lib": ["ES2022"],
     "strict": true,
     "noEmit": true,
     "skipLibCheck": true,
-    "types": [],
-    "lib": ["ES2022"],
-    "allowJs": false
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "types": []
   },
   "include": [
-    "src/**/*.ts"
+    "*.d.ts"
   ]
 }

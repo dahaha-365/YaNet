@@ -2,7 +2,7 @@
  * Mihomo 全局脚本运行时类型定义
  *
  * 入口：
- *   main(config: MihomoConfig): MihomoConfig
+ *   main(config: MihomoConfig, profileName?: string): MihomoConfig
  *
  * 设计目标：
  * - 仅声明脚本运行时允许访问的全局 API
@@ -18,22 +18,22 @@
  * any、类型断言等方式绕过限制；真正的运行时权限仍应由脚本沙箱执行器保证。
  */
 
-/// <reference path="./mihomo-config.d.ts" />
+import type { MihomoConfig } from './mihomo-config'
 
-export {};
+export {}
 
 declare global {
   /**
    * Mihomo 脚本唯一入口。
    *
-   * 输入配置经过 main 处理后，必须返回一个 MihomoConfig。
+   * - config:    原始 Mihomo 配置，经过 main 处理后必须返回一个 MihomoConfig
+   * - profileName: 当前配置文件的名称（可选）
    */
-  function main(config: MihomoConfig): MihomoConfig;
+  function main(config: MihomoConfig, profileName?: string): MihomoConfig;
 
   // ===== 常量 =====
   const Infinity: number;
   const NaN: number;
-  const undefined: undefined;
 
   // ===== 基本函数和对象 =====
   const Function: FunctionConstructor;

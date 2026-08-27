@@ -290,7 +290,7 @@ const dnsConfig = {
   listen: '0.0.0.0:1053',
   ipv6: !!ipv6,
   'log-level': logLevel,
-  'prefer-h3': true,
+  'prefer-h3': false,
   'use-hosts': true,
   'use-system-hosts': true,
   'respect-rules': true,
@@ -324,7 +324,7 @@ const dnsConfig = {
   'nameserver-policy': {
     'geosite:private': 'system',
     'geosite:tld-cn,cn,steam@cn,category-games@cn,microsoft@cn,apple@cn,category-game-platforms-download@cn,category-public-tracker':
-    chinaDNS,
+      chinaDNS,
     'geosite:gfw,jetbrains-ai,category-ai-!cn,category-ai-chat-!cn': foreignDNS,
     // 'geosite:telegram': foreignDNS,
   },
@@ -388,10 +388,7 @@ const serviceConfigs = [
     name: '港澳台媒体',
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TVB.png',
     url: 'https://viu.tv/',
-    rules: [
-      'RULE-SET,hk-media,港澳台媒体',
-      'RULE-SET,tw-media,港澳台媒体',
-    ],
+    rules: ['RULE-SET,hk-media,港澳台媒体', 'RULE-SET,tw-media,港澳台媒体'],
     providers: [
       {
         key: 'hk-media',
@@ -842,9 +839,7 @@ function main(config) {
       type: 'select',
       proxies: ['默认节点', '国内网站', ...regionGroupNames],
       icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming!CN.png',
-      rules: [
-        'GEOSITE,geolocation-!cn,其他外网',
-      ],
+      rules: ['GEOSITE,geolocation-!cn,其他外网'],
     },
     {
       ...groupBaseOption,
@@ -857,9 +852,12 @@ function main(config) {
   )
 
   // 3.5 组装最终结果
-  config['proxy-groups'] = [...functionalGroups, ...generatedRegionGroups.sort((a, b) =>
-    a.name.localeCompare(b.name, 'en', { sensitivity: 'base' })
-  )]
+  config['proxy-groups'] = [
+    ...functionalGroups,
+    ...generatedRegionGroups.sort((a, b) =>
+      a.name.localeCompare(b.name, 'en', { sensitivity: 'base' })
+    ),
+  ]
 
   config['rules'] = rules
   config['rule-providers'] = ruleProviders

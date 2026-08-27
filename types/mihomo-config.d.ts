@@ -153,7 +153,6 @@ export interface DnsConfig {
   'fallback-lazy-query'?: boolean
   'nameserver-policy'?: NameserverPolicy
   'use-system-hosts'?: boolean
-  'prefer-h3'?: boolean
 }
 
 export interface SmuxConfig {
@@ -655,7 +654,7 @@ export interface ProxyGroupHealthCheck {
   interval?: number
   timeout?: number
   lazy?: boolean
-  expected-status?: string
+  'expected-status'?: string
 }
 
 export interface ProxyGroupConfig {
@@ -675,7 +674,7 @@ export interface ProxyGroupConfig {
   'include-all-proxies'?: boolean
   'include-all-providers'?: boolean
   'expected-status'?: string
-  disable-udp?: boolean
+  'disable-udp'?: boolean
   'persistent'?: boolean
   'interface-name'?: string
   'routing-mark'?: number
@@ -691,7 +690,7 @@ export interface ProviderHealthCheck {
   url?: string
   timeout?: number
   lazy?: boolean
-  expected-status?: string
+  'expected-status'?: string
 }
 
 export interface ProxyProviderOverride {

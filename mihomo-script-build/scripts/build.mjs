@@ -1,45 +1,60 @@
 import { build } from 'esbuild'
-import { mkdir } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { fileURLToPath } from 'node:url'
+import { exec } from 'node:child_process'
+import { promisify } from 'node:util'
+
+const execAsync = promisify(exec)
 
 const minify = process.argv.includes('--minify=true')
-const outdir = new URL('../dist/', import.meta.url)
+const outdir = fileURLToPath(new URL('../dist/', import.meta.url))
 
 await mkdir(outdir, { recursive: true })
 
-await build({
-  entryPoints: ['src/main.ts'],
-  outfile: new URL(
-    minify ? 'mihomo-config.min.js' : 'mihomo-config.js',
-    outdir
-  ),
-  bundle: true,
-  format: 'iife',
-  platform: 'neutral',
-  target: 'es2022',
+/**
+ * 构建条目配置。
+ * entry: 源文件（相对于 mihomo-script-build/ 目录）
+ * name:  输出文件名前缀
+ */
+const entries = [
+  { entry: 'src/main.ts', name: 'mihomo-config' },
+  { entry: 'src/mihomo-global-script.ts', name: 'mihomo-global-script' },
+  { entry: 'src/mihomo-global-script-media.ts', name: 'mihomo-global-script-media' },
+]
 
-  // Mihomo 直接执行脚本，不需要 export/import。
-  globalName: undefined,
+for (const { entry, name } of entries) {
+  const outfile = minify
+    ? `${outdir}/${name}.min.js`
+    : `${outdir}/${name}.js`
 
-  // min 版本压缩；unmin 版本保留可读结构。
-  minify,
+  await build({
+    entryPoints: [entry],
+    outfile,
+    bundle: true,
+    format: 'esm',
+    platform: 'neutral',
+    target: 'es2022',
 
-  // 不让 esbuild 因为函数名优化而改变 main 的函数名。
-  keepNames: true,
+    minify,
+    keepNames: true,
+    mangleProps: /^$/,
+    sourcemap: false,
+    legalComments: 'none',
+    charset: 'utf8'
+  })
 
-  // 不做属性名混淆，避免 Mihomo 配置字段和脚本访问的字段被改名。
-  mangleProps: false,
+  // 移除产物中的 export 语句，确保沙箱环境中可直接执行
+  let code = await readFile(outfile, 'utf8')
+  code = code.replace(/^\s*export\s*{[\s\S]*?}\s*;?\s*$/gm, '')
+  code = code.replace(/^\s*export\s+default\s+/gm, '')
+  await writeFile(outfile, code.trimEnd() + '\n')
 
-  // 不生成 source map，最终文件可以直接交给 Mihomo。
-  sourcemap: false,
+  // 未压缩版本用 Prettier 格式化（单引号、尾逗号等）
+  if (!minify) {
+    await execAsync(`bun x prettier --write --single-quote --trailing-comma all "${outfile}"`, {
+      cwd: fileURLToPath(new URL('../', import.meta.url))
+    })
+  }
 
-  // 保留 main 作为 IIFE 内的顶层函数声明。
-  // 通过 src/main.ts 的 globalThis.main 绑定确保宿主可调用。
-  footer: {
-    js: '\n'
-  },
-
-  legalComments: 'none',
-  charset: 'utf8'
-})
-
-console.log(`built: ${minify ? 'dist/mihomo-config.min.js' : 'dist/mihomo-config.js'}`)
+  console.log(`built: dist/${minify ? `${name}.min.js` : `${name}.js`}`)
+}

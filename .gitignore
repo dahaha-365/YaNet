@@ -11,3 +11,4 @@ stats.html
 /docs/.vuepress/.temp/
 /docs/.vuepress/public/avatar.png
 /docs/.vuepress/dist
+/mihomo-script-build/dist/
