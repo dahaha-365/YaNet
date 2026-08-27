@@ -2,6 +2,9 @@
 /// <reference path="../../types/mihomo-script.d.ts" />
 /// <reference path="../../types/substore.d.ts" />
 
+import MihomoConfig from '../../types/mihomo-config';
+import { dnsConfig, snifferConfig } from './config';
+
 /**
  * Mihomo 全局配置脚本 — 媒体专用版
  *
@@ -9,17 +12,14 @@
  * 构建产物：dist/mihomo-global-script-media.js / dist/mihomo-global-script-media.min.js
  */
 
-import MihomoConfig from '../../types/mihomo-config'
-import { dnsConfig } from './config'
-
 function main(config: MihomoConfig, profileName?: string): MihomoConfig {
   // ============================================================
   // 在这里编写你的 Mihomo 媒体配置处理逻辑
   // ============================================================
+  config.dns = dnsConfig;
+  config.sniffer = snifferConfig;
 
-  config.dns = dnsConfig
-
-  return config
+  return config;
 }
 
-globalThis.main = main
+globalThis.main = main;

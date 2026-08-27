@@ -25,10 +25,31 @@ export type DnsCacheAlgorithm = 'lru' | 'arc'
 export type IpVersion = 'dual' | 'ipv4' | 'ipv6' | 'ipv4-prefer' | 'ipv6-prefer'
 export type Network = 'tcp' | 'udp'
 export type ProxyType =
-  | 'socks5' | 'http' | 'snell' | 'ss' | 'gost-relay' | 'vmess' | 'vless'
-  | 'trojan' | 'hysteria' | 'hysteria2' | 'wireguard' | 'tailscale' | 'openvpn'
-  | 'masque' | 'tuic' | 'shadowquic' | 'ssr' | 'ssh' | 'mieru' | 'sudoku'
-  | 'anytls' | 'trusttunnel' | 'dns' | 'rematch' | 'direct'
+  | 'socks5'
+  | 'http'
+  | 'snell'
+  | 'ss'
+  | 'gost-relay'
+  | 'vmess'
+  | 'vless'
+  | 'trojan'
+  | 'hysteria'
+  | 'hysteria2'
+  | 'wireguard'
+  | 'tailscale'
+  | 'openvpn'
+  | 'masque'
+  | 'tuic'
+  | 'shadowquic'
+  | 'ssr'
+  | 'ssh'
+  | 'mieru'
+  | 'sudoku'
+  | 'anytls'
+  | 'trusttunnel'
+  | 'dns'
+  | 'rematch'
+  | 'direct'
 
 export interface GeoxUrl {
   geoip?: string
@@ -36,7 +57,12 @@ export interface GeoxUrl {
   mmdb?: string
 }
 
-export type ClientAuthType = '' | 'request' | 'require-any' | 'verify-if-given' | 'require-and-verify'
+export type ClientAuthType =
+  | ''
+  | 'request'
+  | 'require-any'
+  | 'verify-if-given'
+  | 'require-and-verify'
 
 export interface TlsConfig {
   certificate?: string
@@ -109,7 +135,7 @@ export interface SnifferConfig {
   'skip-dst-address'?: string[]
   'skip-domain'?: string[]
   sniffing?: string[]
-  'port-whitelist'?: string[]
+  'port-whitelist'?: string[] // @废弃
 }
 
 export interface TunnelConfig {
@@ -259,13 +285,24 @@ export interface ShadowsocksPluginOptions {
 }
 
 export type ShadowsocksCipher =
-  | 'aes-128-gcm' | 'aes-192-gcm' | 'aes-256-gcm'
-  | 'aes-128-cfb' | 'aes-192-cfb' | 'aes-256-cfb'
-  | 'aes-128-ctr' | 'aes-192-ctr' | 'aes-256-ctr'
-  | 'rc4-md5' | 'chacha20-ietf' | 'xchacha20'
-  | 'chacha20-ietf-poly1305' | 'xchacha20-ietf-poly1305'
-  | '2022-blake3-aes-128-gcm' | '2022-blake3-aes-256-gcm'
-  | '2022-blake3-chacha20-poly1305' | string
+  | 'aes-128-gcm'
+  | 'aes-192-gcm'
+  | 'aes-256-gcm'
+  | 'aes-128-cfb'
+  | 'aes-192-cfb'
+  | 'aes-256-cfb'
+  | 'aes-128-ctr'
+  | 'aes-192-ctr'
+  | 'aes-256-ctr'
+  | 'rc4-md5'
+  | 'chacha20-ietf'
+  | 'xchacha20'
+  | 'chacha20-ietf-poly1305'
+  | 'xchacha20-ietf-poly1305'
+  | '2022-blake3-aes-128-gcm'
+  | '2022-blake3-aes-256-gcm'
+  | '2022-blake3-chacha20-poly1305'
+  | string
 
 export interface ShadowsocksProxyConfig extends TlsClientConfig {
   name: string
@@ -277,7 +314,15 @@ export interface ShadowsocksProxyConfig extends TlsClientConfig {
   udp?: boolean
   'udp-over-tcp'?: boolean
   'ip-version'?: IpVersion
-  plugin?: 'obfs' | 'v2ray-plugin' | 'shadow-tls' | 'gost-plugin' | 'jls' | 'restls' | 'kcptun' | string
+  plugin?:
+    | 'obfs'
+    | 'v2ray-plugin'
+    | 'shadow-tls'
+    | 'gost-plugin'
+    | 'jls'
+    | 'restls'
+    | 'kcptun'
+    | string
   'plugin-opts'?: ShadowsocksPluginOptions
   smux?: SmuxConfig
   'dialer-proxy'?: string
@@ -423,7 +468,7 @@ export interface Hysteria2ProxyConfig {
   'skip-cert-verify'?: boolean
   'ca-str'?: string
   'ca-path'?: string
-  'fingerprint'?: string
+  fingerprint?: string
   udp?: boolean
   'hop-interval'?: number
 }
@@ -647,7 +692,14 @@ export type ProxyConfig =
   | RematchProxyConfig
   | DirectProxyConfig
 
-export type ProxyGroupType = 'select' | 'url-test' | 'fallback' | 'load-balance' | 'relay' | 'smart' | string
+export type ProxyGroupType =
+  | 'select'
+  | 'url-test'
+  | 'fallback'
+  | 'load-balance'
+  | 'relay'
+  | 'smart'
+  | string
 
 export interface ProxyGroupHealthCheck {
   url?: string
@@ -675,7 +727,7 @@ export interface ProxyGroupConfig {
   'include-all-providers'?: boolean
   'expected-status'?: string
   'disable-udp'?: boolean
-  'persistent'?: boolean
+  persistent?: boolean
   'interface-name'?: string
   'routing-mark'?: number
   'url-opts'?: Record<string, unknown>
@@ -796,9 +848,26 @@ export interface ListenerBaseConfig {
 }
 
 export type ListenerType =
-  | 'socks' | 'http' | 'mixed' | 'redir' | 'tproxy' | 'shadowsocks' | 'snell'
-  | 'vmess' | 'tuic' | 'shadowquic' | 'tunnel' | 'vless' | 'anytls' | 'mieru'
-  | 'sudoku' | 'trojan' | 'hysteria2' | 'hysteria2-realm' | 'trusttunnel' | 'tun'
+  | 'socks'
+  | 'http'
+  | 'mixed'
+  | 'redir'
+  | 'tproxy'
+  | 'shadowsocks'
+  | 'snell'
+  | 'vmess'
+  | 'tuic'
+  | 'shadowquic'
+  | 'tunnel'
+  | 'vless'
+  | 'anytls'
+  | 'mieru'
+  | 'sudoku'
+  | 'trojan'
+  | 'hysteria2'
+  | 'hysteria2-realm'
+  | 'trusttunnel'
+  | 'tun'
   | string
 
 export interface SocksListenerConfig extends ListenerBaseConfig {
@@ -816,8 +885,12 @@ export interface MixedListenerConfig extends ListenerBaseConfig {
   users?: Array<{ username: string; password: string }>
 }
 
-export interface RedirListenerConfig extends ListenerBaseConfig { type: 'redir' }
-export interface TproxyListenerConfig extends ListenerBaseConfig { type: 'tproxy' }
+export interface RedirListenerConfig extends ListenerBaseConfig {
+  type: 'redir'
+}
+export interface TproxyListenerConfig extends ListenerBaseConfig {
+  type: 'tproxy'
+}
 
 export interface ShadowsocksListenerConfig extends ListenerBaseConfig {
   type: 'shadowsocks'
