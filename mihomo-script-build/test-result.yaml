@@ -1,0 +1,1025 @@
+port: 7890
+socks-port: 7891
+redir-port: 7892
+tproxy-port: 7893
+mixed-port: 7894
+allow-lan: true
+bind-address: "*"
+authentication:
+  - mihomo:yanet
+skip-auth-prefixes:
+  - 127.0.0.1/8
+  - ::1/128
+mode: rule
+log-level: warning
+ipv6: false
+keep-alive-idle: 15
+keep-alive-interval: 15
+disable-keep-alive: false
+find-process-mode: strict
+external-controller: 0.0.0.0:9090
+external-controller-cors:
+  allow-origins:
+    - "*"
+  allow-private-network: true
+external-controller-routing-mark: 5566
+secret: yanet
+external-ui: ./external-ui
+external-ui-url: https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip
+profile:
+  store-fake-ip: true
+  store-selected: true
+unified-delay: true
+tcp-concurrent: true
+routing-mark: 6666
+geodata-mode: false
+geodata-loader: memconservative
+geo-auto-update: true
+geo-update-interval: 24
+geox-url:
+  geoip: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat
+  geosite: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat
+  mmdb: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb
+  asn: https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb
+global-ua: clash.meta
+etag-support: true
+ntp:
+  enable: true
+  write-to-system: false
+  server: ntp.aliyun.com
+dns:
+  enable: true
+  cache-algorithm: arc
+  listen: 127.0.0.1:1053
+  ipv6: false
+  enhanced-mode: fake-ip
+  prefer-h3: false
+  use-hosts: true
+  use-system-hosts: true
+  respect-rules: true
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter-mode: whitelist
+  fake-ip-filter:
+    - geosite:gfw
+    - geosite:jetbrains-ai
+    - geosite:category-ai-!cn
+    - geosite:category-ai-chat-!cn
+    - geosite:telegram
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  direct-nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  proxy-server-nameserver:
+    - 178.94.14.101
+    - 14.137.229.81
+  fallback:
+    - https://dns.adguard-dns.com/dns-query
+    - https://dns.cloudflare.com/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+  nameserver-policy:
+    geosite:private: system
+    geosite:tld-cn,cn,steam@cn,category-games@cn,microsoft@cn,apple@cn,category-game-platforms-download@cn,category-public-tracker:
+      - https://doh.pub/dns-query
+      - https://dns.alidns.com/dns-query
+    geosite:jetbrains-ai,category-ai-!cn,category-ai-chat-!cn:
+      - https://dns.adguard-dns.com/dns-query
+      - https://dns.cloudflare.com/dns-query
+  proxy-server-nameserver-policy: {}
+tun:
+  enable: true
+  stack: mixed
+  device: utun1999
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+  strict-route: true
+  mtu: 1500
+  gso: true
+  gso-max-size: 65536
+  exclude-interface:
+    - NodeBabyLink
+  route-exclude-address:
+    - 0.0.0.0/8
+    - 10.0.0.0/8
+    - 100.64.0.0/10
+    - 127.0.0.0/8
+    - 169.254.0.0/16
+    - 172.16.0.0/12
+    - 192.0.0.0/24
+    - 192.168.0.0/16
+    - 224.0.0.0/4
+    - 240.0.0.0/4
+    - 255.255.255.255/32
+    - ::/128
+    - ::1/128
+    - FC00::/7
+    - FE80::/10
+    - FF00::/8
+  dns-hijack:
+    - any:53
+    - tcp://any:53
+sniffer:
+  enable: true
+  parse-pure-ip: true
+  sniff:
+    TLS:
+      ports:
+        - 443
+        - 8443
+    HTTP:
+      ports:
+        - 80
+        - 8080-8880
+    QUIC:
+      ports:
+        - 443
+        - 8443
+  skip-src-address:
+    - 0.0.0.0/8
+    - 10.0.0.0/8
+    - 100.64.0.0/10
+    - 127.0.0.0/8
+    - 169.254.0.0/16
+    - 172.16.0.0/12
+    - 192.0.0.0/24
+    - 192.168.0.0/16
+    - 224.0.0.0/4
+    - 240.0.0.0/4
+    - 255.255.255.255/32
+    - ::/128
+    - ::1/128
+    - FC00::/7
+    - FE80::/10
+    - FF00::/8
+  skip-domain:
+    - Mijia Cloud
+proxies:
+  - name: 直连
+    type: direct
+    udp: true
+    routing-mark: 6655
+  - name: 拒绝
+    type: reject
+  - name: 香港HKG - 01
+    type: vless
+    server: checknode-hk.fweifeng.com
+    port: 41101
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: apple.com
+    reality-opts:
+      public-key: xsFtE5CWid6vvI5THJfCA5zof7ttDV8R-BBzkFRIH1I
+      short-id: 90690e2e
+  - name: 香港HKG - 02
+    type: vless
+    server: checknode-hk.fweifeng.com
+    port: 41102
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: safari
+    servername: apple.com
+    reality-opts:
+      public-key: JamtS0Ujd00x_y1A37tVhirqYLQmjl3M8EEAMLxfHX4
+      short-id: f9159733
+  - name: 香港HKG - 03
+    type: vless
+    server: checknode-hk.fweifeng.com
+    port: 41103
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: XefhIZPTbXfuKgup8yhf85dlQ9EH9vTxG-H7elcBNyc
+      short-id: e06b3b35
+  - name: 香港HKG - 04
+    type: vless
+    server: checknode-hk.fweifeng.com
+    port: 41104
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: 2AVbNJRBwYErCa7mXSb6A-eDFUKLYqsEmu0ecpKrgHk
+      short-id: ac974df5
+  - name: 香港HKG - 05
+    type: vless
+    server: checknode-hk.fweifeng.com
+    port: 41105
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: ZmmoZVKnbJfP3bNdaYRYU77QdIeUsdIg9Vb76XdTgSo
+      short-id: 0a5202da
+  - name: 香港HKG - 06
+    type: vless
+    server: checknode-hk.fweifeng.com
+    port: 41106
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: 7-muwhFzEwknzf1aw_AH7lEgXveVn3eC2frsGdKv1gg
+      short-id: 81c09faa
+  - name: 香港HKG - 07
+    type: vless
+    server: checknode-hk.fweifeng.com
+    port: 41107
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: Kx9Nf70L05nsXEXHP0wxGCjcgQAn4BQ1lY7bQKMv6EI
+      short-id: cd380c2c
+  - name: 香港HKG - 08
+    type: vless
+    server: checknode-hk.fweifeng.com
+    port: 41108
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: 5WcMNo0j0DH6qwpsAgEbfta3hlAtyLHRxQIb_427XTE
+      short-id: 8f0962de
+  - name: 香港HKG - 09
+    type: vless
+    server: checknode-hk.fweifeng.com
+    port: 41109
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: 7NXNk8JGPBaG4Buf_1alv9f4fjuDgAc8UTLUmVSASRA
+      short-id: 87af89de
+  - name: 香港HKG - 10
+    type: vless
+    server: checknode-hk.fweifeng.com
+    port: 41110
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: z_SlAkZ1VbvkJhLU_0pjJbxCYp7Ku7PTP3Q8vBMOBnk
+      short-id: 9b3ca738
+  - name: 香港HKG - 11
+    type: vless
+    server: checknode-hk.fweifeng.com
+    port: 41111
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: iMP_bCJCmyTOKGcWsESKA-9aZo-k2KG_vGWsmBEjpk0
+      short-id: 4ca7e9be
+  - name: 香港HKG - 12
+    type: vless
+    server: checknode-hk.fweifeng.com
+    port: 41112
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: GoQHgG_u5HW2DS-NwWXd6SdiCszFTCSlwZ2v6uObVHU
+      short-id: f2ee345f
+  - name: 香港HKG - 13
+    type: vless
+    server: checknode-hk.fweifeng.com
+    port: 41113
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: 1s-zCDBn9_NfrKmURrNbOcpSEjBVkmwMMl2IMS76IVw
+      short-id: acf00dd9
+  - name: 香港HKG - 14
+    type: vless
+    server: checknode-hk.fweifeng.com
+    port: 41114
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: t_eKwH4HizodalDg9G-oo_pulPU5rNK9ilu0gFwP6w8
+      short-id: 212e340e
+  - name: 香港HKG - 15
+    type: vless
+    server: checknode-hk.fweifeng.com
+    port: 41115
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: U7WLudz9sjeHD92V2EhqUmLF4Wx8q2PuSm6WaF_kpgI
+      short-id: 3ab026cf
+  - name: 台湾TPE - 01
+    type: vless
+    server: checknode-tw.fweifeng.com
+    port: 41201
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: lo21QIRKXEbOKgRA0L6LShoC4pdeOTlXodaLbDVLdlg
+      short-id: 72ce76cd
+  - name: 台湾TPE - 02
+    type: vless
+    server: checknode-tw.fweifeng.com
+    port: 41202
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: 4rCCwUqtzAsRSrnGJQGaaJsoYNP8dUAwCj8ckHK9dD8
+      short-id: 00ef0682
+  - name: 台湾TPE - 03
+    type: vless
+    server: checknode-tw.fweifeng.com
+    port: 41203
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: bD5sTkJimOII0_MsXeGuEGzbakgucgwYHuH0L9I5NyE
+      short-id: 777cba6d
+  - name: 台湾TPE - 04
+    type: vless
+    server: checknode-tw.fweifeng.com
+    port: 41204
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: zOEt6RMmA1gMCrpGKNsGt7buL4_mOJyBytE9j77PBB8
+      short-id: 4693d857
+  - name: 台湾TPE - 05
+    type: vless
+    server: checknode-tw.fweifeng.com
+    port: 41205
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: gNP8EEESC6C1_Q9vOt165FyiImFvovZO1S2-Z89QyCE
+      short-id: d974b0c0
+  - name: 新加坡SIN - 01
+    type: vless
+    server: checknode-sg.fweifeng.com
+    port: 41301
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: vuejs.org
+    reality-opts:
+      public-key: vISogwn2yfEAnZZXxlSKyM31WUflOYn-1lUIk3FCLXk
+      short-id: ce6ce7ee
+  - name: 新加坡SIN - 02
+    type: vless
+    server: checknode-sg.fweifeng.com
+    port: 41302
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: vuejs.org
+    reality-opts:
+      public-key: BFk7-JaJo-nT3yJjBvJBo0fdF_hkZYzjfokbwdWHRVo
+      short-id: 34fcffbd
+  - name: 新加坡SIN - 03
+    type: vless
+    server: checknode-sg.fweifeng.com
+    port: 41303
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: vuejs.org
+    reality-opts:
+      public-key: _uN-01H3slPCnOaZogZ-Z0r8_ipC9P8xf8LInsP_V3I
+      short-id: bf801aeb
+  - name: 新加坡SIN - 04
+    type: vless
+    server: checknode-sg.fweifeng.com
+    port: 41304
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: vuejs.org
+    reality-opts:
+      public-key: fE2CdPCy6ns9fd5X5b2aGqQrob4IqKwmpP_hXjv-elY
+      short-id: f414718f
+  - name: 新加坡SIN - 05
+    type: vless
+    server: checknode-sg.fweifeng.com
+    port: 41305
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: vuejs.org
+    reality-opts:
+      public-key: Iw38-wSqvTAbkjTZekyvpQRzOWCeUKDgL27QawEsSiM
+      short-id: b02d3bf5
+  - name: 新加坡SIN - 06
+    type: vless
+    server: checknode-sg.fweifeng.com
+    port: 41306
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: vuejs.org
+    reality-opts:
+      public-key: olmaMgfmrKU4CM9LGbsq3V6Ks9FrOKd4gCVv55qfdSc
+      short-id: 60e5e46e
+  - name: 新加坡SIN - 07
+    type: vless
+    server: checknode-sg.fweifeng.com
+    port: 41307
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: vuejs.org
+    reality-opts:
+      public-key: SFi56NBdYctj7_mtDA779O37IL8RZfIC_qqhWi_fA2s
+      short-id: cc8166c6
+  - name: 新加坡SIN - 08
+    type: vless
+    server: checknode-sg.fweifeng.com
+    port: 41308
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: vuejs.org
+    reality-opts:
+      public-key: 8TONMorhPrEnIrAeLwHSZuWIb-J4z4rG2xDpz7F6dxQ
+      short-id: 3517c7a1
+  - name: 新加坡SIN - 09
+    type: vless
+    server: checknode-sg.fweifeng.com
+    port: 41309
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: vuejs.org
+    reality-opts:
+      public-key: QXDkIsWkzn8J2Q4jPZwo8WZ2gPTHyMKdRofEh5IuUy4
+      short-id: 737a3dc8
+  - name: 新加坡SIN - 10
+    type: vless
+    server: checknode-sg.fweifeng.com
+    port: 41310
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: vuejs.org
+    reality-opts:
+      public-key: g_x3cni6LuK-Pt7SpmvPUjQpaq0hDKG5CmKqXNJpdFU
+      short-id: "72096416"
+  - name: 日本TYO - 01
+    type: vless
+    server: checknode-jp.fweifeng.com
+    port: 41401
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: atufCYKoEcBfXr2XAmdw2yNtnBxpjagSfYVAeJGuljI
+      short-id: 0a970cc7
+  - name: 日本TYO - 02
+    type: vless
+    server: checknode-jp.fweifeng.com
+    port: 41402
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: JESg0Lsm9NW3tJEh63KRfA3I5qSW3DOwNHV_5ABwE3U
+      short-id: db0fc176
+  - name: 日本TYO - 03
+    type: vless
+    server: checknode-jp.fweifeng.com
+    port: 41403
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: Th93tLSPY1PwFlszAQFmfIZC7VpmPvmAbxeIzGzhKRc
+      short-id: 6da7c705
+  - name: 日本TYO - 04
+    type: vless
+    server: checknode-jp.fweifeng.com
+    port: 41404
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: g6474kdc-1_OdLc_vywjPB7C6NcxX6qSKWJ3kffAU0M
+      short-id: 3e34f2ed
+  - name: 日本TYO - 05
+    type: vless
+    server: checknode-jp.fweifeng.com
+    port: 41405
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: Tk9VJ1zmtgCzTYx1ky1Kaf1NV5dDQouyJmQLMnYAX38
+      short-id: "82525034"
+  - name: 日本TYO - 06
+    type: vless
+    server: checknode-jp.fweifeng.com
+    port: 41406
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: UasVnINI5ZjiuKTicksPDaICrrVojVFu0ntJvyzAxQs
+      short-id: 6e0c130c
+  - name: 日本TYO - 07
+    type: vless
+    server: checknode-jp.fweifeng.com
+    port: 41407
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: ycDA5kbdgranWXANoD0upsKeVJQTgP-SGGjDwL4M418
+      short-id: 0a49dae3
+  - name: 日本TYO - 08
+    type: vless
+    server: checknode-jp.fweifeng.com
+    port: 41408
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: fJ-begwnktIO6xrUXhRDYRuZxBbFHSlmvHgX9MsFdh0
+      short-id: c75a7785
+  - name: 日本TYO - 09
+    type: vless
+    server: checknode-jp.fweifeng.com
+    port: 41409
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: PHTAR1fQ4Fy8zMhPEn_Hl4XOPACyr5HC_sLR4YkO8nY
+      short-id: 1f2568c2
+  - name: 日本TYO - 10
+    type: vless
+    server: checknode-jp.fweifeng.com
+    port: 41410
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: YDuOQipHqGYblTS2XIsxWUFf-Y7GpM0cmkZOfYibY2g
+      short-id: fb20815d
+  - name: 美国LAX - 01
+    type: vless
+    server: checknode-us.fweifeng.com
+    port: 41501
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: eCZpxL0GFTvoGPub-7g6GwzP61wW7JUziNiMhuEKIl0
+      short-id: e2fe6609
+  - name: 美国LAX - 02
+    type: vless
+    server: checknode-us.fweifeng.com
+    port: 41502
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: 3OPO5J5sfGPDZGmeDaC84CCf_UgYaBnLm7Bsnei7BHI
+      short-id: b6e5966d
+  - name: 美国LAX - 03
+    type: vless
+    server: checknode-us.fweifeng.com
+    port: 41503
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: xkzA9-Dgxy3s-bxCgPK6eTsa7bahh7U2BRorHlCSSjk
+      short-id: b77ae214
+  - name: 美国LAX - 04
+    type: vless
+    server: checknode-us.fweifeng.com
+    port: 41504
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: RsrUp54tg8XxDw1GYqEkZ8oHULSHhY4iiqYHXea9ZxE
+      short-id: acaa8051
+  - name: 美国LAX - 05
+    type: vless
+    server: checknode-us.fweifeng.com
+    port: 41505
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: qG0u4W3XvX0sZo5yw1tZKp44qsC9Q75KEM7byEOP5Tg
+      short-id: d90fb738
+  - name: 美国LAX - 06
+    type: vless
+    server: checknode-us.fweifeng.com
+    port: 41506
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: CAmJEmZSpBGBq2Pk9T1f-lDyefKh3HJiRJpSICPKV10
+      short-id: 91c12314
+  - name: 美国LAX - 07
+    type: vless
+    server: checknode-us.fweifeng.com
+    port: 41507
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: dYdcn0vOx2HSzC4XE6QZLELv9w52aGo6ZQ9X72XYy04
+      short-id: 2b9b8a63
+  - name: 美国LAX - 08
+    type: vless
+    server: checknode-us.fweifeng.com
+    port: 41508
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: NZFBEOlzrvyi1PbpEle-WDnMCv66jC1093K3J6kTbAA
+      short-id: 7cbc8f79
+  - name: 美国LAX - 09
+    type: vless
+    server: checknode-us.fweifeng.com
+    port: 41509
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: 4zrQlf1WUoVlv2zh_I01CZemBWTsJSXc6-tI8OVp5Wg
+      short-id: 7d81ce7b
+  - name: 美国LAX - 10
+    type: vless
+    server: checknode-us.fweifeng.com
+    port: 41510
+    uuid: 9850d97a-3a53-48c3-8cf1-4299ee2f27c7
+    encryption: none
+    udp: true
+    tls: true
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: python.org
+    reality-opts:
+      public-key: tYpL_CIHm7ZitPtt6XECrI06IkHzBApmk0qJxViM3g4
+      short-id: db89e526
+proxy-groups:
+  - interval: 300
+    timeout: 3000
+    url: https://www.gstatic.com/generate_204
+    lazy: true
+    max-failed-times: 3
+    hidden: false
+    name: HK香港
+    type: url-test
+    tolerance: 50
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+    proxies:
+      - 香港HKG - 01
+      - 香港HKG - 02
+      - 香港HKG - 03
+      - 香港HKG - 04
+      - 香港HKG - 05
+      - 香港HKG - 06
+      - 香港HKG - 07
+      - 香港HKG - 08
+      - 香港HKG - 09
+      - 香港HKG - 10
+      - 香港HKG - 11
+      - 香港HKG - 12
+      - 香港HKG - 13
+      - 香港HKG - 14
+      - 香港HKG - 15
+  - interval: 300
+    timeout: 3000
+    url: https://www.gstatic.com/generate_204
+    lazy: true
+    max-failed-times: 3
+    hidden: false
+    name: US美国
+    type: url-test
+    tolerance: 50
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+    proxies:
+      - 美国LAX - 01
+      - 美国LAX - 02
+      - 美国LAX - 03
+      - 美国LAX - 04
+      - 美国LAX - 05
+      - 美国LAX - 06
+      - 美国LAX - 07
+      - 美国LAX - 08
+      - 美国LAX - 09
+      - 美国LAX - 10
+  - interval: 300
+    timeout: 3000
+    url: https://www.gstatic.com/generate_204
+    lazy: true
+    max-failed-times: 3
+    hidden: false
+    name: JP日本
+    type: url-test
+    tolerance: 50
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+    proxies:
+      - 日本TYO - 01
+      - 日本TYO - 02
+      - 日本TYO - 03
+      - 日本TYO - 04
+      - 日本TYO - 05
+      - 日本TYO - 06
+      - 日本TYO - 07
+      - 日本TYO - 08
+      - 日本TYO - 09
+      - 日本TYO - 10
+  - interval: 300
+    timeout: 3000
+    url: https://www.gstatic.com/generate_204
+    lazy: true
+    max-failed-times: 3
+    hidden: false
+    name: SG新加坡
+    type: url-test
+    tolerance: 50
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+    proxies:
+      - 新加坡SIN - 01
+      - 新加坡SIN - 02
+      - 新加坡SIN - 03
+      - 新加坡SIN - 04
+      - 新加坡SIN - 05
+      - 新加坡SIN - 06
+      - 新加坡SIN - 07
+      - 新加坡SIN - 08
+      - 新加坡SIN - 09
+      - 新加坡SIN - 10
+  - interval: 300
+    timeout: 3000
+    url: https://www.gstatic.com/generate_204
+    lazy: true
+    max-failed-times: 3
+    hidden: false
+    name: TW台湾省
+    type: url-test
+    tolerance: 50
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
+    proxies:
+      - 台湾TPE - 01
+      - 台湾TPE - 02
+      - 台湾TPE - 03
+      - 台湾TPE - 04
+      - 台湾TPE - 05

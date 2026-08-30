@@ -2,6 +2,7 @@
   "name": "mihomo-script",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@12.0.0",
   "scripts": {
     "build": "pnpm build:unmin && pnpm build:min",
     "build:unmin": "node scripts/build.mjs --minify=false",
@@ -9,8 +10,8 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "esbuild": "^0.25.0",
-    "typescript": "^5.0.0",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2",
     "yaml": "^2.9.0"
   }
 }

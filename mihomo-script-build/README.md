@@ -1,21 +1,14 @@
 # Mihomo Script TS + esbuild
 
-## 目录
+通过 `TypeScript` 构建 Mihomo 覆写脚本！
 
-```text
-.
-├── src/
-│   └── main.ts
-├── scripts/
-│   └── build.mjs
-├── dist/
-│   ├── mihomo-config.js
-│   └── mihomo-config.min.js
-├── mihomo-config.d.ts
-├── mihomo-script.d.ts
-├── package.json
-└── tsconfig.json
-```
+## 推荐机场
+
+| 名称                                  | 描述                                                                                                 |
+|---------------------------------------|------------------------------------------------------------------------------------------------------|
+| [白月光](https://s.yanet.vip/nqvuOO)  | 全球 76+ 国家/地区，103+ 节点覆盖，IEPL 专线支持，低延迟稳定连接                                     |
+| [M78星云](https://s.yanet.vip/qqDI8m) | 流媒体和 GPT 解锁，有 IEPL 专线，最大提供 2GBPs 速率，12.8元/月 150G起，不限客户端数量，有 EMBY 服务 |
+
 
 ## 安装
 
@@ -74,41 +67,6 @@ function run() {}
 ```
 
 因为 Mihomo 脚本运行时需要查找全局 `main`。
-
-## 为什么使用 IIFE
-
-esbuild 使用：
-
-```text
-format: iife
-```
-
-避免最终文件依赖 ES Module 的：
-
-```js
-import
-export
-```
-
-Mihomo 可以直接把生成后的 JS 当脚本执行。
-
-## 为什么同时设置 keepNames
-
-：
-
-```js
-keepNames: true
-```
-
-用于尽量保留函数和类的名称。
-
-但真正保证 Mihomo 能找到入口的不是 `keepNames`，而是：
-
-```ts
-globalThis.main = main
-```
-
-因此即使未来调整压缩参数，也不会依赖 `main` 是否被保留为局部变量名。
 
 ## API 沙箱
 
