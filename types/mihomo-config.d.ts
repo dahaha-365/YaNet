@@ -55,6 +55,7 @@ export interface GeoxUrl {
   geoip?: string
   geosite?: string
   mmdb?: string
+  asn?: string
 }
 
 export type ClientAuthType =
@@ -90,6 +91,7 @@ export interface ProfileConfig {
 export interface TunConfig {
   enable?: boolean
   stack?: TunStack
+  device?: string
   'dns-hijack'?: string[]
   'auto-detect-interface'?: boolean
   'auto-route'?: boolean
@@ -101,6 +103,7 @@ export interface TunConfig {
   'disable-icmp-forwarding'?: boolean
   'route-address-set'?: string[]
   'route-exclude-address-set'?: string[]
+  'route-exclude-address'?: string[]
   'route-address'?: string[]
   'inet4-route-address'?: string[]
   'inet6-route-address'?: string[]
@@ -201,7 +204,7 @@ export interface SmuxConfig {
   'only-tcp'?: boolean
 }
 
-export interface TlsClientConfig {
+export interface TlsClientConfig extends BuiltInProxyConfig {
   tls?: boolean
   sni?: string
   servername?: string
@@ -337,7 +340,7 @@ export interface ShadowsocksProxyConfig extends TlsClientConfig {
   'dialer-proxy'?: string
 }
 
-export interface GostRelayProxyConfig {
+export interface GostRelayProxyConfig extends BuiltInProxyConfig {
   name: string
   type: 'gost-relay'
   server: string | string[]
@@ -443,7 +446,7 @@ export interface TrojanProxyConfig extends TlsClientConfig {
   'grpc-opts'?: GrpcOptions
 }
 
-export interface HysteriaProxyConfig {
+export interface HysteriaProxyConfig extends BuiltInProxyConfig {
   name: string
   type: 'hysteria'
   server: string | string[]
@@ -464,7 +467,7 @@ export interface HysteriaProxyConfig {
   udp?: boolean
 }
 
-export interface Hysteria2ProxyConfig {
+export interface Hysteria2ProxyConfig extends BuiltInProxyConfig {
   name: string
   type: 'hysteria2'
   server: string | string[]
@@ -482,7 +485,7 @@ export interface Hysteria2ProxyConfig {
   'hop-interval'?: number
 }
 
-export interface WireguardProxyConfig {
+export interface WireguardProxyConfig extends BuiltInProxyConfig {
   name: string
   type: 'wireguard'
   server: string | string[]
@@ -498,7 +501,7 @@ export interface WireguardProxyConfig {
   'ip-version'?: IpVersion
 }
 
-export interface MasqueProxyConfig {
+export interface MasqueProxyConfig extends BuiltInProxyConfig {
   name: string
   type: 'masque'
   server: string | string[]
@@ -512,7 +515,7 @@ export interface MasqueProxyConfig {
   network?: 'h3-l4proxy' | 'h2' | string
 }
 
-export interface TailscaleProxyConfig {
+export interface TailscaleProxyConfig extends BuiltInProxyConfig {
   name: string
   type: 'tailscale'
   udp?: boolean
@@ -524,7 +527,7 @@ export interface TailscaleProxyConfig {
   'state-dir'?: string
 }
 
-export interface OpenVpnProxyConfig {
+export interface OpenVpnProxyConfig extends BuiltInProxyConfig {
   name: string
   type: 'openvpn'
   server: string | string[]
@@ -540,7 +543,7 @@ export interface OpenVpnProxyConfig {
   'route-nopull'?: boolean
 }
 
-export interface TuicProxyConfig {
+export interface TuicProxyConfig extends BuiltInProxyConfig {
   name: string
   type: 'tuic'
   server: string | string[]
@@ -559,7 +562,7 @@ export interface TuicProxyConfig {
   udp?: boolean
 }
 
-export interface ShadowquicProxyConfig {
+export interface ShadowquicProxyConfig extends BuiltInProxyConfig {
   name: string
   type: 'shadowquic'
   server: string | string[]
@@ -571,7 +574,7 @@ export interface ShadowquicProxyConfig {
   udp?: boolean
 }
 
-export interface SsrProxyConfig {
+export interface SsrProxyConfig extends BuiltInProxyConfig {
   name: string
   type: 'ssr'
   server: string | string[]
@@ -585,7 +588,7 @@ export interface SsrProxyConfig {
   udp?: boolean
 }
 
-export interface SshProxyConfig {
+export interface SshProxyConfig extends BuiltInProxyConfig {
   name: string
   type: 'ssh'
   server: string | string[]
@@ -597,7 +600,7 @@ export interface SshProxyConfig {
   udp?: boolean
 }
 
-export interface MieruProxyConfig {
+export interface MieruProxyConfig extends BuiltInProxyConfig {
   name: string
   type: 'mieru'
   server: string | string[]
@@ -608,12 +611,12 @@ export interface MieruProxyConfig {
   udp?: boolean
 }
 
-export interface SudokuHttpMaskConfig {
+export interface SudokuHttpMaskConfig extends BuiltInProxyConfig {
   disable?: boolean
   mode?: 'legacy' | string
 }
 
-export interface SudokuProxyConfig {
+export interface SudokuProxyConfig extends BuiltInProxyConfig {
   name: string
   type: 'sudoku'
   server: string | string[]
@@ -627,7 +630,7 @@ export interface SudokuProxyConfig {
   'enable-pure-downlink'?: boolean
 }
 
-export interface AnyTlsProxyConfig {
+export interface AnyTlsProxyConfig extends BuiltInProxyConfig {
   name: string
   type: 'anytls'
   server: string | string[]
@@ -639,7 +642,7 @@ export interface AnyTlsProxyConfig {
   'client-fingerprint'?: string
 }
 
-export interface TrustTunnelProxyConfig {
+export interface TrustTunnelProxyConfig extends BuiltInProxyConfig {
   name: string
   type: 'trusttunnel'
   server: string | string[]
@@ -652,7 +655,7 @@ export interface TrustTunnelProxyConfig {
   'congestion-controller'?: string
 }
 
-export interface DnsProxyConfig {
+export interface DnsProxyConfig extends BuiltInProxyConfig {
   name: string
   type: 'dns'
   server?: string
@@ -660,18 +663,28 @@ export interface DnsProxyConfig {
   udp?: boolean
 }
 
-export interface RematchProxyConfig {
+export interface RematchProxyConfig extends BuiltInProxyConfig {
   name: string
   type: 'rematch'
   'target-rematch-name': string
   'target-sub-rule': string
 }
 
-export interface DirectProxyConfig {
+export interface BuiltInProxyConfig {
   name: string
-  type: 'direct'
+  type:
+    | 'direct'
+    | 'reject'
+    | 'reject-drop'
+    | 'pass'
+    | 'pass-rule'
+    | 'compatible'
+  udp?: boolean
+  'ip-version': 'ipv4' | 'ipv6' | 'ipv4-prefer' | 'ipv6-prefer'
   'interface-name'?: string
   'routing-mark'?: number
+  tfo?: boolean
+  mptcp?: boolean
 }
 
 export type ProxyConfig =
@@ -699,7 +712,7 @@ export type ProxyConfig =
   | TrustTunnelProxyConfig
   | DnsProxyConfig
   | RematchProxyConfig
-  | DirectProxyConfig
+  | BuiltInProxyConfig
 
 export type ProxyGroupType =
   | 'select'
@@ -721,7 +734,7 @@ export interface ProxyGroupHealthCheck {
 export interface ProxyGroupConfig {
   name: string
   type: ProxyGroupType
-  proxies?: string[]
+  proxies?: BuiltInProxyConfig[]
   use?: string[]
   url?: string
   interval?: number
@@ -1033,6 +1046,8 @@ export interface MihomoConfig {
   'lan-disallowed-ips'?: string[]
   'find-process-mode'?: FindProcessMode
   mode?: MihomoMode
+  'geodata-mode'?: boolean
+  'geodata-loader'?: 'standard' | 'memconservative'
   'geox-url'?: GeoxUrl
   'geo-auto-update'?: boolean
   'geo-update-interval'?: number
@@ -1057,21 +1072,24 @@ export interface MihomoConfig {
   'keep-alive-interval'?: number
   'routing-mark'?: number
   'tcp-concurrent'?: boolean
+  'global-ua'?: string
+  'etag-support'?: boolean
   experimental?: ExperimentalConfig
   hosts?: HostsConfig
   profile?: ProfileConfig
+  'unified-delay'?: boolean
   tun?: TunConfig
   sniffer?: SnifferConfig
   tunnels?: TunnelConfig[]
   dns?: DnsConfig
-  proxies?: ProxyConfig[]
+  proxies?: BuiltInProxyConfig[]
   'proxy-groups'?: ProxyGroupConfig[]
   'proxy-providers'?: Record<string, ProxyProviderConfig>
   'rule-providers'?: Record<string, RuleProviderConfig>
   rules?: string[]
   'sub-rules'?: Record<string, string[]>
   listeners?: ListenerConfig[]
-  ntp: NtpConfig
+  ntp?: NtpConfig
 }
 
 export type { MihomoConfig as default }

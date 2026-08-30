@@ -18,7 +18,7 @@
  * any、类型断言等方式绕过限制；真正的运行时权限仍应由脚本沙箱执行器保证。
  */
 
-import type { MihomoConfig } from './mihomo-config'
+import { MihomoConfig, RuleProviderConfig } from './mihomo-config'
 
 export {}
 
@@ -29,40 +29,40 @@ declare global {
    * - config:    原始 Mihomo 配置，经过 main 处理后必须返回一个 MihomoConfig
    * - profileName: 当前配置文件的名称（可选）
    */
-  function main(config: MihomoConfig, profileName?: string): MihomoConfig;
+  function main(config: MihomoConfig, profileName?: string): MihomoConfig
 
   // ===== 常量 =====
-  const Infinity: number;
-  const NaN: number;
+  const Infinity: number
+  const NaN: number
 
   // ===== 基本函数和对象 =====
-  const Function: FunctionConstructor;
-  const Object: ObjectConstructor;
-  const Math: Math;
-  const JSON: JSON;
-  const Array: ArrayConstructor;
-  const Proxy: ProxyConstructor;
+  const Function: FunctionConstructor
+  const Object: ObjectConstructor
+  const Math: Math
+  const JSON: JSON
+  const Array: ArrayConstructor
+  const Proxy: ProxyConstructor
 
   // ===== 数据类型和数组 =====
-  const ArrayBuffer: ArrayBufferConstructor;
-  const SharedArrayBuffer: SharedArrayBufferConstructor;
-  const BigInt: BigIntConstructor;
-  const Boolean: BooleanConstructor;
-  const Date: DateConstructor;
-  const DataView: DataViewConstructor;
-  const Map: MapConstructor;
+  const ArrayBuffer: ArrayBufferConstructor
+  const SharedArrayBuffer: SharedArrayBufferConstructor
+  const BigInt: BigIntConstructor
+  const Boolean: BooleanConstructor
+  const Date: DateConstructor
+  const DataView: DataViewConstructor
+  const Map: MapConstructor
 
-  const Int8Array: Int8ArrayConstructor;
-  const Uint8Array: Uint8ArrayConstructor;
-  const Uint8ClampedArray: Uint8ClampedArrayConstructor;
-  const Int16Array: Int16ArrayConstructor;
-  const Uint16Array: Uint16ArrayConstructor;
-  const Int32Array: Int32ArrayConstructor;
-  const Uint32Array: Uint32ArrayConstructor;
-  const BigInt64Array: BigInt64ArrayConstructor;
-  const BigUint64Array: BigUint64ArrayConstructor;
-  const Float32Array: Float32ArrayConstructor;
-  const Float64Array: Float64ArrayConstructor;
+  const Int8Array: Int8ArrayConstructor
+  const Uint8Array: Uint8ArrayConstructor
+  const Uint8ClampedArray: Uint8ClampedArrayConstructor
+  const Int16Array: Int16ArrayConstructor
+  const Uint16Array: Uint16ArrayConstructor
+  const Int32Array: Int32ArrayConstructor
+  const Uint32Array: Uint32ArrayConstructor
+  const BigInt64Array: BigInt64ArrayConstructor
+  const BigUint64Array: BigUint64ArrayConstructor
+  const Float32Array: Float32ArrayConstructor
+  const Float64Array: Float64ArrayConstructor
 
   /**
    * TypedArray 是 ECMAScript 规范中的抽象概念。
@@ -80,41 +80,54 @@ declare global {
     | BigInt64Array
     | BigUint64Array
     | Float32Array
-    | Float64Array;
+    | Float64Array
 
   // ===== 字符串、正则表达式和符号 =====
-  const String: StringConstructor;
-  const RegExp: RegExpConstructor;
-  const Symbol: SymbolConstructor;
+  const String: StringConstructor
+  const RegExp: RegExpConstructor
+  const Symbol: SymbolConstructor
 
   // ===== 错误对象 =====
-  const Error: ErrorConstructor;
-  const RangeError: RangeErrorConstructor;
-  const ReferenceError: ReferenceErrorConstructor;
-  const TypeError: TypeErrorConstructor;
-  const SyntaxError: SyntaxErrorConstructor;
-  const EvalError: EvalErrorConstructor;
-  const URIError: URIErrorConstructor;
-  const AggregateError: AggregateErrorConstructor;
+  const Error: ErrorConstructor
+  const RangeError: RangeErrorConstructor
+  const ReferenceError: ReferenceErrorConstructor
+  const TypeError: TypeErrorConstructor
+  const SyntaxError: SyntaxErrorConstructor
+  const EvalError: EvalErrorConstructor
+  const URIError: URIErrorConstructor
+  const AggregateError: AggregateErrorConstructor
 
   // ===== 反射和异步 =====
-  const Reflect: typeof globalThis.Reflect;
-  const Promise: PromiseConstructor;
+  const Reflect: typeof globalThis.Reflect
+  const Promise: PromiseConstructor
 
   // ===== 编码和解码 =====
-  function encodeURI(uri: string): string;
-  function encodeURIComponent(uriComponent: string | number | boolean): string;
-  function decodeURI(encodedURI: string): string;
-  function decodeURIComponent(encodedURIComponent: string): string;
+  function encodeURI(uri: string): string
+  function encodeURIComponent(uriComponent: string | number | boolean): string
+  function decodeURI(encodedURI: string): string
+  function decodeURIComponent(encodedURIComponent: string): string
 
   // ===== 弱引用 =====
-  const WeakRef: WeakRefConstructor;
-  const WeakMap: WeakMapConstructor;
-  const WeakSet: WeakSetConstructor;
+  const WeakRef: WeakRefConstructor
+  const WeakMap: WeakMapConstructor
+  const WeakSet: WeakSetConstructor
 
   // ===== 原子操作 =====
-  const Atomics: typeof globalThis.Atomics;
+  const Atomics: typeof globalThis.Atomics
 
   // ===== 控制台输出 =====
-  const console: Console;
+  const console: Console
+}
+
+export interface serviceConfig {
+  key: string
+  name: string
+  icon: string
+  url: string
+  rules: string[]
+  providers?: (RuleProviderConfig & { key: string })[]
+}
+
+export interface serviceGroupConfig {
+  [key: string]: serviceConfig
 }

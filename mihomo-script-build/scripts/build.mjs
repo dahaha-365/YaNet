@@ -1,15 +1,15 @@
-import { build } from 'esbuild'
-import { mkdir, readFile, writeFile } from 'node:fs/promises'
-import { fileURLToPath } from 'node:url'
-import { exec } from 'node:child_process'
-import { promisify } from 'node:util'
+import { build } from 'esbuild';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import { exec } from 'node:child_process';
+import { promisify } from 'node:util';
 
-const execAsync = promisify(exec)
+const execAsync = promisify(exec);
 
-const minify = process.argv.includes('--minify=true')
-const outdir = fileURLToPath(new URL('../dist/', import.meta.url))
+const minify = process.argv.includes('--minify=true');
+const outdir = fileURLToPath(new URL('../dist/', import.meta.url));
 
-await mkdir(outdir, { recursive: true })
+await mkdir(outdir, { recursive: true });
 
 /**
  * 构建条目配置。
@@ -17,15 +17,15 @@ await mkdir(outdir, { recursive: true })
  * name:  输出文件名前缀
  */
 const entries = [
-  { entry: 'src/main.ts', name: 'mihomo-config' },
   { entry: 'src/mihomo-global-script.ts', name: 'mihomo-global-script' },
-  { entry: 'src/mihomo-global-script-media.ts', name: 'mihomo-global-script-media' },
-]
+  {
+    entry: 'src/mihomo-global-script-media.ts',
+    name: 'mihomo-global-script-media',
+  },
+];
 
 for (const { entry, name } of entries) {
-  const outfile = minify
-    ? `${outdir}/${name}.min.js`
-    : `${outdir}/${name}.js`
+  const outfile = minify ? `${outdir}/${name}.min.js` : `${outdir}/${name}.js`;
 
   await build({
     entryPoints: [entry],
@@ -40,21 +40,24 @@ for (const { entry, name } of entries) {
     mangleProps: /^$/,
     sourcemap: false,
     legalComments: 'none',
-    charset: 'utf8'
-  })
+    charset: 'utf8',
+  });
 
   // 移除产物中的 export 语句，确保沙箱环境中可直接执行
-  let code = await readFile(outfile, 'utf8')
-  code = code.replace(/^\s*export\s*{[\s\S]*?}\s*;?\s*$/gm, '')
-  code = code.replace(/^\s*export\s+default\s+/gm, '')
-  await writeFile(outfile, code.trimEnd() + '\n')
+  let code = await readFile(outfile, 'utf8');
+  code = code.replace(/^\s*export\s*{[\s\S]*?}\s*;?\s*$/gm, '');
+  code = code.replace(/^\s*export\s+default\s+/gm, '');
+  await writeFile(outfile, code.trimEnd() + '\n');
 
   // 未压缩版本用 Prettier 格式化（单引号、尾逗号等）
   if (!minify) {
-    await execAsync(`bun x prettier --write --single-quote --trailing-comma all "${outfile}"`, {
-      cwd: fileURLToPath(new URL('../', import.meta.url))
-    })
+    await execAsync(
+      `bun x prettier --write --single-quote --trailing-comma all "${outfile}"`,
+      {
+        cwd: fileURLToPath(new URL('../', import.meta.url)),
+      },
+    );
   }
 
-  console.log(`built: dist/${minify ? `${name}.min.js` : `${name}.js`}`)
+  console.log(`built: dist/${minify ? `${name}.min.js` : `${name}.js`}`);
 }
