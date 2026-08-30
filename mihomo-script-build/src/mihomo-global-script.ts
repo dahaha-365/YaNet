@@ -136,7 +136,7 @@ const services: serviceConfig[] = [
     name: '日本网站',
     icon: QURE_COLOR_JP,
     url: 'https://www.gstatic.com/generate_204',
-    rules: ['GEOIP,cn,日本网站'],
+    rules: ['GEOIP,jp,日本网站'],
   },
   {
     key: 'fish',

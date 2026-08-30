@@ -19,10 +19,8 @@ const _skipIps =
   '10.0.0.0/8;100.64.0.0/10;127.0.0.0/8;169.254.0.0/16;172.16.0.0/12;192.168.0.0/16;198.18.0.0/16;FC00::/7;FE80::/10;::1/128'
 
 // DNS 配置
-const _chinaDohDns =
-  'https://doh.pub/dns-query;https://dns.alidns.com/dns-query'
-const _foreignDohDns =
-  'https://dns.google/dns-query;https://dns.adguard-dns.com/dns-query'
+const _chinaDohDns = 'https://doh.pub/dns-query;https://dns.alidns.com/dns-query'
+const _foreignDohDns = 'https://dns.google/dns-query;https://dns.adguard-dns.com/dns-query'
 const _chinaIpDns = '119.29.29.29;223.5.5.5'
 const _foreignIpDns = '8.8.8.8;94.140.14.14'
 
@@ -63,11 +61,7 @@ args = {
           if (trimmed === 'false') return [key, false]
 
           // 转换数字字符串（仅当字符串与数字的 toString() 完全一致时）
-          if (
-            trimmed !== '' &&
-            !isNaN(trimmed) &&
-            String(Number(trimmed)) === trimmed
-          ) {
+          if (trimmed !== '' && !isNaN(trimmed) && String(Number(trimmed)) === trimmed) {
             return [key, Number(trimmed)]
           }
         }
@@ -357,8 +351,7 @@ const ruleProviders = {
 }
 
 // 倍率正则预编译
-const multiplierRegex =
-  /(?<=[xX✕✖⨉倍率])([1-9]+(\.\d+)*|0{1}\.\d+)(?=[xX✕✖⨉倍率])*/i
+const multiplierRegex = /(?<=[xX✕✖⨉倍率])([1-9]+(\.\d+)*|0{1}\.\d+)(?=[xX✕✖⨉倍率])*/i
 
 // --- 2. 服务规则数据结构 ---
 // Icons 更新为 GitHub Raw
@@ -501,19 +494,13 @@ const serviceConfigs = [
     key: 'games',
     name: '游戏专用',
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png',
-    rules: [
-      'GEOSITE,category-games@cn,国内网站',
-      'GEOSITE,category-games,游戏专用',
-    ],
+    rules: ['GEOSITE,category-games@cn,国内网站', 'GEOSITE,category-games,游戏专用'],
   },
   {
     key: 'ads',
     name: '广告过滤',
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png',
-    rules: [
-      'GEOSITE,category-ads-all,广告过滤',
-      'RULE-SET,adblockmihomo,广告过滤',
-    ],
+    rules: ['GEOSITE,category-ads-all,广告过滤', 'RULE-SET,adblockmihomo,广告过滤'],
     providers: [
       {
         key: 'adblockmihomo',
@@ -558,10 +545,7 @@ const serviceConfigs = [
     name: '日本网站',
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/JP.png',
     url: 'https://r.r10s.jp/com/img/home/logo/touch.png',
-    rules: [
-      'RULE-SET,category-bank-jp,日本网站',
-      'GEOIP,jp,日本网站,no-resolve',
-    ],
+    rules: ['RULE-SET,category-bank-jp,日本网站', 'GEOIP,jp,日本网站,no-resolve'],
     providers: [
       {
         key: 'category-bank-jp',
@@ -582,9 +566,7 @@ function main(config) {
   const proxies = config?.proxies || []
   const proxyCount = proxies.length
   const proxyProviderCount =
-    typeof config?.['proxy-providers'] === 'object'
-      ? Object.keys(config['proxy-providers']).length
-      : 0
+    typeof config?.['proxy-providers'] === 'object' ? Object.keys(config['proxy-providers']).length : 0
 
   if (proxyCount === 0 && proxyProviderCount === 0) {
     throw new Error('配置文件中未找到任何代理')
@@ -607,8 +589,13 @@ function main(config) {
   config['redir-port'] = 7893
   config['tproxy-port'] = 7894
   config['external-ui'] = 'ui'
-  config['external-ui-url'] =
-    `${githubProxy}https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip`
+  config['external-ui-url'] = `${githubProxy}https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip`
+  if (config.dns?.['proxy-server-nameserver']) {
+    dnsConfig['proxy-server-nameserver'] = config.dns?.['proxy-server-nameserver']
+  }
+  if (config.dns?.['proxy-server-nameserver-policy']) {
+    dnsConfig['proxy-server-nameserver-policy'] = config.dns?.['proxy-server-nameserver-policy']
+  }
   config['dns'] = dnsConfig
   config['profile'] = {
     'store-selected': true,
@@ -770,9 +757,7 @@ function main(config) {
     ...groupBaseOption,
     name: '默认节点',
     type: 'select',
-    proxies: [...regionGroupNames, '其他节点', '直连'].filter(
-      (n) => n !== '其他节点' || otherProxies.length > 0
-    ),
+    proxies: [...regionGroupNames, '其他节点', '直连'].filter((n) => n !== '其他节点' || otherProxies.length > 0),
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png',
   })
 
@@ -854,9 +839,7 @@ function main(config) {
   // 3.5 组装最终结果
   config['proxy-groups'] = [
     ...functionalGroups,
-    ...generatedRegionGroups.sort((a, b) =>
-      a.name.localeCompare(b.name, 'en', { sensitivity: 'base' })
-    ),
+    ...generatedRegionGroups.sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' })),
   ]
 
   config['rules'] = rules
